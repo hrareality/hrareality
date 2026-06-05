@@ -188,19 +188,6 @@ const obtainingWays = [
 ];
 
 export default function Collection() {
-  const getAlbumUrl = () => {
-    if (typeof window !== "undefined") {
-      const hostname = window.location.hostname;
-      if (
-        hostname === "localhost" ||
-        hostname === "127.0.0.1" ||
-        hostname.startsWith("192.168.")
-      ) {
-        return "http://localhost:3000";
-      }
-    }
-    return "https://album.hrareality.cz";
-  };
 
   return (
     <div className="min-h-screen">
@@ -450,12 +437,12 @@ export default function Collection() {
               Přihlas se jednoduše přes svůj **Discord účet**, ověř si svůj status, prohlédni si získané karty a zkontroluj svůj postup v reálném čase.
             </p>
             <a
-              href={getAlbumUrl()}
+              href="https://album.hrareality.cz"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 px-10 py-5 bg-primary text-primary-foreground font-display font-bold text-base rounded-xl pulse-glow hover:brightness-110 transition-all w-full sm:w-auto shadow-lg shadow-primary/20"
             >
-              Zobraz své album
+              Zobrazit své album
               <ArrowRight size={18} />
             </a>
             <p className="mt-4 text-[10px] text-muted-foreground">
