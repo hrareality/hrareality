@@ -427,8 +427,8 @@ export default function Collection() {
 
       {/* 5. CTA SEKCE */}
       <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent" />
-        <div className="section-container text-center max-w-2xl mx-auto">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent pointer-events-none" />
+        <div className="section-container relative z-10 text-center max-w-2xl mx-auto">
           <FadeIn>
             <h2 className="text-3xl sm:text-4xl font-display font-bold mb-6">
               Chceš vidět své <span className="neon-text">album</span>?
