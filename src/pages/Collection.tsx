@@ -12,7 +12,7 @@ const cardFamilies = [
       {
         name: "Zrození hráče",
         family: "AWAKENING",
-        lore: "Ten moment, kdy ti dojde, že reality kolem tebe není jen nějaká kulisa. Je to hřiště. A ty ses právě rozhodl vstoupit do hry.",
+        lore: "Ten moment, kdy ti dojde, že realita kolem tebe není jen nějaká kulisa. Je to hřiště. A ty ses právě rozhodl vstoupit do hry.",
         edition: "BASE",
         isLocked: false,
       },
@@ -40,7 +40,7 @@ const cardFamilies = [
       {
         name: "Zaya",
         family: "POSTAVY_IWAU",
-        lore: "Záhadná. Tichá. Vždycky o krok napřed. Zaya vidí trhliny v systému, které ostatní nevidí — a pokud ji potkáš, znamená to, že jsi připravený vidět něco navíc.",
+        lore: "Záhadná. Tichá. Vždycky o krok napřed. Zaya vidí trhlinie v systému, které ostatní nevidí — a pokud ji potkáš, znamená to, že jsi připravený vidět něco navíc.",
         edition: "BASE",
         isLocked: false,
       },
@@ -150,34 +150,34 @@ const cardFamilies = [
 // Způsoby získání karet
 const obtainingWays = [
   {
-    title: "Dokonči onboarding",
+    title: "→ Dokonči onboarding",
     desc: "První karta je tvoje do 5 minut. Žádný háček. Vstoupíš, projdeš onboarding, máš ji.",
-    type: "Free",
+    type: "FREE",
   },
   {
-    title: "Dosáhni Level 1 na Discordu",
+    title: "→ Dosáhni Level 1 na Discordu",
     desc: "Zapoj se do komunity. Reaguj. Sdílej. Až dosáhneš prvního milníku, odemkneš další artefakt.",
-    type: "Aktivita",
+    type: "AKTIVITA",
   },
   {
-    title: "Splň quest v reálném světě",
+    title: "→ Splň quest v reálném světě",
     desc: "Tohle je core Hry Reality. Výzva v reálu, důkaz na feedu, karta v kolekci. Takhle se skutečně hraje.",
-    type: "Akce",
+    type: "AKCE",
   },
   {
-    title: "Přiveď dalšího hráče",
+    title: "→ Přiveď dalšího hráče",
     desc: "Každý nový hráč, kterého přivedeš, ti odemkne odměnu. A jemu taky. To je win-win situace.",
-    type: "Komunita",
+    type: "KOMUNITA",
   },
   {
-    title: "Zapiš se na MVP waitlist",
+    title: "→ Zapiš se na MVP waitlist",
     desc: "Early access k platformě. Až se otevřou dveře, projdeš jako první.",
-    type: "Early Access",
+    type: "EARLY ACCESS",
   },
   {
-    title: "Buduj komunitu",
+    title: "→ Buduj komunitu",
     desc: "Dropy pro ty, kdo se nejvíce zapojují. Žádné metriky, žádné KPI — systém pozná, kdo je reálně aktivní.",
-    type: "Bonus",
+    type: "BONUS",
   },
   {
     title: "FOUNDER DROP — FIRST GENERATION",
@@ -198,15 +198,15 @@ export default function Collection() {
 
         <div className="section-container relative z-10 py-20 text-center max-w-4xl mx-auto">
           <FadeIn>
-            <div className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-display tracking-widest mb-8 uppercase">
+            <div className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-display tracking-widest mb-8 uppercase">
               SEASON 0 — AWAKENING
             </div>
             <h1 className="text-4xl sm:text-6xl font-display font-bold leading-tight mb-6">
               Každá hra má svůj původ. <span className="neon-text">Toto je ten náš.</span>
             </h1>
-            <div className="text-lg text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed space-y-4">
+            <div className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed space-y-4">
               <p>12 artefaktů. Každý odkrývá kousek příběhu, který většina lidí ještě nezná. Sbírej je, odemykej lore a staň se součástí první generace hráčů — té, která byla u samého začátku, ještě než se otevřely dveře pro širokou veřejnost.</p>
-              <p className="text-primary font-bold">Season 0 se neopakuje. A artefakty z ní taky ne.</p>
+              <p className="text-primary font-bold text-xl sm:text-2xl">Season 0 se neopakuje. A artefakty z ní taky ne.</p>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -236,20 +236,20 @@ export default function Collection() {
           <div className="grid lg:grid-cols-5 gap-12 items-center">
             <div className="lg:col-span-2 text-left">
               <FadeIn>
-                <div className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] font-display tracking-widest mb-6 uppercase">
+                <div className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-display tracking-widest mb-6 uppercase">
                   O PROJEKTU
                 </div>
-                <h2 className="text-3xl font-display font-bold mb-6">
+                <h2 className="text-3xl sm:text-4xl font-display font-bold mb-6">
                   Co je <span className="neon-text">Collection</span>?
                 </h2>
-                <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
+                <div className="space-y-4 text-muted-foreground text-base sm:text-lg leading-relaxed">
                   <p>
                     Rozhodně to nejsou jen obyčejné karty. Každý artefakt je kus reálné historie Hry Reality — klíčový moment, rozhodnutí, postava, která změnila směr celého projektu.
                   </p>
                   <p>
                     Kdo je nyní sbírá, nesbírá random obrázky. Buduješ si pozici, kterou později už nepůjde získat. Status zakládajícího hráče. Přístup k věcem, které ostatní neuvidí.
                   </p>
-                  <p className="text-foreground font-medium border-l-2 border-primary/30 pl-3 italic">
+                  <p className="text-foreground font-medium border-l-2 border-primary/30 pl-3 italic text-lg sm:text-xl">
                     A trvalý důkaz, že jsi byl uvnitř od Season 0.
                   </p>
                 </div>
@@ -259,12 +259,12 @@ export default function Collection() {
             <div className="lg:col-span-3 grid sm:grid-cols-3 gap-6">
               {/* Pilíř 1 - Historie */}
               <FadeIn delay={0.1}>
-                <div className="glass-card p-6 h-full border-white/5 bg-background/40 flex flex-col items-center text-center">
-                  <div className="p-3 rounded-xl bg-primary/10 border border-primary/20 text-primary mb-4">
-                    <History size={24} />
+                <div className="glass-card p-8 h-full border-white/5 bg-background/40 flex flex-col items-center text-center">
+                  <div className="p-4 rounded-xl bg-primary/10 border border-primary/20 text-primary mb-5">
+                    <History size={28} />
                   </div>
-                  <h3 className="font-display font-bold text-sm mb-2 uppercase tracking-wide">Historie</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <h3 className="font-display font-bold text-base mb-2 uppercase tracking-wide">Historie</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     Každá karta zachycuje reálný moment ze vzniku hry. Ne fikci. Skutečnost.
                   </p>
                 </div>
@@ -272,12 +272,12 @@ export default function Collection() {
 
               {/* Pilíř 2 - Status */}
               <FadeIn delay={0.2}>
-                <div className="glass-card p-6 h-full border-white/5 bg-background/40 flex flex-col items-center text-center">
-                  <div className="p-3 rounded-xl bg-primary/10 border border-primary/20 text-primary mb-4">
-                    <Award size={24} />
+                <div className="glass-card p-8 h-full border-white/5 bg-background/40 flex flex-col items-center text-center">
+                  <div className="p-4 rounded-xl bg-primary/10 border border-primary/20 text-primary mb-5">
+                    <Award size={28} />
                   </div>
-                  <h3 className="font-display font-bold text-sm mb-2 uppercase tracking-wide">Status</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <h3 className="font-display font-bold text-base mb-2 uppercase tracking-wide">Status</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     Limitovaná edice = pozice mezi prvními. A první mají vždycky náskok.
                   </p>
                 </div>
@@ -285,12 +285,12 @@ export default function Collection() {
 
               {/* Pilíř 3 - Identita */}
               <FadeIn delay={0.3}>
-                <div className="glass-card p-6 h-full border-white/5 bg-background/40 flex flex-col items-center text-center">
-                  <div className="p-3 rounded-xl bg-primary/10 border border-primary/20 text-primary mb-4">
-                    <Fingerprint size={24} />
+                <div className="glass-card p-8 h-full border-white/5 bg-background/40 flex flex-col items-center text-center">
+                  <div className="p-4 rounded-xl bg-primary/10 border border-primary/20 text-primary mb-5">
+                    <Fingerprint size={28} />
                   </div>
-                  <h3 className="font-display font-bold text-sm mb-2 uppercase tracking-wide">Identita</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <h3 className="font-display font-bold text-base mb-2 uppercase tracking-wide">Identita</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     Tvoje kolekce = tvůj profil. Jak tě vidí ostatní hráči, záleží na tom, co reálně máš.
                   </p>
                 </div>
@@ -307,13 +307,13 @@ export default function Collection() {
         <div className="section-container max-w-5xl">
           <FadeIn>
             <div className="text-center mb-16">
-              <div className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] font-display tracking-widest mb-6 uppercase">
+              <div className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-display tracking-widest mb-6 uppercase">
                 ALBUM KARET
               </div>
-              <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4">
+              <h2 className="text-4xl sm:text-5xl font-display font-bold mb-4">
                 Season 0 <span className="neon-text">Kolekce</span>
               </h2>
-              <p className="text-muted-foreground text-sm max-w-lg mx-auto leading-relaxed">
+              <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
                 12 artefaktů. 4 rodiny. Každá karta je kousek příběhu, který se právě píše. Otázka zní — sesbíráš všechny, než se Season 0 uzavře?
               </p>
             </div>
@@ -323,11 +323,11 @@ export default function Collection() {
             {cardFamilies.map((family, familyIdx) => (
               <div key={family.id} className="space-y-6">
                 <FadeIn delay={0.05}>
-                  <div className="border-b border-white/10 pb-4 mb-8">
-                    <h3 className="font-display text-xl font-bold text-foreground tracking-widest uppercase mb-1">
+                  <div className="border-b border-white/10 pb-5 mb-10">
+                    <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-widest uppercase mb-2">
                       {family.name}
                     </h3>
-                    <p className="text-xs text-muted-foreground">{family.description}</p>
+                    <p className="text-sm sm:text-base text-muted-foreground">{family.description}</p>
                   </div>
                 </FadeIn>
 
@@ -335,11 +335,11 @@ export default function Collection() {
                   {family.cards.map((card, cardIdx) => (
                     <FadeIn key={card.name} delay={cardIdx * 0.1}>
                       <CollectionCard
-                        name={card.name}
-                        family={card.family}
-                        lore={card.lore}
-                        edition={card.edition}
-                        isLocked={card.isLocked}
+                         name={card.name}
+                         family={card.family}
+                         lore={card.lore}
+                         edition={card.edition}
+                         isLocked={card.isLocked}
                       />
                     </FadeIn>
                   ))}
@@ -357,13 +357,13 @@ export default function Collection() {
         <div className="section-container max-w-4xl">
           <FadeIn>
             <div className="text-center mb-16">
-              <div className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] font-display tracking-widest mb-6 uppercase">
+              <div className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-display tracking-widest mb-6 uppercase">
                 SBĚRATELSKÝ MANUÁL
               </div>
-              <h2 className="text-3xl font-display font-bold mb-4">
+              <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4">
                 Každá karta má svou <span className="neon-text">vlastní cestu</span>
               </h2>
-              <p className="text-muted-foreground text-sm max-w-lg mx-auto leading-relaxed">
+              <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
                 Žádná ti nespadne jen tak do klína, ale žádná tě taky nebude stát víc než pouhou akci.
               </p>
             </div>
@@ -373,41 +373,41 @@ export default function Collection() {
             {obtainingWays.map((way, i) => (
               <FadeIn key={way.title} delay={i * 0.05}>
                 <div
-                  className={`glass-card p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border transition-all duration-300 ${
+                  className={`glass-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 border transition-all duration-300 ${
                     way.isPremium
                       ? "border-amber-500/30 bg-amber-500/[0.02] hover:border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.05)]"
                       : "border-white/5 bg-background/30 hover:border-white/10"
                   }`}
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-5">
                     <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border ${
                         way.isPremium
                           ? "bg-amber-500/10 border-amber-500/20 text-amber-400"
                           : "bg-white/5 border-white/10 text-white/50"
                       }`}
                     >
-                      {way.isPremium ? <Zap size={18} /> : <CheckCircle2 size={18} />}
+                      {way.isPremium ? <Zap size={22} /> : <CheckCircle2 size={22} />}
                     </div>
                     <div>
                       <h4
-                        className={`font-display text-sm font-bold uppercase tracking-wide flex items-center gap-2 ${
+                        className={`font-display text-base sm:text-lg font-bold uppercase tracking-wide flex items-center gap-2.5 ${
                           way.isPremium ? "text-amber-400" : "text-foreground"
                         }`}
                       >
                         {way.title}
                         {way.isPremium && (
-                          <span className="text-[9px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-1.5 py-0.5 rounded font-body">
+                          <span className="text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2.5 py-0.5 rounded font-body">
                             SPECIÁLNÍ
                           </span>
                         )}
                       </h4>
-                      <p className="text-xs text-muted-foreground leading-relaxed mt-1">{way.desc}</p>
+                      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-1.5">{way.desc}</p>
                     </div>
                   </div>
 
                   <span
-                    className={`text-[9px] font-bold font-display px-2 py-0.5 rounded uppercase tracking-wider border shrink-0 ${
+                    className={`text-xs font-bold font-display px-2.5 py-1 rounded uppercase tracking-wider border shrink-0 ${
                       way.isPremium
                         ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
                         : "bg-white/5 text-white/50 border-white/10"
@@ -429,21 +429,21 @@ export default function Collection() {
         <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent pointer-events-none" />
         <div className="section-container relative z-10 text-center max-w-2xl mx-auto">
           <FadeIn>
-            <h2 className="text-3xl sm:text-4xl font-display font-bold mb-6">
+            <h2 className="text-4xl sm:text-5xl font-display font-bold mb-6">
               Kolik artefaktů už <span className="neon-text">máš?</span>
             </h2>
-            <p className="text-muted-foreground text-sm mb-10 leading-relaxed max-w-md mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl mx-auto">
               Přihlaš se přes Discord, zkontroluj svoji kolekci a podívej se, jak daleko už jsi došel. Tvůj progres. Tvoje karty. Tvůj status. Všechno na jednom místě.
             </p>
             <a
               href="https://album.hrareality.cz"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-10 py-5 bg-primary text-primary-foreground font-display font-bold text-base rounded-xl pulse-glow hover:brightness-110 transition-all w-full sm:w-auto shadow-lg shadow-primary/20"
+              className="inline-flex items-center justify-center gap-3 px-12 py-5 bg-primary text-primary-foreground font-display font-bold text-lg rounded-2xl pulse-glow hover:brightness-110 transition-all w-full sm:w-auto shadow-lg shadow-primary/20"
             >
               Otevřít album →
             </a>
-            <p className="mt-4 text-[10px] text-muted-foreground">
+            <p className="mt-4 text-xs text-muted-foreground">
               Přesměrování na album.hrareality.cz
             </p>
           </FadeIn>

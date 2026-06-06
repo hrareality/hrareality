@@ -98,11 +98,11 @@ export default function CollectionCard({
             <div className={cn("absolute w-[150%] h-[1px] rotate-45 opacity-20 top-1/4", styles.neonLine)} />
             <div className={cn("absolute w-[150%] h-[1px] -rotate-45 opacity-20 bottom-1/4", styles.neonLine)} />
             
-            <div className="w-16 h-16 rounded-full border border-white/10 bg-white/5 flex items-center justify-center relative z-10 shadow-inner">
-              <HelpCircle className="text-white/30 w-8 h-8" />
+            <div className="w-18 h-18 rounded-full border border-white/10 bg-white/5 flex items-center justify-center relative z-10 shadow-inner">
+              <HelpCircle className="text-white/30 w-9 h-9" />
             </div>
             
-            <span className="text-[10px] font-display font-semibold tracking-[0.3em] uppercase text-white/35 mt-4 relative z-10">
+            <span className="text-xs font-display font-semibold tracking-[0.3em] uppercase text-white/35 mt-4 relative z-10">
               {family.replace("_", " ")}
             </span>
           </div>
@@ -111,10 +111,10 @@ export default function CollectionCard({
         {/* Locked Overlay */}
         {isLocked && (
           <div className="absolute inset-0 bg-black/85 flex flex-col items-center justify-center z-20 backdrop-blur-[2px]">
-            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-3">
-              <Lock size={20} className="text-white/60" />
+            <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-3">
+              <Lock size={22} className="text-white/60" />
             </div>
-            <span className="font-display text-sm font-bold text-white/60 tracking-wider uppercase">
+            <span className="font-display text-base font-bold text-white/60 tracking-wider uppercase">
               Brzy
             </span>
           </div>
@@ -124,7 +124,7 @@ export default function CollectionCard({
         {!isLocked && (
           <span
             className={cn(
-              "absolute top-3 left-3 text-[10px] font-bold font-display px-2 py-0.5 rounded border tracking-wider",
+              "absolute top-4 left-4 text-xs font-bold font-display px-2.5 py-1 rounded border tracking-wider",
               styles.text
             )}
           >
@@ -134,9 +134,9 @@ export default function CollectionCard({
       </div>
 
       {/* Popis karty */}
-      <div className="p-5 flex-1 flex flex-col">
-        <div className="flex items-center justify-between gap-2 mb-2">
-          <h4 className="font-display font-bold text-sm tracking-wider uppercase text-foreground truncate flex-1">
+      <div className="p-6 sm:p-7 flex-1 flex flex-col">
+        <div className="flex items-center justify-between gap-3 mb-3">
+          <h4 className="font-display font-bold text-base sm:text-lg tracking-wider uppercase text-foreground truncate flex-1">
             {isLocked ? "???" : name}
           </h4>
           
@@ -144,19 +144,19 @@ export default function CollectionCard({
           {!isLocked && (
             <span
               className={cn(
-                "text-[9px] font-bold px-1.5 py-0.5 rounded shrink-0",
+                "text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded shrink-0",
                 edition === "FIRST_EDITION"
-                  ? "bg-amber-500/10 text-amber-400 border border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.15)] flex items-center gap-0.5"
+                  ? "bg-amber-500/10 text-amber-400 border border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.15)] flex items-center gap-1"
                   : "bg-white/5 text-white/60 border border-white/10"
               )}
             >
-              {edition === "FIRST_EDITION" && <Sparkles size={8} className="text-amber-400" />}
+              {edition === "FIRST_EDITION" && <Sparkles size={10} className="text-amber-400" />}
               {edition === "FIRST_EDITION" ? "1ST EDITION" : "BASE"}
             </span>
           )}
         </div>
 
-        <p className="text-xs text-muted-foreground leading-relaxed flex-1 italic">
+        <p className="text-sm text-muted-foreground leading-relaxed flex-1 italic">
           {isLocked ? "Informace o tomto artefaktu jsou zatím uzamčené." : lore}
         </p>
       </div>
