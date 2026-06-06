@@ -235,17 +235,17 @@ export default function Index() {
         <div className="section-container max-w-4xl">
           <div className="grid md:grid-cols-2 gap-12">
             <FadeIn delay={0.2} className="md:order-2">
-              <div className="glass-card p-8 border-primary/30 rounded-2xl h-full flex flex-col justify-center">
-                <h3 className="text-2xl font-display font-bold mb-4 text-primary">
+              <div className="glass-card p-8 sm:p-10 border-primary/30 rounded-2xl h-full flex flex-col justify-center">
+                <h3 className="text-2xl sm:text-3xl font-display font-bold mb-6 text-primary">
                   Proč začít teď a ne až zítra?
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-base md:text-lg text-muted-foreground mb-4 leading-relaxed">
                   Hra Reality je v pre-launch fázi. Všechno se teprve buduje. A právě proto je teď ten nejlepší okamžik pro vstup.
                 </p>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-base md:text-lg text-muted-foreground mb-4 leading-relaxed">
                   Prvních 1 000 hráčů nejsou jen běžní uživatelé. Jsou to lidi, kteří tvoří samotnou hru. Jsou to ti, kteří mají vliv na to, jak vypadá. Ti, jež reálně byli uvnitř dřív, než se otevřely dveře pro všechny ostatní.
                 </p>
-                <p className="text-sm text-foreground font-bold mb-6">
+                <p className="text-base md:text-lg text-foreground font-bold mb-6 leading-relaxed">
                   Tahle výhoda se nedá dohnat. Buď jsi u toho od season 0, nebo přijdeš, až bude plno, a budeš koukat na hráče, kteří začali dřív.
                 </p>
                 <a
