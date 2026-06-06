@@ -7,24 +7,17 @@ import { cn } from "@/lib/utils";
 
 const comics = [
   {
-    title: "PROBUĎ HRÁČE V SOBĚ",
-    desc: "Žiješ ve hře, jen ti to možná nikdo neřekl.\n\nZačíná to nenápadně. Pocit, že něco nesedí. Že svět, ve kterém žiješ… není úplně skutečný. Tenhle příběh tě neprobudí.",
-    bullets: [
-      "ale může být první trhlina",
-      "první kontakt se světem Hry Reality",
-      "začátek pochopení"
-    ],
+    title: "PROBUĎ V SOBĚ HRÁČE",
+    desc: "Žiješ ve hře. Nikdo ti to neřekl, protože většina lidí to sama ani neví.\n\nTenhle komiks ti bohužel nezmění život. Ale dá ti první uvědomění — pocit, že něco kolem tebe nefunguje tak, jak by mělo. A že odpovědi možná skutečně existují. Jen ne tam, kde jsi je hledal doteď.",
+    bullets: [],
     img: cover1,
     pdf: "/downloads/komiks-probud-hrace-v-sobe.pdf",
     aspectRatio: "aspect-[4/5]",
   },
   {
     title: "DR. WETOM: KÓD NADĚJE",
-    desc: "Existují lidé, kteří vidí víc.\nA existují ti, kteří to drží pohromadě.\n\nKdo je Dr. Wetom…\na proč jeho existence mění pravidla hry?",
-    bullets: [
-      "hlubší vrstva světa",
-      "první náznaky toho, co se opravdu děje"
-    ],
+    desc: "Existují lidé, kteří vidí, jak hra funguje. Dr. Wetom je jedním z nich.\n\nKdo to je? Proč mění pravidla? A proč ho někteří hráči potkávají dřív než ostatní?\n\nDruhý komiks. Hlubší poznání. Víc odpovědí — a ještě víc otázek.",
+    bullets: [],
     img: cover2,
     pdf: "/downloads/komiks-dr-wetom-kod-nadeje.pdf",
   },
@@ -40,14 +33,12 @@ export default function Comics() {
             KOMIKSY
           </div>
           <h1 className="text-3xl sm:text-5xl font-display font-bold mb-8">
-            Vstup do světa <span className="neon-text">Hry Reality</span>
+            Vstup do <span className="neon-text">Hry Reality</span>
           </h1>
-
+          
           <div className="text-lg text-muted-foreground mb-20 space-y-4 max-w-2xl">
-            <p className="text-foreground font-medium text-xl">Tohle nejsou jen komiksy.</p>
-            <p className="text-primary font-bold">→ Jsou to první portály do světa, který není takový, jak se zdá.</p>
-            <p>Každý příběh ti ukáže jen část.<br />Nikdy ne celý obraz.</p>
-            <p className="text-primary font-bold mt-4">→ A právě proto tě to začne táhnout dál.</p>
+            <p className="text-foreground font-medium text-xl">Komiksy, které nejsou jen příběhy — jsou to první vstupní body do samotné Hry Reality.</p>
+            <p>Žádný z nich ti neukáže celý obraz, a to zcela záměrně. Celý obraz se ti totiž odemkne, až začneš skutečně hrát.</p>
           </div>
         </FadeIn>
 
@@ -108,11 +99,11 @@ export default function Comics() {
         {/* SEKCE 3 - CO POTÉ */}
         <FadeIn delay={0.3}>
           <div className="mb-8 p-10 glass-card border-primary/20 max-w-3xl">
-            <h2 className="text-xl font-display font-bold mb-4 text-primary uppercase tracking-widest">Co se stane potom</h2>
+            <h2 className="text-xl font-display font-bold mb-4 text-primary uppercase tracking-widest">Co přijde po přečtení komiksu?</h2>
             <div className="space-y-4 text-lg text-muted-foreground">
-              <p>Možná si řekneš, že je to jen příběh.<br />Ale možná…</p>
-              <p className="text-foreground font-medium">→ začneš vidět věci jinak</p>
-              <p className="italic pt-2">A právě v tu chvíli začíná hra.</p>
+              <p>Zavřeš ho. Vrátíš se do svého běžného dne. A všechno vypadá stejně, jako kdykoliv předtím.</p>
+              <p>Ale něco se přeci jen změnilo. Malá drobnost. Všimneš si věci, kolem které chodíš každý den. Zareaguješ jinak, než bys normálně reagoval. Položíš si otázku, kterou sis dříve nepoložil.</p>
+              <p className="text-foreground font-medium pt-2">A v tu chvíli? V tu chvíli už hraješ.</p>
             </div>
           </div>
         </FadeIn>
@@ -120,31 +111,21 @@ export default function Comics() {
         {/* SEKCE 4 - CO DÁL */}
         <FadeIn delay={0.4}>
           <div className="p-12 glass-card border-primary/40 bg-secondary/30 text-center rounded-3xl mt-12">
-            <h2 className="text-2xl sm:text-3xl font-display font-bold mb-6">KDE TO POKRAČUJE</h2>
-            <p className="text-xl text-muted-foreground mb-2">Komiksy nejsou konec.</p>
-            <p className="text-xl text-primary font-bold mb-8">→ jsou vstup</p>
-
-            <p className="text-muted-foreground mb-4">Pokud chceš jít dál:</p>
-            <ul className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-6 text-foreground font-medium mb-8">
-              <li>první signály</li>
-              <li className="hidden sm:block text-primary/40">•</li>
-              <li>první výzvy</li>
-              <li className="hidden sm:block text-primary/40">•</li>
-              <li>první hráči</li>
-            </ul>
-            <p className="text-primary font-bold mb-10">→ všechno pokračuje tady</p>
-
+            <h2 className="text-2xl sm:text-3xl font-display font-bold mb-6 uppercase tracking-wider">Tady končí komiks, ale Hra Reality rozhodně ne.</h2>
+            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Právě jsi prošel první branou. Ale portál zůstává i nadále otevřený — a za ním jsou první signály, první výzvy a komunita hráčů, kteří už vědí něco víc.
+            </p>
+            <p className="text-xl text-primary font-bold mb-10">
+              Vstoupíš? Nebo zavřeš stránku a zapomeneš, co jsi právě zažil?
+            </p>
+            
             <a
               href="https://discord.gg/MGnNWkcqQf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex flex-col items-center justify-center gap-1 px-12 py-5 bg-primary text-primary-foreground font-display font-bold rounded-xl pulse-glow hover:brightness-110 transition-all w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-12 py-5 bg-primary text-primary-foreground font-display font-bold rounded-xl pulse-glow hover:brightness-110 transition-all w-full sm:w-auto text-xl"
             >
-              <div className="flex items-center gap-2 text-xl">
-                Vstoupit do hry
-                <ArrowRight size={20} />
-              </div>
-              <span className="text-xs font-medium opacity-80 font-body normal-case">přístup do světa, který se právě odemyká</span>
+              Projít portálem →
             </a>
           </div>
         </FadeIn>

@@ -10,7 +10,7 @@ const navLinks: { to: string; label: string; external?: boolean }[] = [
   { to: "/jak-to-funguje", label: "Jak to funguje" },
   { to: "/komiksy", label: "Komiksy" },
   { to: "/start", label: "Příběh" },
-  { to: "/collection", label: "Collection" },
+  { to: "/collection", label: "Season 0" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -7,26 +7,26 @@ const cardFamilies = [
   {
     id: "awakening",
     name: "I. AWAKENING",
-    description: "Artefakty ze zrození prvních hráčů a probuzení ze smyčky.",
+    description: "Začátek všeho. Momenty, kdy se z NPC stává hráč.",
     cards: [
       {
         name: "Zrození hráče",
         family: "AWAKENING",
-        lore: "Moment, kdy si poprvé uvědomíš, že realitu kolem sebe můžeš začít aktivně hrát.",
+        lore: "Ten moment, kdy ti dojde, že reality kolem tebe není jen nějaká kulisa. Je to hřiště. A ty ses právě rozhodl vstoupit do hry.",
         edition: "BASE",
         isLocked: false,
       },
       {
         name: "První Signál",
         family: "AWAKENING",
-        lore: "Zachycená frekvence vysílaná z hlubin digitální sítě. Kód, který změnil vše.",
+        lore: "Frekvence, kterou zachytíš jen jednou. Kód vyslaný z hlubin sítě, po kterém už nic neuvidíš stejně jako doteď.",
         edition: "BASE",
         isLocked: false,
       },
       {
         name: "Loop Breaker",
         family: "AWAKENING",
-        lore: "Nástroj určený k narušení každodenního stereotypu a probuzení z nekonečného scrollu.",
+        lore: "Nástroj, který rozbíjí dějový cyklus. Konec autopilota. Konec scrollování. První vědomý krok do neznáma.",
         edition: "FIRST_EDITION",
         isLocked: false,
       },
@@ -35,26 +35,26 @@ const cardFamilies = [
   {
     id: "postavy_iwau",
     name: "II. POSTAVY iWAU",
-    description: "Klíčové postavy a archetypy formující počátky světa.",
+    description: "Svět Hry Reality nepostavil jen jeden člověk. Tyhle tři postavy stály u jeho úplného zrodu. A každá z nich tě bude provázet trošku jiným způsobem.",
     cards: [
       {
         name: "Zaya",
         family: "POSTAVY_IWAU",
-        lore: "Záhadná průvodkyně světem Hry Reality. Vidí trhliny v systému dřív než ostatní.",
+        lore: "Záhadná. Tichá. Vždycky o krok napřed. Zaya vidí trhliny v systému, které ostatní nevidí — a pokud ji potkáš, znamená to, že jsi připravený vidět něco navíc.",
         edition: "BASE",
         isLocked: false,
       },
       {
         name: "Temný Mág",
         family: "POSTAVY_IWAU",
-        lore: "Strážce stínů a zosobnění odporu, který tě nutí překonávat vlastní komfortní zónu.",
+        lore: "Strážce všeho, co nechceš řešit. Komfortní zóna, výmluvy, autopilot — to je jeho teritorium. Nepřekonáš ho tím, že ho ignoruješ. Překonáš ho tím, že splníš quest, i když se ti zrovna nechce.",
         edition: "BASE",
         isLocked: false,
       },
       {
         name: "Dr. Wetom",
         family: "POSTAVY_IWAU",
-        lore: "Architekt systému. Postava, jejíž kód drží pravidla celé této hry pohromadě.",
+        lore: "Nikdo přesně neví, kdo to je. Ale jeho kód drží pravidla celého světa. Říká se, že ti, kdo rozluští jeho systém, uvidí Hru Reality tak, jak ji nevidí nikdo jiný.",
         edition: "FIRST_EDITION",
         isLocked: false,
       },
@@ -63,26 +63,26 @@ const cardFamilies = [
   {
     id: "glitch",
     name: "III. GLITCH",
-    description: "Chyby v matrixu reality, které odhalují skryté příležitosti.",
+    description: "Chyby v systému. Trhliny v realitě. Momenty, kdy to, co považuješ za normální, přestane dávat smysl — a ty začneš vidět věci jinak.",
     cards: [
       {
         name: "Driptor",
         family: "GLITCH",
-        lore: "Vizualizace estetického glitchu. Když styl naruší šedou průměrnost.",
+        lore: "Když šedý průměr dostane pořádnou pecku. Driptor je estetický glitch — důkaz, že jinak neznamená špatně. Znamená to líp.",
         edition: "BASE",
         isLocked: false,
       },
       {
         name: "Toilex",
         family: "GLITCH",
-        lore: "Narozen v hlubinách glitch zóny. Humor a absurdita jako štít proti tlaku okolí.",
+        lore: "Zrozený v nejtemnějších koutech glitch zóny. Absurdní. Vtipný. A přesně proto nebezpečný pro každého, kdo sám sebe bere příliš vážně. Humor využívá jako zbraň proti tlaku okolí.",
         edition: "BASE",
         isLocked: false,
       },
       {
         name: "Zlooper",
         family: "GLITCH",
-        lore: "Glitch entita uvězněná v nekonečné časové smyčce. Varování pro ty, co přestanou jednat.",
+        lore: "Uvězněný v časové smyčce. Každý den stejný. Každý den znovu. Zlooper je varování — tohle se stane, když přestaneš jednat a necháš autopilota řídit za tebe.",
         edition: "FIRST_EDITION",
         isLocked: false,
       },
@@ -91,26 +91,26 @@ const cardFamilies = [
   {
     id: "relics",
     name: "IV. RELICS",
-    description: "Vzácné relikvie a brány spojující herní světy.",
+    description: "Každý svět má své relikvie — věci, které drží realitu pohromadě. Tyhle jsou z Season 0. A některé z nich ještě nikdo neobjevil.",
     cards: [
       {
         name: "Discord Portal",
         family: "RELICS",
-        lore: "První stabilní most spojující hráče z celého světa v reálném čase.",
+        lore: "První stabilní spojení mezi hráči. Portál, který otevřel cestu pro všechno, co přišlo až později. Bez něj by Hra Reality zůstala jen nápadem v hlavě jednoho člověka.",
         edition: "FIRST_EDITION",
         isLocked: false,
       },
       {
         name: "MVP1 Bridge",
         family: "RELICS",
-        lore: "Doklad o účasti na první technické verzi Collection platformy.",
+        lore: "Surový. Nedokonalý. Funkční. Most mezi vizí a realitou — první technická verze, na které stojí všechno, co dnes vidíš. Kdo po něm prošel, ví, jak to vypadalo na začátku.",
         edition: "BASE",
         isLocked: false,
       },
       {
         name: "???",
         family: "RELICS",
-        lore: "Tajná karta. Informace o tomto artefaktu jsou zatím zahaleny tajemstvím.",
+        lore: "Informace uzamčeny. Tento artefakt ještě neexistuje — nebo možná jo. Jen ho zatím nikdo nenašel.",
         edition: "FIRST_EDITION",
         isLocked: true,
       },
@@ -119,26 +119,26 @@ const cardFamilies = [
   {
     id: "christmas_2025",
     name: "V. VÁNOČNÍ DROP 2025",
-    description: "Časově limitované zimní relikvie a dešifrované poselství.",
+    description: "Zima 2025. Něco se změnilo v síti. Tři artefakty, které z toho zůstaly — a které drží jen ti, kdo byli online ve správný čas.",
     cards: [
       {
         name: "Dárek od Dr. Wetoma",
         family: "CHRISTMAS_2025",
-        lore: "Speciální debugovací balíček doručený přímo od architekta systému během vánočního cyklu 2025.",
+        lore: "Nikdo nečekal, že se ozve. Přesto — uprostřed vánočního cyklu dorazil balíček přímo od architekta. Nebugovací nástroj zabalený jako dárek. Od koho? Pro koho? Odpovědi jsou uvnitř něj.",
         edition: "FIRST_EDITION",
         isLocked: false,
       },
       {
         name: "Vánoční Glitch",
         family: "CHRISTMAS_2025",
-        lore: "Narušení sítě způsobené přetížením serverů během svátků. Zmrzlý kód v čase.",
+        lore: "Přetížení. Kolaps. A v tom na zlomek sekundy — zmrzlý kód, který tam ani neměl být. Svátky rozbily síť a ta nakonec odhalila něco, co mělo zůstat skryté.",
         edition: "FIRST_EDITION",
         isLocked: false,
       },
       {
         name: "Kód Naděje",
         family: "CHRISTMAS_2025",
-        lore: "Zašifrovaná zpráva odeslaná do sítě během zimního slunovratu. Důkaz o dešifrování zimního poselství.",
+        lore: "Zimní slunovrat. Zašifrovaná zpráva v síti. Žádný odesílatel. Žádný kontext. Jen kód — a ti, kdo ho rozluštili, vědí víc než ostatní. Tenhle artefakt je jejich důkazem.",
         edition: "FIRST_EDITION",
         isLocked: false,
       },
@@ -150,39 +150,39 @@ const cardFamilies = [
 // Způsoby získání karet
 const obtainingWays = [
   {
-    title: "Onboarding",
-    desc: "Získej svou úplně první kartu ihned po dokončení úvodního onboardingu zdarma.",
+    title: "Dokonči onboarding",
+    desc: "První karta je tvoje do 5 minut. Žádný háček. Vstoupíš, projdeš onboarding, máš ji.",
     type: "Free",
   },
   {
-    title: "Level 1 v Discordu",
-    desc: "Připoj se do naší Discord komunity a aktivním zapojením dosáhni prvního milníku.",
+    title: "Dosáhni Level 1 na Discordu",
+    desc: "Zapoj se do komunity. Reaguj. Sdílej. Až dosáhneš prvního milníku, odemkneš další artefakt.",
     type: "Aktivita",
   },
   {
-    title: "Real World Questy",
-    desc: "Plň výzvy ve svém skutečném životě, nahraj důkazy a odemkni exkluzivní artefakty.",
+    title: "Splň quest v reálném světě",
+    desc: "Tohle je core Hry Reality. Výzva v reálu, důkaz na feedu, karta v kolekci. Takhle se skutečně hraje.",
     type: "Akce",
   },
   {
-    title: "Referral systém",
-    desc: "Pozvi do Hry Reality své přátele a získej odměnu za každého nově probuzeného hráče.",
+    title: "Přiveď dalšího hráče",
+    desc: "Každý nový hráč, kterého přivedeš, ti odemkne odměnu. A jemu taky. To je win-win situace.",
     type: "Komunita",
   },
   {
-    title: "MVP Waitlist",
-    desc: "Zapiš se na čekací listinu pro early access a buď mezi prvními s přístupem do platformy.",
+    title: "Zapiš se na MVP waitlist",
+    desc: "Early access k platformě. Až se otevřou dveře, projdeš jako první.",
     type: "Early Access",
   },
   {
-    title: "Aktivita v komunitě",
-    desc: "Speciální dropy pro nejaktivnější přispěvatele, tvůrce obsahu a pomocníky v začátcích.",
+    title: "Buduj komunitu",
+    desc: "Dropy pro ty, kdo se nejvíce zapojují. Žádné metriky, žádné KPI — systém pozná, kdo je reálně aktivní.",
     type: "Bonus",
   },
   {
-    title: "Founder drop — FIRST GENERATION",
-    desc: "Exkluzivní zakladatelský balíček za 199 Kč. Obsahuje speciální vizuální rám karty, archivní zápis do historie hry a trvalou prioritu v MVP waitlistu.",
-    type: "Premium",
+    title: "FOUNDER DROP — FIRST GENERATION",
+    desc: "Jediná věc, kterou si tady koupíš za peníze. Speciální vizuální rám, trvalý zápis do archivu hry a přednost na MVP waitlistu. 199 Kč za místo v historii Season 0. Buď jsi founder, nebo prostě nejsi.",
+    type: "199 Kč",
     isPremium: true,
   },
 ];
@@ -202,13 +202,12 @@ export default function Collection() {
               SEASON 0 — AWAKENING
             </div>
             <h1 className="text-4xl sm:text-6xl font-display font-bold leading-tight mb-6">
-              Zrození <span className="neon-text">hráčů</span>
+              Každá hra má svůj původ. <span className="neon-text">Toto je ten náš.</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              **12 artefaktů. První generace hráčů. Archiv historie Hry Reality.**
-              <br />
-              Sbírej karty, odemykej lore pozadí a buduj svůj status od samého počátku.
-            </p>
+            <div className="text-lg text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed space-y-4">
+              <p>12 artefaktů. Každý odkrývá kousek příběhu, který většina lidí ještě nezná. Sbírej je, odemykej lore a staň se součástí první generace hráčů — té, která byla u samého začátku, ještě než se otevřely dveře pro širokou veřejnost.</p>
+              <p className="text-primary font-bold">Season 0 se neopakuje. A artefakty z ní taky ne.</p>
+            </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="https://discord.gg/MGnNWkcqQf"
@@ -216,7 +215,7 @@ export default function Collection() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5865F2] hover:bg-[#4752C4] text-white font-display font-bold text-sm rounded-xl transition-all shadow-[0_0_20px_rgba(88,101,242,0.3)] hover:shadow-[0_0_30px_rgba(88,101,242,0.5)] min-h-[44px] w-full sm:w-auto justify-center"
               >
-                Připoj se na Discord
+                Vstoupit na Discord →
               </a>
               <a
                 href="#album"
@@ -245,13 +244,13 @@ export default function Collection() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
                   <p>
-                    Collection není jen o hezkých obrázcích. Každý jednotlivý artefakt reprezentuje klíčový moment, těžké rozhodnutí nebo ikonickou postavu ze samotného vzniku Hry Reality.
+                    Rozhodně to nejsou jen obyčejné karty. Každý artefakt je kus reálné historie Hry Reality — klíčový moment, rozhodnutí, postava, která změnila směr celého projektu.
                   </p>
                   <p>
-                    Sběrem těchto karet si nezapisuješ pouze virtuální trofeje. Buduješ si trvalou stopu, která v budoucnu určí tvé postavení a exkluzivní výhody v celém našem ekosystému.
+                    Kdo je nyní sbírá, nesbírá random obrázky. Buduješ si pozici, kterou později už nepůjde získat. Status zakládajícího hráče. Přístup k věcem, které ostatní neuvidí.
                   </p>
                   <p className="text-foreground font-medium border-l-2 border-primary/30 pl-3 italic">
-                    Season 0 slouží jako nezpochybnitelný archiv první generace hráčů.
+                    A trvalý důkaz, že jsi byl uvnitř od Season 0.
                   </p>
                 </div>
               </FadeIn>
@@ -266,7 +265,7 @@ export default function Collection() {
                   </div>
                   <h3 className="font-display font-bold text-sm mb-2 uppercase tracking-wide">Historie</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    Každá karta nese otisk reálného momentu z vývoje a vzniku celého světa.
+                    Každá karta zachycuje reálný moment ze vzniku hry. Ne fikci. Skutečnost.
                   </p>
                 </div>
               </FadeIn>
@@ -279,7 +278,7 @@ export default function Collection() {
                   </div>
                   <h3 className="font-display font-bold text-sm mb-2 uppercase tracking-wide">Status</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    Vlastnictví limitovaných edic potvrzuje tvoji pozici mezi zakládajícími hráči.
+                    Limitovaná edice = pozice mezi prvními. A první mají vždycky náskok.
                   </p>
                 </div>
               </FadeIn>
@@ -292,7 +291,7 @@ export default function Collection() {
                   </div>
                   <h3 className="font-display font-bold text-sm mb-2 uppercase tracking-wide">Identita</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    Sestav si svůj profil, odliš se od ostatních a získej unikátní postavení.
+                    Tvoje kolekce = tvůj profil. Jak tě vidí ostatní hráči, záleží na tom, co reálně máš.
                   </p>
                 </div>
               </FadeIn>
@@ -312,10 +311,10 @@ export default function Collection() {
                 ALBUM KARET
               </div>
               <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4">
-                Kolekce <span className="neon-text">Season 0</span>
+                Season 0 <span className="neon-text">Kolekce</span>
               </h2>
               <p className="text-muted-foreground text-sm max-w-lg mx-auto leading-relaxed">
-                Kompletní přehled všech 12 artefaktů rozdělených do čtyř základních rodin. Dokážeš je získat všechny a zkompletovat tak archiv?
+                12 artefaktů. 4 rodiny. Každá karta je kousek příběhu, který se právě píše. Otázka zní — sesbíráš všechny, než se Season 0 uzavře?
               </p>
             </div>
           </FadeIn>
@@ -362,10 +361,10 @@ export default function Collection() {
                 SBĚRATELSKÝ MANUÁL
               </div>
               <h2 className="text-3xl font-display font-bold mb-4">
-                Jak získat <span className="neon-text">kartičky</span>?
+                Každá karta má svou <span className="neon-text">vlastní cestu</span>
               </h2>
-              <p className="text-muted-foreground text-sm max-w-md mx-auto leading-relaxed">
-                Plň výzvy v digitálním i reálném světě a získej karty do svého alba. Cesty k úspěchu jsou rozmanité.
+              <p className="text-muted-foreground text-sm max-w-lg mx-auto leading-relaxed">
+                Žádná ti nespadne jen tak do klína, ale žádná tě taky nebude stát víc než pouhou akci.
               </p>
             </div>
           </FadeIn>
@@ -431,10 +430,10 @@ export default function Collection() {
         <div className="section-container relative z-10 text-center max-w-2xl mx-auto">
           <FadeIn>
             <h2 className="text-3xl sm:text-4xl font-display font-bold mb-6">
-              Chceš vidět své <span className="neon-text">album</span>?
+              Kolik artefaktů už <span className="neon-text">máš?</span>
             </h2>
             <p className="text-muted-foreground text-sm mb-10 leading-relaxed max-w-md mx-auto">
-              Přihlas se jednoduše přes svůj **Discord účet**, ověř si svůj status, prohlédni si získané karty a zkontroluj svůj postup v reálném čase.
+              Přihlaš se přes Discord, zkontroluj svoji kolekci a podívej se, jak daleko už jsi došel. Tvůj progres. Tvoje karty. Tvůj status. Všechno na jednom místě.
             </p>
             <a
               href="https://album.hrareality.cz"
@@ -442,11 +441,10 @@ export default function Collection() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 px-10 py-5 bg-primary text-primary-foreground font-display font-bold text-base rounded-xl pulse-glow hover:brightness-110 transition-all w-full sm:w-auto shadow-lg shadow-primary/20"
             >
-              Zobrazit své album
-              <ArrowRight size={18} />
+              Otevřít album →
             </a>
             <p className="mt-4 text-[10px] text-muted-foreground">
-              Budete přesměrováni na naši zabezpečenou platformu **album.hrareality.cz**
+              Přesměrování na album.hrareality.cz
             </p>
           </FadeIn>
         </div>
