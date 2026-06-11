@@ -98,7 +98,7 @@ export default function Comics() {
 
         {/* SEKCE 3 - CO POTÉ */}
         <FadeIn delay={0.3}>
-          <div className="mb-8 p-10 glass-card border-primary/20 max-w-3xl">
+          <div className="mx-auto mb-8 p-10 glass-card border-primary/20 max-w-3xl text-center">
             <h2 className="text-xl font-display font-bold mb-4 text-primary uppercase tracking-widest">Co přijde po přečtení komiksu?</h2>
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>Zavřeš ho. Vrátíš se do svého běžného dne. A všechno vypadá stejně, jako kdykoliv předtím.</p>
@@ -111,7 +111,7 @@ export default function Comics() {
         {/* SEKCE 4 - CO DÁL */}
         <FadeIn delay={0.4}>
           <div className="p-12 glass-card border-primary/40 bg-secondary/30 text-center rounded-3xl mt-12">
-            <h2 className="text-2xl sm:text-3xl font-display font-bold mb-6 uppercase tracking-wider">Tady končí komiks, ale Hra Reality rozhodně ne.</h2>
+            <h2 className="text-2xl sm:text-3xl font-display font-bold mb-6 uppercase tracking-wider">Tady končí komiks, ale iWau HRA REALITY rozhodně ne.</h2>
             <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
               Právě jsi prošel první branou. Ale portál zůstává i nadále otevřený — a za ním jsou první signály, první výzvy a komunita hráčů, kteří už vědí něco víc.
             </p>

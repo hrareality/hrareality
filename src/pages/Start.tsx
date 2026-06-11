@@ -21,7 +21,7 @@ export default function Start() {
                 <Target className="text-primary mb-6" size={40} />
                 <h3 className="font-display text-2xl font-bold mb-6">Vize</h3>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  Prostředí, kde se nemusíš nutit do akce — protože akce je převlečená za samotnou hru. Uděláš quest, vidíš progres, získáš status. A přirozeně chceš hrát dál.
+                  Vytvořit prostředí, kde se nemusíš nutit do akce — protože akce je převlečená za samotnou hru. Uděláš quest, vidíš progres, získáš status. A přirozeně chceš hrát dál.
                 </p>
                 <p className="text-primary font-bold mt-auto pt-6 border-t border-border/50 text-xl leading-relaxed">
                   Žádné hacky. Žádná manipulace. Jen systém, který funguje tak, jak by mělo fungovat veškeré vzdělávání.
@@ -73,7 +73,7 @@ export default function Start() {
             </div>
             <div className="inline-block p-8 glass-card border-primary/30 rounded-3xl w-full sm:w-auto bg-background/60">
               <p className="text-xl sm:text-2xl text-primary font-bold uppercase tracking-widest leading-relaxed">
-                Přesně tohle je ta mezera.<br />A Hra Reality je první, kdo do ní vstupuje.
+                Přesně tohle je ta mezera.<br />A iWau HRA REALITY je první, kdo do ní vstupuje.
               </p>
             </div>
           </FadeIn>

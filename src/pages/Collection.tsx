@@ -6,140 +6,112 @@ import CollectionCard from "@/components/CollectionCard";
 const cardFamilies = [
   {
     id: "awakening",
-    name: "I. AWAKENING",
+    name: "I — AWAKENING",
     description: "Začátek všeho. Momenty, kdy se z NPC stává hráč.",
     cards: [
       {
         name: "Zrození hráče",
         family: "AWAKENING",
         lore: "Ten moment, kdy ti dojde, že realita kolem tebe není jen nějaká kulisa. Je to hřiště. A ty ses právě rozhodl vstoupit do hry.",
-        edition: "BASE",
+        rarity: "COMMON",
         isLocked: false,
       },
       {
         name: "První Signál",
         family: "AWAKENING",
         lore: "Frekvence, kterou zachytíš jen jednou. Kód vyslaný z hlubin sítě, po kterém už nic neuvidíš stejně jako doteď.",
-        edition: "BASE",
+        rarity: "COMMON",
         isLocked: false,
       },
       {
         name: "Loop Breaker",
         family: "AWAKENING",
         lore: "Nástroj, který rozbíjí dějový cyklus. Konec autopilota. Konec scrollování. První vědomý krok do neznáma.",
-        edition: "FIRST_EDITION",
+        rarity: "RARE",
         isLocked: false,
       },
     ],
   },
   {
     id: "postavy_iwau",
-    name: "II. POSTAVY iWAU",
+    name: "II — POSTAVY iWAU",
     description: "Svět Hry Reality nepostavil jen jeden člověk. Tyhle tři postavy stály u jeho úplného zrodu. A každá z nich tě bude provázet trošku jiným způsobem.",
     cards: [
       {
         name: "Zaya",
         family: "POSTAVY_IWAU",
-        lore: "Záhadná. Tichá. Vždycky o krok napřed. Zaya vidí trhlinie v systému, které ostatní nevidí — a pokud ji potkáš, znamená to, že jsi připravený vidět něco navíc.",
-        edition: "BASE",
+        lore: "Záhadná. Tichá. Vždycky o krok napřed. Zaya vidí trhliny v systému, které ostatní nevidí — a pokud ji potkáš, znamená to, že jsi připravený vidět něco navíc.",
+        rarity: "COMMON",
         isLocked: false,
       },
       {
         name: "Temný Mág",
         family: "POSTAVY_IWAU",
         lore: "Strážce všeho, co nechceš řešit. Komfortní zóna, výmluvy, autopilot — to je jeho teritorium. Nepřekonáš ho tím, že ho ignoruješ. Překonáš ho tím, že splníš quest, i když se ti zrovna nechce.",
-        edition: "BASE",
+        rarity: "RARE",
         isLocked: false,
       },
       {
         name: "Dr. Wetom",
         family: "POSTAVY_IWAU",
         lore: "Nikdo přesně neví, kdo to je. Ale jeho kód drží pravidla celého světa. Říká se, že ti, kdo rozluští jeho systém, uvidí Hru Reality tak, jak ji nevidí nikdo jiný.",
-        edition: "FIRST_EDITION",
+        rarity: "LEGENDARY",
         isLocked: false,
       },
     ],
   },
   {
     id: "glitch",
-    name: "III. GLITCH",
-    description: "Chyby v systému. Trhliny v realitě. Momenty, kdy to, co považuješ za normální, přestane dávat smysl — a ty začneš vidět věci jinak.",
+    name: "III — GLITCH",
+    description: "PARAZITI REALITY\nKaždý z nich je otiskem chování, které lidé opakovali tak dlouho, až získali vlastní život. Neútočí silou. Jen šeptají. A čím méně si jejich hlas uvědomuješ, tím větší moc nad tebou mají.",
     cards: [
       {
         name: "Driptor",
         family: "GLITCH",
-        lore: "Když šedý průměr dostane pořádnou pecku. Driptor je estetický glitch — důkaz, že jinak neznamená špatně. Znamená to líp.",
-        edition: "BASE",
+        lore: "Nikdy nekřičí. Nikdy netlačí. Jen ti připomíná, že si zasloužíš o trochu víc. A pak ještě trochu. A ještě trochu. Driptor tě Učí jak utratit peníze dřív, než zjistíš proč.",
+        rarity: "COMMON",
         isLocked: false,
       },
       {
         name: "Toilex",
         family: "GLITCH",
-        lore: "Zrozený v nejtemnějších koutech glitch zóny. Absurdní. Vtipný. A přesně proto nebezpečný pro každého, kdo sám sebe bere příliš vážně. Humor využívá jako zbraň proti tlaku okolí.",
-        edition: "BASE",
+        lore: "Zrozený v glitch zóně. Absurdní. Vtipný. A přesně proto nebezpečný. Fake news, chaos a informační šum jsou jeho oblíbené zbraně. Čím méně přemýšlíš, tím víc roste.",
+        rarity: "COMMON",
         isLocked: false,
       },
       {
         name: "Zlooper",
         family: "GLITCH",
-        lore: "Uvězněný v časové smyčce. Každý den stejný. Každý den znovu. Zlooper je varování — tohle se stane, když přestaneš jednat a necháš autopilota řídit za tebe.",
-        edition: "FIRST_EDITION",
+        lore: "Umí zastavit čas. Miluje nekonečné scrollování. Krmí se pozorností a šeptá: „Ještě jedno video. Ještě jedno.“ Než se naděješ, ukradne ti hodiny života.",
+        rarity: "RARE",
         isLocked: false,
       },
     ],
   },
   {
     id: "relics",
-    name: "IV. RELICS",
-    description: "Každý svět má své relikvie — věci, které drží realitu pohromadě. Tyhle jsou z Season 0. A některé z nich ještě nikdo neobjevil.",
+    name: "IV — RELICS",
+    description: "Každý svět má své relikvie — věci, které drží realitu pohromadě. Tyhle jsou z Season 0.",
     cards: [
       {
         name: "Discord Portal",
         family: "RELICS",
-        lore: "První stabilní spojení mezi hráči. Portál, který otevřel cestu pro všechno, co přišlo až později. Bez něj by Hra Reality zůstala jen nápadem v hlavě jednoho člověka.",
-        edition: "FIRST_EDITION",
+        lore: "První stabilní spojení mezi hráči. Portál, který otevřel cestu pro všechno, co přišlo až později. Bez něj by iWau HRA REALITY zůstala jen nápadem v hlavě jednoho člověka.",
+        rarity: "COMMON",
         isLocked: false,
       },
       {
         name: "MVP1 Bridge",
         family: "RELICS",
         lore: "Surový. Nedokonalý. Funkční. Most mezi vizí a realitou — první technická verze, na které stojí všechno, co dnes vidíš. Kdo po něm prošel, ví, jak to vypadalo na začátku.",
-        edition: "BASE",
+        rarity: "RARE",
         isLocked: false,
       },
       {
-        name: "???",
+        name: "Generation Zero",
         family: "RELICS",
-        lore: "Informace uzamčeny. Tento artefakt ještě neexistuje — nebo možná jo. Jen ho zatím nikdo nenašel.",
-        edition: "FIRST_EDITION",
-        isLocked: true,
-      },
-    ],
-  },
-  {
-    id: "christmas_2025",
-    name: "V. VÁNOČNÍ DROP 2025",
-    description: "Zima 2025. Něco se změnilo v síti. Tři artefakty, které z toho zůstaly — a které drží jen ti, kdo byli online ve správný čas.",
-    cards: [
-      {
-        name: "Dárek od Dr. Wetoma",
-        family: "CHRISTMAS_2025",
-        lore: "Nikdo nečekal, že se ozve. Přesto — uprostřed vánočního cyklu dorazil balíček přímo od architekta. Nebugovací nástroj zabalený jako dárek. Od koho? Pro koho? Odpovědi jsou uvnitř něj.",
-        edition: "FIRST_EDITION",
-        isLocked: false,
-      },
-      {
-        name: "Vánoční Glitch",
-        family: "CHRISTMAS_2025",
-        lore: "Přetížení. Kolaps. A v tom na zlomek sekundy — zmrzlý kód, který tam ani neměl být. Svátky rozbily síť a ta nakonec odhalila něco, co mělo zůstat skryté.",
-        edition: "FIRST_EDITION",
-        isLocked: false,
-      },
-      {
-        name: "Kód Naděje",
-        family: "CHRISTMAS_2025",
-        lore: "Zimní slunovrat. Zašifrovaná zpráva v síti. Žádný odesílatel. Žádný kontext. Jen kód — a ti, kdo ho rozluštili, vědí víc než ostatní. Tenhle artefakt je jejich důkazem.",
-        edition: "FIRST_EDITION",
+        lore: "Nečekali, až hra vznikne. Byli u toho, když se skládala.",
+        rarity: "LEGENDARY",
         isLocked: false,
       },
     ],
@@ -155,7 +127,7 @@ const obtainingWays = [
     type: "FREE",
   },
   {
-    title: "→ Dosáhni Level 1 na Discordu",
+    title: "→ Dosáhni dalšího levelu na Discordu",
     desc: "Zapoj se do komunity. Reaguj. Sdílej. Až dosáhneš prvního milníku, odemkneš další artefakt.",
     type: "AKTIVITA",
   },
@@ -175,15 +147,9 @@ const obtainingWays = [
     type: "EARLY ACCESS",
   },
   {
-    title: "→ Buduj komunitu",
+    title: "→ Získávej odměny",
     desc: "Dropy pro ty, kdo se nejvíce zapojují. Žádné metriky, žádné KPI — systém pozná, kdo je reálně aktivní.",
     type: "BONUS",
-  },
-  {
-    title: "FOUNDER DROP — FIRST GENERATION",
-    desc: "Jediná věc, kterou si tady koupíš za peníze. Speciální vizuální rám, trvalý zápis do archivu hry a přednost na MVP waitlistu. 199 Kč za místo v historii Season 0. Buď jsi founder, nebo prostě nejsi.",
-    type: "199 Kč",
-    isPremium: true,
   },
 ];
 
@@ -237,7 +203,7 @@ export default function Collection() {
             <div className="lg:col-span-2 text-left">
               <FadeIn>
                 <div className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-display tracking-widest mb-6 uppercase">
-                  O PROJEKTU
+                  O Season 0
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-display font-bold mb-6">
                   Co je <span className="neon-text">Collection</span>?
@@ -265,7 +231,7 @@ export default function Collection() {
                   </div>
                   <h3 className="font-display font-bold text-base mb-2 uppercase tracking-wide">Historie</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Každá karta zachycuje reálný moment ze vzniku hry. Ne fikci. Skutečnost.
+                    Každá karta zachycuje aktivitu a reálný moment ze vzniku hry. Ne fikci. Skutečnost.
                   </p>
                 </div>
               </FadeIn>
@@ -327,7 +293,7 @@ export default function Collection() {
                     <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-widest uppercase mb-2">
                       {family.name}
                     </h3>
-                    <p className="text-sm sm:text-base text-muted-foreground">{family.description}</p>
+                    <p className="text-sm sm:text-base text-muted-foreground whitespace-pre-line">{family.description}</p>
                   </div>
                 </FadeIn>
 
@@ -338,7 +304,7 @@ export default function Collection() {
                          name={card.name}
                          family={card.family}
                          lore={card.lore}
-                         edition={card.edition}
+                         rarity={card.rarity}
                          isLocked={card.isLocked}
                       />
                     </FadeIn>

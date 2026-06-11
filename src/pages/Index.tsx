@@ -26,11 +26,11 @@ const team = [
 ];
 
 const faqs = [
-  { q: "Co tě čeká uvnitř?", a: "Vstoupíš do uzavřené Discord komunity, kde se v reálném čase staví Hra Reality. Uvidíš, jak vznikají questy. Jak se testují první levely. Jak se mění pravidla na základě toho, co funguje a co ne.\n\nNejsi jen pouhý divák. Jsi beta tester s možností podílet se na vývoji. Tvůj feedback formuje hru, kterou jednou budou hrát tisíce lidí.\n→ Tohle není „sleduj náš progress“.\n→ Tohle je „pojď ho tvořit s námi“." },
+  { q: "Co tě čeká uvnitř?", a: "Vstoupíš do uzavřené Discord komunity, kde se v reálném čase staví iWau HRA REALITY. Uvidíš, jak vznikají questy. Jak se testují první levely. Jak se mění pravidla na základě toho, co funguje a co ne.\n\nNejsi jen pouhý divák. Jsi beta tester s možností podílet se na vývoji. Tvůj feedback formuje hru, kterou jednou budou hrát tisíce lidí.\n→ Tohle není „sleduj náš progress“.\n→ Tohle je „pojď ho tvořit s námi“." },
   { q: "Je hra hotová?", a: "Ještě ne. A právě proto je tohle ten nejvzácnější okamžik.\n\nKaždá legendární hra měla svůj začátek — verzi, kterou hrálo pár stovek lidí, než ji objevil zbytek světa. Lidi, kteří ji formovali. Kteří hlásili bugy. Kteří navrhovali, co přidat a co odstranit.\n→ Tohle je přesně ta fáze.\n→ Pravidla se píšou teď. A kdo je u toho, píše je s námi." },
-  { q: "Proč bych se měl připojit zrovna teď?", a: "Protože v každé hře existuje moment, který se nedá zopakovat. Moment, kdy je mapa prázdná, všechno je nové a každý krok je novým objevem.\n\nTohle je přesně ten moment. Právě teď. První hráči jen nehrají — určují směr. Testují. Objevují. Mají přímý přístup k lidem, kteří hru staví.\n\nAž se jednou někdo zeptá, jak Hra Reality vlastně začala — ty budeš moct říct, že jsi u toho byl a nepropásl to.\n→ A to je level, na který se později už nedá dostat." },
-  { q: "Co se bude dít na Discordu?", a: "Představ si místo, kde se potkávají první hráči, tvůrci hry a systém, který se mění každý týden. To je přesně náš Discord.\n\nDostaneš první questy k testování. Uvidíš, jak vznikají nové levely. Budeš moct říct „tohle nefunguje“ nebo „tohle je sick“ — a přímo tím ovlivníš, co se bude dít dál.\n\nNení to žádné forum ani group chat. Je to místo, kde se Hra Reality odehrává ještě předtím, než se spustí pro širokou veřejnost.\n→ První hráči nesledují vývoj. Jsou jeho součástí." },
-  { q: "Musím hrát každý den?", a: "Rozhodně ne. Život není sprint a Hra Reality taky ne.\n\nMůžeš hrát jednou týdně. Můžeš hrát každý den. Tempo si volíš podle sebe, je to jen na tobě. Ale jedno je jisté — hráči, kteří jsou aktivní, levelují více. A ti, co čekají na správný moment, stojí pořád na stejném místě.\n→ Nejde o to být dokonalý.\n→ Jde o to jít do akce." },
+  { q: "Proč bych se měl připojit zrovna teď?", a: "Protože v každé hře existuje moment, který se nedá zopakovat. Moment, kdy je mapa prázdná, všechno je nové a každý krok je novým objevem.\n\nTohle je přesně ten moment. Právě teď. První hráči jen nehrají — určují směr. Testují. Objevují. Mají přímý přístup k lidem, kteří hru staví.\n\nAž se jednou někdo zeptá, jak iWau HRA REALITY vlastně začala — ty budeš moct říct, že jsi u toho byl a nepropásl to.\n→ A to je level, na který se později už nedá dostat." },
+  { q: "Co se bude dít na Discordu?", a: "Představ si místo, kde se potkávají první hráči, tvůrci hry a systém, který se mění každý týden. To is přesně náš Discord.\n\nDostaneš první questy k testování. Uvidíš, jak vznikají nové levely. Budeš moct říct „tohle nefunguje“ nebo „tohle je sick“ — a přímo tím ovlivníš, co se bude dít dál.\n\nNení to žádné forum ani group chat. Je to místo, kde se iWau HRA REALITY odehrává ještě předtím, než se spustí pro širokou veřejnost.\n→ Privní hráči nesledují vývoj. Jsou jeho součástí." },
+  { q: "Musím hrát každý den?", a: "Rozhodně ne. Život není sprint a iWau HRA REALITY taky ne.\n\nMůžeš hrát jednou týdně. Můžeš hrát každý den. Tempo si volíš podle sebe, je to jen na tobě. Ale jedno je jisté — hráči, kteří jsou aktivní, levelují více. A ti, co čekají na správný moment, stojí pořád na stejném místě.\n→ Nejde o to být dokonalý.\n→ Jde o to jít do akce." },
   { q: "Co když chci jen sledovat a nic nedělat?", a: "Můžeš. Ale hráči to říkají jasně — jakmile vidíš, jak ostatní plní questy a levelují, „budu jen sledovat“ ti vydrží tak týden, uvidíš sám." },
 ];
 
@@ -50,10 +50,10 @@ export default function Index() {
                 PRE-LAUNCH
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6">
-                Většina lidí jen konzumuje obsah a říká si, že se jednou změní. Hráči ne, ti začnou <span className="neon-text">okamžitě</span>.
+                Většina lidí jen konzumuje obsah a říká si, že se jednou změní. <span className="neon-text">Hráči ne, ti začnou okamžitě</span>.
               </h1>
               <div className="text-lg text-muted-foreground mb-8 max-w-lg space-y-4">
-                <p><strong>Hra Reality je systém krátkých výzev v reálném životě.</strong> Žádné pasivní sledování. Žádné nekonečné odkládání. Jen quest, akce a reálný progres.</p>
+                <p><strong>iWau HRA REALITY je systém krátkých výzev v reálném životě.</strong> Žádné pasivní sledování. Žádné nekonečné odkládání. Jen quest, akce a reálný progres.</p>
                 <p>Právě teď stavíme první verzi. A hledáme <span className="whitespace-nowrap">1 000 lidí</span>, co nechtějí jen čekat.</p>
               </div>
               <div className="flex flex-wrap gap-4">
@@ -84,7 +84,7 @@ export default function Index() {
               <div className="absolute inset-0 bg-primary/20 blur-[80px] rounded-full scale-75 animate-pulse" />
               <img
                 src={heroImg}
-                alt="Dr.Wetom - Hra Reality"
+                alt="Dr.Wetom - iWau HRA REALITY"
                 className="w-full max-w-md lg:max-w-lg animate-float rounded-2xl relative z-10 drop-shadow-[0_0_30px_hsl(270,100%,65%,0.4)]"
                 style={{ filter: "drop-shadow(0 0 30px rgba(168, 85, 247, 0.4)) contrast(1.1)" }}
                 loading="eager"
@@ -126,11 +126,11 @@ export default function Index() {
         <div className="section-container">
           <FadeIn>
             <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4 text-center">
-              Co přesně je <span className="neon-text">Hra Reality?</span>
+              Co přesně je <span className="neon-text">iWau HRA REALITY?</span>
             </h2>
             <div className="max-w-2xl mx-auto text-center space-y-4 text-muted-foreground text-lg">
               <p>Představ si svět, ve kterém každý tvůj den obsahuje skryté výzvy. Jsou všude kolem tebe — jen jsi je doteď neviděl.</p>
-              <p>Hra Reality ti je ukáže. Dostaneš quest. Splníš ho v reálném světě. Nahraješ důkaz a posuneš se dál — v levelu, ve statusu, v tom, kým se stáváš.</p>
+              <p>iWau HRA REALITY ti je ukáže. Dostaneš quest. Splníš ho v reálném světě. Nahraješ důkaz a posuneš se dál — v levelu, ve statusu, v tom, kým se stáváš.</p>
               <p>Žádná teorie. Žádné scrollování. Jen akce, výsledky a komunita hráčů, kteří rostou společně s tebou.</p>
               <p>Za každým questem stojí know-how od lidí, co si tím sami prošli. A s každým krokem se ti odemyká něco nového - víc světů, víc odměn, víc možností.</p>
               <p className="text-foreground font-medium pt-4">Život totiž není problém. Je to hra, kterou je potřeba začít hrát. A tenhle systém ti dává pravidla, podle kterých v ní můžeš začít vyhrávat.</p>
@@ -176,7 +176,7 @@ export default function Index() {
           <FadeIn>
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-display font-bold mb-8">
-                Kdo tvoří <span className="neon-text">Hru Reality?</span>
+                Kdo tvoří <span className="neon-text">iWau HRA REALITY?</span>
               </h2>
               <div className="max-w-2xl mx-auto space-y-4 text-muted-foreground text-lg text-center">
                 <p>Každá hra má své tvůrce. My jsme čtyři lidi, kteří se shodli na jedné myšlence — že osobní růst může fungovat úplně jinak, než jak ho zná dnešní svět.</p>
@@ -212,7 +212,7 @@ export default function Index() {
           </div>
           <FadeIn delay={0.4}>
             <div className="mt-16 text-center max-w-2xl mx-auto p-8 glass-card border-primary/20">
-              <p className="font-display text-lg mb-2 text-primary font-bold">Neřekneme ti, jak žít. To není náš styl.</p>
+              <h3 className="text-2xl sm:text-3xl font-display font-bold mb-4 text-primary">Neřekneme ti, jak žít. To není náš styl.</h3>
               <p className="text-muted-foreground mb-4">Jsme první hráči. Prošli jsme si tím sami — a pak jsme z toho postavili systém, aby tím mohl projít kdokoliv jiný.</p>
               <p className="text-muted-foreground mb-6">Navíc jsi se dočetl až sem, což rozhodně není náhoda. Většina lidí odpadla někde u prvních řádků. Ty ne.<br /><strong>Tak co — jsi připraven hrát?</strong></p>
               <a
@@ -240,7 +240,7 @@ export default function Index() {
                   Proč začít teď a ne až zítra?
                 </h3>
                 <p className="text-base md:text-lg text-muted-foreground mb-4 leading-relaxed">
-                  Hra Reality je v pre-launch fázi. Všechno se teprve buduje. A právě proto je teď ten nejlepší okamžik pro vstup.
+                  iWau HRA REALITY je v pre-launch fázi. Všechno se teprve buduje. A právě proto je teď ten nejlepší okamžik pro vstup.
                 </p>
                 <p className="text-base md:text-lg text-muted-foreground mb-4 leading-relaxed">
                   Prvních 1 000 hráčů nejsou jen běžní uživatelé. Jsou to lidi, kteří tvoří samotnou hru. Jsou to ti, kteří mají vliv na to, jak vypadá. Ti, jež reálně byli uvnitř dřív, než se otevřely dveře pro všechny ostatní.
@@ -259,16 +259,20 @@ export default function Index() {
               </div>
             </FadeIn>
             <FadeIn className="md:order-1">
-              <h2 className="text-2xl sm:text-3xl font-display font-bold mb-6">
-                Proč vznikla Hra Reality <span className="neon-text">zrovna teď?</span>
-              </h2>
-              <div className="space-y-4 text-muted-foreground text-lg">
-                <p>Žijeme v době, kdy máš odpověď na všechno — a přesto nevíš, co dělat dál.</p>
-                <p>Obsahu je víc než kdy dřív. Kurzů, videí, podcastů, knížek. Ale mezi „vědět“ a „udělat“ je propast, kterou dokáže překonat jen hrstka lidí.</p>
-                <p>Sociální sítě tě naučily sledovat cizí životy. Vzdělávací platformy tě zase naučily hromadit informace. Ale nikdo tě nenaučil udělat první krok.</p>
-                <div className="pt-2 text-foreground font-medium space-y-2">
-                  <p>Hra Reality nevzniká proto, že chybí obsah. Vzniká proto, že chybí akce.</p>
-                  <p className="text-primary font-bold">→ Svět nepotřebuje další video. Potřebuje systém, který tě přiměje vstát a udělat první kroky ke změně.</p>
+              <div className="glass-card p-8 sm:p-10 border-border/30 rounded-2xl h-full flex flex-col justify-between">
+                <div>
+                  <h2 className="text-2xl sm:text-3xl font-display font-bold mb-6">
+                    Proč vznikla iWau HRA REALITY <span className="neon-text">zrovna teď?</span>
+                  </h2>
+                  <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed">
+                    <p>Žijeme v době, kdy máš odpověď na všechno — a přesto nevíš, co dělat dál.</p>
+                    <p>Obsahu je víc než kdy dřív. Kurzů, videí, podcastů, knížek. Ale mezi „vědět“ a „udělat“ je propast, kterou dokáže překonat jen hrstka lidí.</p>
+                    <p>Sociální sítě tě naučily sledovat cizí životy. Vzdělávací platformy tě zase naučily hromadit informace. Ale nikdo tě nenaučil udělat první krok.</p>
+                  </div>
+                </div>
+                <div className="mt-auto pt-6 border-t border-border/20 space-y-3">
+                  <p className="text-foreground font-medium text-base md:text-lg leading-relaxed">iWau HRA REALITY nevzniká proto, že chybí obsah. Vzniká proto, že chybí akce.</p>
+                  <p className="text-primary font-bold text-base md:text-lg leading-relaxed">→ Svět nepotřebuje další video. Potřebuje systém, který tě přiměje vstát a udělat první kroky ke změně.</p>
                 </div>
               </div>
             </FadeIn>

@@ -24,7 +24,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="fixed top-0 left-0 right-0 z-50 glass-card border-t-0 border-x-0 rounded-none">
         <div className="section-container flex items-center justify-between h-14 md:h-16 py-0">
           <Link to="/" className="relative flex items-center h-full group transition-all hover:opacity-80 z-20">
-            <img src="/logo.png" alt="Hra Reality Logo" className="h-36 md:h-48 w-auto object-contain absolute left-0 top-1/2 -translate-y-1/2 max-w-none" />
+            <img src="/logo.png" alt="iWau HRA REALITY Logo" className="h-36 md:h-48 w-auto object-contain absolute left-0 top-1/2 -translate-y-1/2 max-w-none" />
           </Link>
 
           {/* Desktop Nav */}
@@ -131,10 +131,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="section-container py-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
           <div className="flex flex-col gap-2 md:items-start items-center">
             <Link to="/" className="block transition-all hover:opacity-80">
-              <img src="/logo.png" alt="Hra Reality" className="h-32 md:h-40 w-auto object-contain" />
+              <img src="/logo.png" alt="iWau HRA REALITY" className="h-32 md:h-40 w-auto object-contain" />
             </Link>
             <p className="text-xs text-muted-foreground text-center md:text-left mt-0">
-              © 2026 Hra Reality. Systém výzev v reálném životě.
+              © 2026 iWau HRA REALITY. Systém výzev v reálném životě.
             </p>
           </div>
 

@@ -47,7 +47,7 @@ export default function CookieConsent() {
                 Bezpečnost & Cookies
               </h4>
               <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-                Hra Reality respektuje tvé soukromí. Pro analýzu návštěvnosti a vylepšování herního světa využíváme anonymní soubory cookies.
+                iWau HRA REALITY respektuje tvé soukromí. Pro analýzu návštěvnosti a vylepšování herního světa využíváme anonymní soubory cookies.
               </p>
               <div className="flex items-center gap-3">
                 <button

@@ -5,7 +5,7 @@ interface CollectionCardProps {
   name: string;
   family: "AWAKENING" | "POSTAVY_IWAU" | "GLITCH" | "RELICS" | string;
   lore: string;
-  edition: "FIRST_EDITION" | "BASE" | string;
+  rarity: "COMMON" | "RARE" | "LEGENDARY" | string;
   src?: string;
   isLocked?: boolean;
 }
@@ -14,7 +14,7 @@ export default function CollectionCard({
   name,
   family,
   lore,
-  edition,
+  rarity,
   src,
   isLocked = false,
 }: CollectionCardProps) {
@@ -140,18 +140,18 @@ export default function CollectionCard({
             {isLocked ? "???" : name}
           </h4>
           
-          {/* Edition Badge */}
+          {/* Rarity Badge */}
           {!isLocked && (
             <span
               className={cn(
-                "text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded shrink-0",
-                edition === "FIRST_EDITION"
-                  ? "bg-amber-500/10 text-amber-400 border border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.15)] flex items-center gap-1"
-                  : "bg-white/5 text-white/60 border border-white/10"
+                "text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded shrink-0 border uppercase tracking-wider",
+                rarity === "LEGENDARY" && "bg-amber-500/10 text-amber-400 border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.2)] flex items-center gap-1",
+                rarity === "RARE" && "bg-blue-500/10 text-blue-400 border-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.15)]",
+                rarity === "COMMON" && "bg-white/5 text-white/60 border-white/10"
               )}
             >
-              {edition === "FIRST_EDITION" && <Sparkles size={10} className="text-amber-400" />}
-              {edition === "FIRST_EDITION" ? "1ST EDITION" : "BASE"}
+              {rarity === "LEGENDARY" && <Sparkles size={10} className="text-amber-400" />}
+              {rarity}
             </span>
           )}
         </div>

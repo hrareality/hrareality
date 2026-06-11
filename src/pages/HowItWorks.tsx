@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 const points = [
   {
     title: "Tvůj život je hra. Tak ji začni hrát.",
-    desc: "Každý den vstaneš a hraješ, ať se ti to líbí nebo ne. Otázka je, jestli hraješ svoji hru, nebo hru někoho cizího. Hra Reality ti ukáže ten pravý rozdíl.",
+    desc: "Každý den vstaneš a hraješ, ať se ti to líbí nebo ne. Otázka je, jestli hraješ svoji hru, nebo hru někoho cizího. iWau HRA REALITY ti ukáže ten pravý rozdíl.",
     bullets: [],
     highlight: ""
   },
@@ -17,13 +17,13 @@ const points = [
   },
   {
     title: "Nepotřebuješ velkou změnu. Potřebuješ první krok.",
-    desc: "5 až 20 minut denně. Víc ne. Hra Reality nesází na to, že zítra vstaneš jako jiný člověk. Sází na to, že za měsíc plněním malých kroků budeš o kousek dál, než jsi dneska.\n\nA to funguje. Malé kroky jsou skutečně splnitelné. Velké plány se dají jen donekonečna odkládat.",
+    desc: "5 až 20 minut denně. Víc ne. iWau HRA REALITY nesází na to, že zítra vstaneš jako jiný člověk. Sází na to, že za měsíc plněním malých kroků budeš o kousek dál, než jsi dneska.\n\nA to funguje. Malé kroky jsou skutečně splnitelné. Velké plány se dají jen donekonečna odkládat.",
     bullets: [],
     highlight: ""
   },
   {
     title: "Vidíš, že se něco děje.",
-    desc: "Znáš ten pocit, kdy se snažíš, ale nic se nemění? Makáš na sobě, čteš knížky, snažíš se vstávat dřív — a po měsíci máš pocit, že jsi furt na tom stejném místě.\n\nVe Hře Reality je každý quest viditelný. Každý krok zaznamenaný. Každá akce má odezvu, a to jak od systému, tak i od komunity. Neděláš věci jen tak pro nic za nic. Děláš věci, které se doopravdy počítají.",
+    desc: "Znáš ten pocit, kdy se snažíš, ale nic se nemění? Makáš na sobě, čteš knížky, snažíš se vstávat dřív — a po měsíci máš pocit, že jsi furt na tom stejném místě.\n\nV iWau HRA REALITY je každý quest viditelný. Každý krok zaznamenaný. Každá akce má odezvu, a to jak od systému, tak i od komunity. Neděláš věci jen tak pro nic za nic. Děláš věci, které se doopravdy počítají.",
     bullets: [],
     highlight: ""
   },
@@ -35,13 +35,13 @@ const points = [
   },
   {
     title: "Sám to nedáš. Komunita je tu pro tebe.",
-    desc: "Většina lidí to zkusí sama. A po týdnu skončí. Ve Hře Reality vidíš, jak ostatní plní questy. Sdílíš svůj progres. Reagujete na sebe. Posouváte se dopředu.\n\nNení to žádný toxický grind. Je to zdravý tlak od lidí, kteří jedou na stejné vlně.",
+    desc: "Většina lidí to zkusí sama. A po týdnu skončí. V iWau HRA REALITY vidíš, jak ostatní plní questy. Sdílíš svůj progres. Reagujete na sebe. Posouváte se dopředu.\n\nNení to žádný toxický grind. Je to zdravý tlak od lidí, kteří jedou na stejné vlně.",
     bullets: [],
     highlight: ""
   },
   {
     title: "Nikdy nevíš, co přijde.",
-    desc: "Když víš všechno dopředu, přestaneš hrát. Proto pracuje Hra Reality s překvapením — mystery boxy, nové události, odměny, které nikdy nečekáš.\n\nKaždý quest může odemknout něco nového a možná i neznámého. A přesně tahle zvědavost tě táhne dál a dál.",
+    desc: "Když víš všechno dopředu, přestaneš hrát. Proto pracuje iWau HRA REALITY s překvapením — mystery boxy, nové události, odměny, které nikdy nečekáš.\n\nKaždý quest může odemknout něco nového a možná i neznámého. A přesně tahle zvědavost tě táhne dál a dál.",
     bullets: [],
     highlight: ""
   }
@@ -53,17 +53,17 @@ export default function HowItWorks() {
       <div className="section-container max-w-4xl">
         <FadeIn>
           <div className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-display tracking-widest mb-8 uppercase">
-            FILOZOFIE HRY REALITY
+            FILOZOFIE iWau HRA REALITY
           </div>
           <h1 className="text-3xl sm:text-5xl font-display font-bold mb-8">
-            Jak <span className="neon-text">Hra Reality</span> funguje?
+            Jak <span className="neon-text">iWau HRA REALITY</span> funguje?
           </h1>
           
           <div className="text-lg text-muted-foreground mb-16 space-y-4">
             <p className="text-foreground font-display font-medium text-xl">Začni tím, co znáš. Ráno otevřeš telefon. Scrolluješ. Něco tě zaujme, něco si uložíš, něco lajkneš. Zavřeš telefon. Nic se nezměnilo.</p>
-            <p>Hra Reality funguje přesně obráceně. Nekonzumuješ — hraješ. Nesleduješ — jdeš do akce. A každý den máš důkaz, že ses někam skutečně posunul.</p>
+            <p>iWau HRA REALITY funguje přesně obráceně. Nekonzumuješ — hraješ. Nesleduješ — jdeš do akce. A každý den máš důkaz, že ses někam skutečně posunul.</p>
             <div className="p-6 mt-6 glass-card border-primary/20 bg-background/50 rounded-2xl">
-              <p className="text-primary font-bold text-xl mb-3">Hra Reality to dělá jinak.</p>
+              <p className="text-primary font-bold text-xl mb-3">iWau HRA REALITY to dělá jinak.</p>
               <p className="text-foreground text-lg">
                 Žádná teorie. Žádné pasivní sledování. Jen systém, který tě dostane z autopilota do akce.
               </p>
