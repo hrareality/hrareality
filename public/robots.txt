@@ -10,11 +10,14 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-# AI Search Crawlers (GEO)
+# AI Search & Generative Engine Optimization (GEO) Crawlers
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: Claude-Web
@@ -26,16 +29,32 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: CCBot
+User-agent: Google-Extended
 Allow: /
 
 User-agent: Applebot
 Allow: /
 
+User-agent: Applebot-Extended
+Allow: /
+
 User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 User-agent: *
 Allow: /
 
+# XML Sitemap
 Sitemap: https://hrareality.cz/sitemap.xml
+
+# LLMs Semantic Context (GEO)
+LLMs-txt: https://hrareality.cz/llms.txt

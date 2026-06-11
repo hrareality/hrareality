@@ -2,6 +2,7 @@ import { ArrowRight, Target, Globe, Zap, Key, Gift, Rocket, HelpCircle } from "l
 import { Link } from "react-router-dom";
 import FadeIn from "@/components/FadeIn";
 import heroImg from "@/assets/hero-dr-wetom.png";
+import SEO from "@/components/SEO";
 import {
   Accordion,
   AccordionContent,
@@ -37,6 +38,10 @@ const faqs = [
 export default function Index() {
   return (
     <>
+      <SEO 
+        title="iWau HRA REALITY | Gamifikace reálného života – výzvy, příběh, komunita" 
+        description="iWau HRA REALITY je inovativní systém výzev v reálném životě spojený s příběhem, komiksy a pre-launch Discord komunitou. Přestaň jen sledovat svůj život – začni ho hrát." 
+      />
       {/* HERO */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         {/* Background glow */}

@@ -1,9 +1,14 @@
 import { ArrowRight, Target, Locate, Compass } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
+import SEO from "@/components/SEO";
 
 export default function Start() {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Příběh a vize | iWau HRA REALITY" 
+        description="Proč stavíme iWau HRA REALITY? Seznam se s naší vizí, misí a manifestem pro ty, co nechtějí jen čekat, ale chtějí začít okamžitě jednat v reálném světě." 
+      />
 
       {/* SEKCE 6 — VIZE, MISE, PRO KOHO */}
       <section className="py-24 flex items-center bg-card/10">

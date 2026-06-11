@@ -1,4 +1,5 @@
 import FadeIn from "@/components/FadeIn";
+import SEO from "@/components/SEO";
 
 import { ArrowRight } from "lucide-react";
 
@@ -50,6 +51,10 @@ const points = [
 export default function HowItWorks() {
   return (
     <section className="py-20 min-h-screen">
+      <SEO 
+        title="Jak to funguje | iWau HRA REALITY" 
+        description="Zjisti, jak funguje iWau HRA REALITY — jak denní výzvy (5–20 minut denně) v reálném životě, nahrávání důkazů a sbírání odměn přirozeně nahrazují pasivní scrollování za reálný progres." 
+      />
       <div className="section-container max-w-4xl">
         <FadeIn>
           <div className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-display tracking-widest mb-8 uppercase">

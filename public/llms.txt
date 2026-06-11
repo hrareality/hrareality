@@ -1,26 +1,26 @@
-# Hra Reality
+# iWau HRA REALITY
 
-> Hra Reality je inovativní pre-launch platforma pro gamifikaci osobního rozvoje v reálném životě. Systém výzev, příběhů a komunity, který pomáhá lidem přestat jen sledovat svůj život a začít ho reálně žít.
+> iWau HRA REALITY je inovativní pre-launch platforma pro gamifikaci osobního rozvoje v reálném životě. Systém výzev, příběhů a komunity, který pomáhá lidem přestat jen sledovat svůj život a začít ho reálně žít.
 
-## Co je Hra Reality?
+## Co je iWau HRA REALITY?
 
-Hra Reality není jen aplikace ani klasická hra. Je to nový způsob, jak přemýšlet o vlastním životě a jednat v něm.
+iWau HRA REALITY není jen aplikace ani klasická hra. Je to nový způsob, jak přemýšlet o vlastním životě a jednat v něm.
 
 Většina lidí dnes ví, co by měla dělat — ale nedělá to. Scrollují, sledují, učí se. Ale reálně se nic nemění.
 
-Hra Reality tohle mění:
+iWau HRA REALITY tohle mění:
 - Místo teorie přichází akce
 - Místo sledování přichází hra
 - Místo abstraktních cílů přichází konkrétní výzvy (5–20 minut denně)
 
 ## Základní principy
 
-1. **Realita je hra — a ty jsi hráč.** Každý den hraješ svůj život. Vědomě, nebo nevědomě. Hra Reality ti dává možnost si vybrat.
+1. **Realita je hra — a ty jsi hráč.** Každý den hraješ svůj život. Vědomě, nebo nevědomě. iWau HRA REALITY ti dává možnost si vybrat.
 2. **Akce místo učení.** Žádné dlouhé návody. Dostaneš výzvu — jdeš ji udělat. To je celý princip.
 3. **Malé kroky mění směr.** 5–20 minut denně. Reálný posun v čase. Velké změny selhávají, malé kroky se sčítají.
 4. **Progres, který vidíš.** Děláš věci a vidíš změnu — ve statistikách, ve statusu, v realitě.
 5. **Komunita, která hraje s tebou.** Nejsi sám. Ostatní hráči plní výzvy vedle tebe.
-6. **Příběh, který tě vtahuje.** Hra má příběh. Postavy. Světy. Ty nejsi jen uživatel — jsi hráč s rolí.
+6. **Příběh, který tě vtahuje.** iWau HRA REALITY má příběh. Postavy. Světy. Ty nejsi jen uživatel — jsi hráč s rolí.
 7. **Status, který má smysl.** Level, body, odznaky — ale za reálné činy, ne za čas strávený na obrazovce.
 
 ## Vize, Mise a Cíl
@@ -31,9 +31,18 @@ Hra Reality tohle mění:
 
 **Cíl:** Vytvořit prostředí, které bude dávat smysl generaci, která nechce jen obsah, jen rady nebo jen „motivaci" — ale chce něco zažít, změnit a být součástí něčeho.
 
+## Struktura stránek a navigace
+
+- **Úvodní stránka (/)**: Hlavní portál pre-launch verze se základními informacemi, přehledem kroků k zapojení a sekcí FAQ.
+- **Jak to funguje (/jak-to-funguje)**: Detailní popis herní mechaniky, systému denních výzev, důkazů plnění a odměn.
+- **Příběh (/start)**: Vize projektu, manifest a úvod do herního loru "Zrození hráče".
+- **Komiksy (/komiksy)**: Portály do světa hry v podobě komiksových sérií (např. *Probuď hráče v sobě* a *Dr. Wetom: Kód naděje*).
+- **Kolekce karet (/collection)**: Přehled sběratelských artefaktů rozdělených do rodin (rodiny jako Awakening, Glitch) a rarit (Common, Rare, Legendary) s popisem a herními mechanikami.
+- **Partneři (/partneri)**: Informace o partnerech a spolupracujících organizacích, které podporují rozvoj projektu.
+
 ## Komiksy
 
-Hra Reality vydává komiksy jako portály do světa hry:
+iWau HRA REALITY vydává komiksy jako portály do světa hry:
 
 - **Probuď hráče v sobě** — Začíná to nenápadně. Pocit, že něco nesedí. Že svět, ve kterém žiješ… není úplně skutečný. Tenhle příběh tě neprobudí — ale může být první trhlina.
 - **Dr. Wetom: Kód naděje** — Existují lidé, kteří vidí víc. Kdo je Dr. Wetom a proč jeho existence mění pravidla hry?
@@ -49,15 +58,16 @@ Hra Reality vydává komiksy jako portály do světa hry:
 
 - Discord (pre-launch komunita): https://discord.gg/MGnNWkcqQf
 - Instagram: https://www.instagram.com/hrareality/
-- TikTok: https://www.tiktok.com/@hrareality
+- TikTok: https://www.tiktok.com/@hreality
+- Webová stránka: https://hrareality.cz/
 
 ## Stav projektu
 
-Hra Reality je aktuálně ve fázi **pre-launch**. Hledáme prvních 1 000 hráčů, kteří chtějí být u vzniku hry.
+iWau HRA REALITY je aktuálně ve fázi **pre-launch**. Hledáme prvních 1 000 hráčů, kteří chtějí být u vzniku hry.
 
 ## Časté otázky
 
-**Co to je Hra Reality?**
+**Co to je iWau HRA REALITY?**
 Systém výzev propojených s příběhem, komunitou a postavami. Funguje v reálném světě, ne jen na obrazovce.
 
 **Musím platit?**
@@ -76,5 +86,6 @@ Pracujeme na první verzi. Přesné datum zatím neoznámíme — ale ti v pre-l
 
 - Web: https://hrareality.cz/
 - Discord: https://discord.gg/MGnNWkcqQf
+- E-mail: info@hrareality.cz
 
-- vytvořil: Petr Žák, roosteo.cz
+- Vytvořil: Petr Žák, roosteo.cz

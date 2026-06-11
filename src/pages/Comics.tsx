@@ -2,6 +2,7 @@ import { BookOpen, ArrowRight, Download } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import cover1 from "@/assets/comic-cover-probud-hrace.png";
 import cover2 from "@/assets/comic-cover-dr-wetom.png";
+import SEO from "@/components/SEO";
 
 import { cn } from "@/lib/utils";
 
@@ -26,6 +27,10 @@ const comics = [
 export default function Comics() {
   return (
     <section className="py-20 min-h-screen">
+      <SEO 
+        title="Komiksy | iWau HRA REALITY" 
+        description="Stáhni si zdarma naše komiksy „Probuď v sobě hráče“ a „Dr. Wetom: Kód naděje“ – portály do světa iWau HRA REALITY, které ti dají první uvědomění o fungování moderního světa." 
+      />
       <div className="section-container max-w-5xl">
         {/* SEKCE 1 - HERO */}
         <FadeIn>

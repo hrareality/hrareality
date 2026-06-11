@@ -1,6 +1,7 @@
 import { ArrowRight, History, Award, Fingerprint, HelpCircle, Users, Zap, CheckCircle2 } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import CollectionCard from "@/components/CollectionCard";
+import SEO from "@/components/SEO";
 
 // Definice rodin a karet pro Season 0
 const cardFamilies = [
@@ -157,6 +158,10 @@ export default function Collection() {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Kolekce karet Season 0 | iWau HRA REALITY" 
+        description="Sběratelská kronika Season 0 — Awakening. 12 unikátních karet rozdělených do rodin a rarit (Common, Rare, Legendary). Získej svůj status zakládajícího hráče iWau HRA REALITY." 
+      />
       {/* 1. HERO SEKCE */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />

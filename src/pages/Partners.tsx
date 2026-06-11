@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Leaf, Waves, Sprout, Send } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import { toast } from "sonner";
+import SEO from "@/components/SEO";
 
 const partners = [
   { name: "Justice for Nature", icon: Leaf, theme: "Životní prostředí", role: "Výzvy zaměřené na přírodu a udržitelnost." },
@@ -60,6 +61,10 @@ export default function Partners() {
 
   return (
     <section className="py-20 min-h-screen">
+      <SEO 
+        title="Partneři | iWau HRA REALITY" 
+        description="Spolupracující organizace a partneři iWau HRA REALITY. Pomoz nám budovat smysluplnou gamifikovanou platformu a staň se partnerem Season 0." 
+      />
       <div className="section-container max-w-4xl">
         <FadeIn>
           <div className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-display tracking-widest mb-8">
