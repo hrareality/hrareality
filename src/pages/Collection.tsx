@@ -211,7 +211,7 @@ export default function Collection() {
                   O Season 0
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-display font-bold mb-6">
-                  Co je <span className="neon-text">Collection</span>?
+                  Co je <span className="neon-text">Collection?</span>
                 </h2>
                 <div className="space-y-4 text-muted-foreground text-base sm:text-lg leading-relaxed">
                   <p>

@@ -38,11 +38,11 @@ export default function Comics() {
             KOMIKSY
           </div>
           <h1 className="text-3xl sm:text-5xl font-display font-bold mb-8">
-            Vstup do <span className="neon-text">Hry Reality</span>
+            Vstup do <span className="neon-text">iWau HRY REALITY</span>
           </h1>
           
           <div className="text-lg text-muted-foreground mb-20 space-y-4 max-w-2xl">
-            <p className="text-foreground font-medium text-xl">Komiksy, které nejsou jen příběhy — jsou to první vstupní body do samotné Hry Reality.</p>
+            <p className="text-foreground font-medium text-xl">Komiksy, které nejsou jen příběhy — jsou to první vstupní body do samotné iWau HRY REALITY.</p>
             <p>Žádný z nich ti neukáže celý obraz, a to zcela záměrně. Celý obraz se ti totiž odemkne, až začneš skutečně hrát.</p>
           </div>
         </FadeIn>

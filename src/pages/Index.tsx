@@ -30,7 +30,7 @@ const faqs = [
   { q: "Co tě čeká uvnitř?", a: "Vstoupíš do uzavřené Discord komunity, kde se v reálném čase staví iWau HRA REALITY. Uvidíš, jak vznikají questy. Jak se testují první levely. Jak se mění pravidla na základě toho, co funguje a co ne.\n\nNejsi jen pouhý divák. Jsi beta tester s možností podílet se na vývoji. Tvůj feedback formuje hru, kterou jednou budou hrát tisíce lidí.\n→ Tohle není „sleduj náš progress“.\n→ Tohle je „pojď ho tvořit s námi“." },
   { q: "Je hra hotová?", a: "Ještě ne. A právě proto je tohle ten nejvzácnější okamžik.\n\nKaždá legendární hra měla svůj začátek — verzi, kterou hrálo pár stovek lidí, než ji objevil zbytek světa. Lidi, kteří ji formovali. Kteří hlásili bugy. Kteří navrhovali, co přidat a co odstranit.\n→ Tohle je přesně ta fáze.\n→ Pravidla se píšou teď. A kdo je u toho, píše je s námi." },
   { q: "Proč bych se měl připojit zrovna teď?", a: "Protože v každé hře existuje moment, který se nedá zopakovat. Moment, kdy je mapa prázdná, všechno je nové a každý krok je novým objevem.\n\nTohle je přesně ten moment. Právě teď. První hráči jen nehrají — určují směr. Testují. Objevují. Mají přímý přístup k lidem, kteří hru staví.\n\nAž se jednou někdo zeptá, jak iWau HRA REALITY vlastně začala — ty budeš moct říct, že jsi u toho byl a nepropásl to.\n→ A to je level, na který se později už nedá dostat." },
-  { q: "Co se bude dít na Discordu?", a: "Představ si místo, kde se potkávají první hráči, tvůrci hry a systém, který se mění každý týden. To is přesně náš Discord.\n\nDostaneš první questy k testování. Uvidíš, jak vznikají nové levely. Budeš moct říct „tohle nefunguje“ nebo „tohle je sick“ — a přímo tím ovlivníš, co se bude dít dál.\n\nNení to žádné forum ani group chat. Je to místo, kde se iWau HRA REALITY odehrává ještě předtím, než se spustí pro širokou veřejnost.\n→ Privní hráči nesledují vývoj. Jsou jeho součástí." },
+  { q: "Co se bude dít na Discordu?", a: "Představ si místo, kde se potkávají první hráči, tvůrci hry a systém, který se mění každý týden. To je přesně náš Discord.\n\nDostaneš první questy k testování. Uvidíš, jak vznikají nové levely. Budeš moct říct „tohle nefunguje“ nebo „tohle je sick“ — a přímo tím ovlivníš, co se bude dít dál.\n\nNení to žádné forum ani group chat. Je to místo, kde se iWau HRA REALITY odehrává ještě předtím, než se spustí pro širokou veřejnost.\n→ První hráči nesledují vývoj. Jsou jeho součástí." },
   { q: "Musím hrát každý den?", a: "Rozhodně ne. Život není sprint a iWau HRA REALITY taky ne.\n\nMůžeš hrát jednou týdně. Můžeš hrát každý den. Tempo si volíš podle sebe, je to jen na tobě. Ale jedno je jisté — hráči, kteří jsou aktivní, levelují více. A ti, co čekají na správný moment, stojí pořád na stejném místě.\n→ Nejde o to být dokonalý.\n→ Jde o to jít do akce." },
   { q: "Co když chci jen sledovat a nic nedělat?", a: "Můžeš. Ale hráči to říkají jasně — jakmile vidíš, jak ostatní plní questy a levelují, „budu jen sledovat“ ti vydrží tak týden, uvidíš sám." },
 ];
@@ -55,7 +55,7 @@ export default function Index() {
                 PRE-LAUNCH
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6">
-                Většina lidí jen konzumuje obsah a říká si, že se jednou změní. <span className="neon-text">Hráči ne, ti začnou okamžitě</span>.
+                Většina lidí jen konzumuje obsah a říká si, že se jednou změní. <span className="neon-text">Hráči ne, ti začnou okamžitě.</span>
               </h1>
               <div className="text-lg text-muted-foreground mb-8 max-w-lg space-y-4">
                 <p><strong>iWau HRA REALITY je systém krátkých výzev v reálném životě.</strong> Žádné pasivní sledování. Žádné nekonečné odkládání. Jen quest, akce a reálný progres.</p>
@@ -181,7 +181,7 @@ export default function Index() {
           <FadeIn>
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-display font-bold mb-8">
-                Kdo tvoří <span className="neon-text">iWau HRA REALITY?</span>
+                Kdo tvoří <span className="neon-text">iWau HRU REALITY?</span>
               </h2>
               <div className="max-w-2xl mx-auto space-y-4 text-muted-foreground text-lg text-center">
                 <p>Každá hra má své tvůrce. My jsme čtyři lidi, kteří se shodli na jedné myšlence — že osobní růst může fungovat úplně jinak, než jak ho zná dnešní svět.</p>
