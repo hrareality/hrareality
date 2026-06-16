@@ -49,13 +49,6 @@ export default function CollectionCard({
           neonBg: "from-cyan-950/40 to-background",
           neonLine: "bg-cyan-500/40",
         };
-      case "CHRISTMAS_2025":
-        return {
-          glow: "shadow-[0_0_20px_rgba(16,185,129,0.25)] border-emerald-500/30",
-          text: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
-          neonBg: "from-emerald-950/40 to-background",
-          neonLine: "bg-emerald-500/40",
-        };
       default:
         return {
           glow: "shadow-[0_0_20px_rgba(168,85,247,0.20)] border-primary/20",
@@ -80,12 +73,21 @@ export default function CollectionCard({
       {/* Obrázek karty nebo silueta */}
       <div className="aspect-[7/10] relative w-full overflow-hidden bg-black/50 border-b border-white/5 flex items-center justify-center">
         {src ? (
-          <img
-            src={src}
-            alt={name}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            loading="lazy"
-          />
+          <div className="relative w-full h-full">
+            <img
+              src={src}
+              alt={name}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter blur-[4px] brightness-[0.5] contrast-[1.15]"
+              loading="lazy"
+            />
+            {!isLocked && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/5 z-10 pointer-events-none">
+                <div className="w-12 h-12 rounded-full bg-black/40 border border-white/20 flex items-center justify-center shadow-lg backdrop-blur-[1px]">
+                  <Lock size={18} className="text-white/60" />
+                </div>
+              </div>
+            )}
+          </div>
         ) : (
           /* Prémiová zástupná silueta s neonovým gradientem */
           <div
@@ -110,7 +112,7 @@ export default function CollectionCard({
 
         {/* Locked Overlay */}
         {isLocked && (
-          <div className="absolute inset-0 bg-black/85 flex flex-col items-center justify-center z-20 backdrop-blur-[2px]">
+          <div className="absolute inset-0 bg-black/55 flex flex-col items-center justify-center z-20 backdrop-blur-[1px]">
             <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-3">
               <Lock size={22} className="text-white/60" />
             </div>
