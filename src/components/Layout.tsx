@@ -23,7 +23,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Fixed Nav */}
       <header className="fixed top-0 left-0 right-0 z-50 glass-card border-t-0 border-x-0 rounded-none">
         <div className="section-container flex items-center justify-between h-14 md:h-16 py-0">
-          <Link to="/" className="relative flex items-center h-full group transition-all hover:opacity-80 z-20">
+          <Link to="/" className="relative flex items-center w-36 md:w-48 h-full group transition-all hover:opacity-80 z-20">
             <img src="/logo.png" alt="iWau HRA REALITY Logo" className="h-36 md:h-48 w-auto object-contain absolute left-0 top-1/2 -translate-y-1/2 max-w-none" />
           </Link>
 
