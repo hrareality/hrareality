@@ -17,7 +17,7 @@ const cardFamilies = [
         family: "AWAKENING",
         lore: "Moment, kdy si poprvé uvědomíš, že realitu kolem sebe můžeš začít aktivně hrát.",
         rarity: "COMMON",
-        src: "/cards/previews/awakening_1_blur.png",
+        src: "/cards/previews/awakening_1_blur.webp",
         isLocked: false,
       },
       {
@@ -25,7 +25,7 @@ const cardFamilies = [
         family: "AWAKENING",
         lore: "Zachycená frekvence vysílaná z hlubin digitální sítě. Kód, který změnil vše.",
         rarity: "COMMON",
-        src: "/cards/previews/awakening_2_blur.png",
+        src: "/cards/previews/awakening_2_blur.webp",
         isLocked: false,
       },
       {
@@ -33,7 +33,7 @@ const cardFamilies = [
         family: "AWAKENING",
         lore: "Nástroj určený k narušení každodenního stereotypu a probuzení z nekonečného scrollu.",
         rarity: "RARE",
-        src: "/cards/previews/awakening_3_blur.png",
+        src: "/cards/previews/awakening_3_blur.webp",
         isLocked: false,
       },
     ],
@@ -48,7 +48,7 @@ const cardFamilies = [
         family: "POSTAVY_IWAU",
         lore: "Záhadná průvodkyně světem Hry Reality. Vidí trhliny v systému dřív než ostatní.",
         rarity: "COMMON",
-        src: "/cards/previews/postavy_1_blur.png",
+        src: "/cards/previews/postavy_1_blur.webp",
         isLocked: false,
       },
       {
@@ -56,7 +56,7 @@ const cardFamilies = [
         family: "POSTAVY_IWAU",
         lore: "Strážce stínů a zosobnění odporu, který tě nutí překonávat vlastní komfortní zónu.",
         rarity: "RARE",
-        src: "/cards/previews/postavy_2_blur.png",
+        src: "/cards/previews/postavy_2_blur.webp",
         isLocked: false,
       },
       {
@@ -64,7 +64,7 @@ const cardFamilies = [
         family: "POSTAVY_IWAU",
         lore: "Architekt systému. Postava, jejíž kód drží pravidla celé této hry pohromadě.",
         rarity: "LEGENDARY",
-        src: "/cards/previews/postavy_3_blur.png",
+        src: "/cards/previews/postavy_3_blur.webp",
         isLocked: false,
       },
     ],
@@ -79,7 +79,7 @@ const cardFamilies = [
         family: "GLITCH",
         lore: "Vizualizace estetického glitchu. Když styl naruší šedou průměrnost.",
         rarity: "COMMON",
-        src: "/cards/previews/glitch_1_blur.png",
+        src: "/cards/previews/glitch_1_blur.webp",
         isLocked: false,
       },
       {
@@ -87,7 +87,7 @@ const cardFamilies = [
         family: "GLITCH",
         lore: "Narozen v hlubinách glitch zóny. Humor a absurdita jako štít proti tlaku okolí.",
         rarity: "COMMON",
-        src: "/cards/previews/glitch_2_blur.png",
+        src: "/cards/previews/glitch_2_blur.webp",
         isLocked: false,
       },
       {
@@ -95,7 +95,7 @@ const cardFamilies = [
         family: "GLITCH",
         lore: "Glitch entita uvězněná v nekonečné časové smyčce. Varování pro ty, co přestanou jednat.",
         rarity: "RARE",
-        src: "/cards/previews/glitch_3_blur.png",
+        src: "/cards/previews/glitch_3_blur.webp",
         isLocked: false,
       },
     ],
@@ -110,7 +110,7 @@ const cardFamilies = [
         family: "RELICS",
         lore: "První stabilní most spojující hráče z celého světa v reálném čase.",
         rarity: "COMMON",
-        src: "/cards/previews/relics_1_blur.png",
+        src: "/cards/previews/relics_1_blur.webp",
         isLocked: false,
       },
       {
@@ -118,7 +118,7 @@ const cardFamilies = [
         family: "RELICS",
         lore: "Doklad o účasti na první technické verzi Collection platformy.",
         rarity: "RARE",
-        src: "/cards/previews/relics_2_blur.png",
+        src: "/cards/previews/relics_2_blur.webp",
         isLocked: false,
       },
       {
@@ -126,7 +126,7 @@ const cardFamilies = [
         family: "RELICS",
         lore: "Tajná karta. Informace o tomto artefaktu jsou zatím zahaleny tajemstvím.",
         rarity: "LEGENDARY",
-        src: "/cards/previews/relics_3_blur.png",
+        src: "/cards/previews/relics_3_blur.webp",
         isLocked: true,
       },
     ],
@@ -501,7 +501,7 @@ export default function Collection() {
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.92, y: 20 }}
                 transition={{ type: "spring", duration: 0.5 }}
-                className="relative max-w-2xl w-full glass-card border border-white/10 bg-[#0c0c10] shadow-[0_0_50px_rgba(168,85,247,0.15)] rounded-2xl overflow-hidden z-10 flex flex-col md:flex-row"
+                className="relative max-w-2xl w-full max-h-[90vh] overflow-y-auto glass-card border border-white/10 bg-[#0c0c10] shadow-[0_0_50px_rgba(168,85,247,0.15)] rounded-2xl z-10 flex flex-col md:flex-row scrollbar-thin"
               >
                 {/* Close Button */}
                 <button
@@ -512,7 +512,7 @@ export default function Collection() {
                 </button>
 
                 {/* Levá část: Obrázek karty s rozostřením (náhled) */}
-                <div className="w-full md:w-[45%] flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-white/5 select-none bg-black/30 p-6 sm:p-8 gap-4 relative">
+                <div className="w-full md:w-[45%] flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-white/5 select-none bg-black/30 p-5 md:p-8 gap-4 relative shrink-0">
                   <div className="w-full aspect-[7/10] relative rounded-xl overflow-hidden border border-white/10 shadow-lg">
                     {selectedCard.src ? (
                       <div className="relative w-full h-full">
