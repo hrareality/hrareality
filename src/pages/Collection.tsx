@@ -1,4 +1,6 @@
-import { ArrowRight, History, Award, Fingerprint, HelpCircle, Users, Zap, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, History, Award, Fingerprint, HelpCircle, Users, Zap, CheckCircle2, X, Lock, Sparkles, MessageSquare } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import CollectionCard from "@/components/CollectionCard";
 import SEO from "@/components/SEO";
@@ -167,6 +169,51 @@ const obtainingWays = [
 ];
 
 export default function Collection() {
+  interface CardType {
+    name: string;
+    family: string;
+    lore: string;
+    rarity: string;
+    src?: string;
+    isLocked?: boolean;
+  }
+
+  const [selectedCard, setSelectedCard] = useState<CardType | null>(null);
+
+  const getFamilyStyles = (family: string) => {
+    switch (family) {
+      case "AWAKENING":
+        return {
+          glow: "shadow-[0_0_30px_rgba(168,85,247,0.3)] border-purple-500/30",
+          text: "text-purple-400 bg-purple-500/10 border-purple-500/20",
+          color: "rgb(168, 85, 247)",
+        };
+      case "POSTAVY_IWAU":
+        return {
+          glow: "shadow-[0_0_30px_rgba(99,102,241,0.3)] border-indigo-500/30",
+          text: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
+          color: "rgb(99, 102, 241)",
+        };
+      case "GLITCH":
+        return {
+          glow: "shadow-[0_0_30px_rgba(236,72,153,0.3)] border-pink-500/30",
+          text: "text-pink-400 bg-pink-500/10 border-pink-500/20",
+          color: "rgb(236, 72, 153)",
+        };
+      case "RELICS":
+        return {
+          glow: "shadow-[0_0_30px_rgba(6,182,212,0.3)] border-cyan-500/30",
+          text: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
+          color: "rgb(6, 182, 212)",
+        };
+      default:
+        return {
+          glow: "shadow-[0_0_30px_rgba(168,85,247,0.20)] border-primary/20",
+          text: "text-primary bg-primary/10 border-primary/20",
+          color: "rgb(168, 85, 247)",
+        };
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -324,6 +371,7 @@ export default function Collection() {
                          rarity={card.rarity}
                          src={card.src}
                          isLocked={card.isLocked}
+                         onClick={() => setSelectedCard(card)}
                       />
                     </FadeIn>
                   ))}
@@ -433,6 +481,130 @@ export default function Collection() {
           </FadeIn>
         </div>
       </section>
+
+      {/* DYNAMIC DETAIL & CTA MODAL */}
+      <AnimatePresence>
+        {selectedCard && (() => {
+          const styles = getFamilyStyles(selectedCard.family);
+          return (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+            >
+              {/* Kliknutí mimo zavře modal */}
+              <div className="absolute inset-0 cursor-default" onClick={() => setSelectedCard(null)} />
+
+              <motion.div
+                initial={{ scale: 0.92, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.92, y: 20 }}
+                transition={{ type: "spring", duration: 0.5 }}
+                className="relative max-w-2xl w-full glass-card border border-white/10 bg-[#0c0c10] shadow-[0_0_50px_rgba(168,85,247,0.15)] rounded-2xl overflow-hidden z-10 flex flex-col md:flex-row"
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedCard(null)}
+                  className="absolute top-4 right-4 z-30 p-2 rounded-lg bg-black/40 border border-white/15 text-slate-400 hover:text-white transition-colors"
+                >
+                  <X size={16} />
+                </button>
+
+                {/* Levá část: Obrázek karty s rozostřením (náhled) */}
+                <div className="w-full md:w-[45%] flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-white/5 select-none bg-black/30 p-6 sm:p-8 gap-4 relative">
+                  <div className="w-full aspect-[7/10] relative rounded-xl overflow-hidden border border-white/10 shadow-lg">
+                    {selectedCard.src ? (
+                      <div className="relative w-full h-full">
+                        <img
+                          src={selectedCard.src}
+                          alt={selectedCard.name}
+                          className="w-full h-full object-cover filter blur-[0.5px] brightness-[0.75] contrast-[1.05]"
+                        />
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center pointer-events-none">
+                          <div className="w-14 h-14 rounded-full bg-black/50 border border-white/20 flex items-center justify-center shadow-lg">
+                            <Lock size={22} className="text-white/70" />
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="w-full h-full bg-black flex flex-col items-center justify-center p-6 relative overflow-hidden">
+                        <div className="w-14 h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center relative z-10">
+                          <Lock className="text-white/30 w-7 h-7" />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Pravá část: Detaily a Discord CTA */}
+                <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                        <h3 className="font-display font-bold text-xl uppercase tracking-wider text-white">
+                          {selectedCard.isLocked ? "Utajený Artefakt" : selectedCard.name}
+                        </h3>
+                        {!selectedCard.isLocked && (
+                          <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded border tracking-wider uppercase ${
+                            selectedCard.rarity === "LEGENDARY"
+                              ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
+                              : selectedCard.rarity === "RARE"
+                                ? "bg-blue-500/10 text-blue-400 border-blue-500/20"
+                                : "bg-white/5 text-white/50 border-white/10"
+                          }`}>
+                            {selectedCard.rarity === "LEGENDARY" && <Sparkles size={8} className="inline mr-0.5 text-amber-400" />}
+                            {selectedCard.rarity}
+                          </span>
+                        )}
+                      </div>
+                      <span className="text-[10px] font-bold text-slate-500 tracking-widest uppercase">
+                        RODINA: {selectedCard.family.replace("_", " ")}
+                      </span>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                      <p className="text-xs text-slate-300 leading-relaxed italic">
+                        {selectedCard.isLocked
+                          ? "„Pravá identita a moc této relikvie jsou chráněny přísným kódem. Záznamy v archivu budou odhaleny až nastane správný čas.“"
+                          : `„${selectedCard.lore}“`
+                        }
+                      </p>
+                    </div>
+
+                    <div className="pt-2">
+                      <p className="text-xs text-slate-400 leading-relaxed">
+                        {selectedCard.isLocked
+                          ? "Tato karta je aktuálně uzamčená. Informace o tom, jak ji získat a odhalit její lícovou i rubovou stranu, budou zveřejněny v průběhu Season 0."
+                          : "Tato karta čeká na své odemčení. Všechny karty mají lícovou i rubovou stranu s detailními informacemi o hráčích, které uvidíš po získání ve svém albu."
+                        }
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mt-8">
+                    <a
+                      href="https://discord.gg/MGnNWkcqQf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2.5 w-full py-3 bg-[#5865F2] hover:bg-[#4752C4] text-white font-display font-bold text-sm rounded-xl transition-all shadow-[0_0_20px_rgba(88,101,242,0.3)] cursor-pointer"
+                    >
+                      <MessageSquare size={16} className="inline" />
+                      {selectedCard.isLocked ? "Sledovat novinky na Discordu →" : "Jak získat tuto kartu? →"}
+                    </a>
+                    <button
+                      onClick={() => setSelectedCard(null)}
+                      className="w-full py-2.5 text-xs font-semibold bg-white/5 hover:bg-white/10 border border-white/10 text-slate-400 hover:text-white rounded-lg transition-colors cursor-pointer"
+                    >
+                      Zavřít detail
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          );
+        })()}
+      </AnimatePresence>
     </div>
   );
 }

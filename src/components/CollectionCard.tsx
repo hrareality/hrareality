@@ -8,6 +8,7 @@ interface CollectionCardProps {
   rarity: "COMMON" | "RARE" | "LEGENDARY" | string;
   src?: string;
   isLocked?: boolean;
+  onClick?: () => void;
 }
 
 export default function CollectionCard({
@@ -17,41 +18,42 @@ export default function CollectionCard({
   rarity,
   src,
   isLocked = false,
+  onClick,
 }: CollectionCardProps) {
   // Rozlišení barev neonů podle rodiny karet
   const getFamilyStyles = (fam: string) => {
     switch (fam) {
       case "AWAKENING":
         return {
-          glow: "shadow-[0_0_20px_rgba(168,85,247,0.25)] border-purple-500/30",
+          glow: "shadow-[0_0_20px_rgba(168,85,247,0.25)] hover:border-purple-500/40",
           text: "text-purple-400 bg-purple-500/10 border-purple-500/20",
           neonBg: "from-purple-950/40 to-background",
           neonLine: "bg-purple-500/40",
         };
       case "POSTAVY_IWAU":
         return {
-          glow: "shadow-[0_0_20px_rgba(99,102,241,0.25)] border-indigo-500/30",
+          glow: "shadow-[0_0_20px_rgba(99,102,241,0.25)] hover:border-indigo-500/40",
           text: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
           neonBg: "from-indigo-950/40 to-background",
           neonLine: "bg-indigo-500/40",
         };
       case "GLITCH":
         return {
-          glow: "shadow-[0_0_20px_rgba(236,72,153,0.25)] border-pink-500/30",
+          glow: "shadow-[0_0_20px_rgba(236,72,153,0.25)] hover:border-pink-500/40",
           text: "text-pink-400 bg-pink-500/10 border-pink-500/20",
           neonBg: "from-pink-950/40 to-background",
           neonLine: "bg-pink-500/40",
         };
       case "RELICS":
         return {
-          glow: "shadow-[0_0_20px_rgba(6,182,212,0.25)] border-cyan-500/30",
+          glow: "shadow-[0_0_20px_rgba(6,182,212,0.25)] hover:border-cyan-500/40",
           text: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
           neonBg: "from-cyan-950/40 to-background",
           neonLine: "bg-cyan-500/40",
         };
       default:
         return {
-          glow: "shadow-[0_0_20px_rgba(168,85,247,0.20)] border-primary/20",
+          glow: "shadow-[0_0_20px_rgba(168,85,247,0.20)] hover:border-primary/40",
           text: "text-primary bg-primary/10 border-primary/20",
           neonBg: "from-primary/20 to-background",
           neonLine: "bg-primary/30",
@@ -63,11 +65,12 @@ export default function CollectionCard({
 
   return (
     <div
+      onClick={onClick}
       className={cn(
-        "glass-card overflow-hidden border transition-all duration-500 flex flex-col h-full relative group",
+        "glass-card overflow-hidden border transition-all duration-500 flex flex-col h-full relative group cursor-pointer hover:scale-[1.045] active:scale-[0.985]",
         isLocked
-          ? "border-white/5 opacity-70 shadow-none pointer-events-none"
-          : cn("hover:scale-[1.02] border-white/10 hover:bg-card/80", styles.glow)
+          ? "border-white/5 opacity-80 hover:border-white/15 hover:shadow-[0_0_20px_rgba(255,255,255,0.04)]"
+          : cn("border-white/10 hover:bg-card/50", styles.glow)
       )}
     >
       {/* Obrázek karty nebo silueta */}
@@ -77,15 +80,23 @@ export default function CollectionCard({
             <img
               src={src}
               alt={name}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter blur-[4px] brightness-[0.5] contrast-[1.15]"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter blur-[0.5px] brightness-[0.75] contrast-[1.05]"
               loading="lazy"
             />
             {!isLocked && (
-              <div className="absolute inset-0 flex items-center justify-center bg-black/5 z-10 pointer-events-none">
-                <div className="w-12 h-12 rounded-full bg-black/40 border border-white/20 flex items-center justify-center shadow-lg backdrop-blur-[1px]">
-                  <Lock size={18} className="text-white/60" />
+              <>
+                <div className="absolute inset-0 flex items-center justify-center bg-black/5 z-10 pointer-events-none">
+                  <div className="w-12 h-12 rounded-full bg-black/40 border border-white/20 flex items-center justify-center shadow-lg backdrop-blur-[1px]">
+                    <Lock size={18} className="text-white/60" />
+                  </div>
                 </div>
-              </div>
+                {/* Hover click CTA overlay */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center z-20 backdrop-blur-[1px]">
+                  <div className="px-4 py-2 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-xs font-display font-bold text-white tracking-widest uppercase shadow-lg transform translate-y-3 group-hover:translate-y-0 transition-all duration-300">
+                    Jak získat?
+                  </div>
+                </div>
+              </>
             )}
           </div>
         ) : (
@@ -112,12 +123,15 @@ export default function CollectionCard({
 
         {/* Locked Overlay */}
         {isLocked && (
-          <div className="absolute inset-0 bg-black/55 flex flex-col items-center justify-center z-20 backdrop-blur-[1px]">
-            <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-3">
-              <Lock size={22} className="text-white/60" />
+          <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center z-20 backdrop-blur-[1px] group-hover:bg-black/60 transition-colors duration-300">
+            <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:border-white/20 transition-all duration-300">
+              <Lock size={22} className="text-white/60 group-hover:text-white transition-colors duration-300" />
             </div>
-            <span className="font-display text-base font-bold text-white/60 tracking-wider uppercase">
+            <span className="font-display text-base font-bold text-white/60 tracking-wider uppercase transition-all duration-300 group-hover:text-white group-hover:scale-105">
               Brzy
+            </span>
+            <span className="absolute bottom-4 text-[10px] font-display font-semibold tracking-widest uppercase text-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              Klikni pro detail
             </span>
           </div>
         )}
