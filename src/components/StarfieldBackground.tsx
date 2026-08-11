@@ -20,6 +20,7 @@ export default function StarfieldBackground() {
     if (!ctx) return;
 
     let animId: number;
+    let paused = document.hidden;
     const STAR_COUNT = 300;
 
     const resize = () => {
@@ -46,20 +47,31 @@ export default function StarfieldBackground() {
     };
     window.addEventListener("mousemove", handleMouse);
 
-    const draw = () => {
+    // Nezatěžovat CPU/baterku, když je karta na pozadí — smyčka se na neaktivní záložce úplně zastaví.
+    const handleVisibility = () => {
+      paused = document.hidden;
+      if (!paused) {
+        animId = requestAnimationFrame(draw);
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    // Kdo preferuje omezený pohyb, dostane jednu statickou vykreslenou oblohu bez nekonečné animace.
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const drawFrame = (mx: number, my: number) => {
       const w = canvas.width;
       const h = canvas.height;
       ctx.clearRect(0, 0, w, h);
 
-      const mx = mouseRef.current.x * 30;
-      const my = mouseRef.current.y * 30;
-
       for (const star of starsRef.current) {
-        star.z -= 0.15;
-        if (star.z <= 0) {
-          star.z = 1000;
-          star.x = (Math.random() - 0.5) * 2000;
-          star.y = (Math.random() - 0.5) * 2000;
+        if (!reduceMotion) {
+          star.z -= 0.15;
+          if (star.z <= 0) {
+            star.z = 1000;
+            star.x = (Math.random() - 0.5) * 2000;
+            star.y = (Math.random() - 0.5) * 2000;
+          }
         }
 
         const scale = 400 / star.z;
@@ -86,8 +98,16 @@ export default function StarfieldBackground() {
           ctx.fill();
         }
       }
+    };
 
-      animId = requestAnimationFrame(draw);
+    const draw = () => {
+      if (paused) return;
+      const mx = mouseRef.current.x * 30;
+      const my = mouseRef.current.y * 30;
+      drawFrame(mx, my);
+      if (!reduceMotion) {
+        animId = requestAnimationFrame(draw);
+      }
     };
     draw();
 
@@ -95,6 +115,7 @@ export default function StarfieldBackground() {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouse);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
 

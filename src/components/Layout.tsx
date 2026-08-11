@@ -11,6 +11,7 @@ const navLinks: { to: string; label: string; external?: boolean }[] = [
   { to: "/komiksy", label: "Komiksy" },
   { to: "/start", label: "Příběh" },
   { to: "/collection", label: "Season 0" },
+  { to: "/founder", label: "Founder" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {

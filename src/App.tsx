@@ -12,6 +12,8 @@ import HowItWorks from "./pages/HowItWorks";
 import Comics from "./pages/Comics";
 import Partners from "./pages/Partners";
 import Collection from "./pages/Collection";
+import Founder from "./pages/Founder";
+import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 
 import ScrollToTop from "@/components/ScrollToTop";
@@ -35,6 +37,8 @@ const App = () => (
             <Route path="/komiksy" element={<Comics />} />
             <Route path="/partneri" element={<Partners />} />
             <Route path="/collection" element={<Collection />} />
+            <Route path="/founder" element={<Founder />} />
+            <Route path="/founder/dekujeme" element={<ThankYou />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
