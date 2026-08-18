@@ -32,6 +32,30 @@ export function packageNameToKey(packageName) {
 }
 
 /**
+ * Per-balíčkový offset pro limitované úrovně — kolik z 17 Founderů mimo Airtable
+ * (viz FOUNDER_COUNT_BASE_OFFSET, api/founder/counter.js) patří do KTERÉHO balíčku.
+ * Dokud klient nedodá rozpis (otazky-pro-tomase.md bod 5), všechny defaultují na 0 —
+ * tzn. limity (Zakladatel 1000 / Tvůrce 500 / Strážce 100) se pořád počítají čistě
+ * z Airtable, stejně jako dřív. Jakmile rozpis dorazí, vyplň odpovídající env
+ * proměnné ve Vercelu (žádná změna kódu není potřeba).
+ *
+ * Součet těchto offsetů nemusí sedět na FOUNDER_COUNT_BASE_OFFSET (ten pokrývá i
+ * neomezené balíčky Podporovatel/První hráč, kde na limitu nezáleží).
+ */
+const PACKAGE_OFFSET_ENV_MAP = {
+  supporter: "FOUNDER_COUNT_OFFSET_SUPPORTER",
+  first_player: "FOUNDER_COUNT_OFFSET_FIRST_PLAYER",
+  founder_tier: "FOUNDER_COUNT_OFFSET_FOUNDER_TIER",
+  creator: "FOUNDER_COUNT_OFFSET_CREATOR",
+  guardian: "FOUNDER_COUNT_OFFSET_GUARDIAN",
+};
+
+export function getPackageCountOffset(packageKey) {
+  const envName = PACKAGE_OFFSET_ENV_MAP[packageKey];
+  return envName ? Number(process.env[envName] ?? 0) : 0;
+}
+
+/**
  * Nároky (Benefit Type) podle balíčku — jen ty, co jsou vlastní dané úrovni
  * (kumulace se řeší v aplikační logice, ne opakováním v tomto seznamu).
  * Viz docs/founder-membership/airtable-schema.md pro plné ihned/později mapování.

@@ -3,6 +3,7 @@ import FounderHero from "@/components/founder/FounderHero";
 import FounderPersonalOpening from "@/components/founder/FounderPersonalOpening";
 import FounderGameBirth from "@/components/founder/FounderGameBirth";
 import FounderProduct from "@/components/founder/FounderProduct";
+import FounderAppShowcase from "@/components/founder/FounderAppShowcase";
 import FounderStatus from "@/components/founder/FounderStatus";
 import FounderWhy from "@/components/founder/FounderWhy";
 import FounderImpact from "@/components/founder/FounderImpact";
@@ -32,6 +33,7 @@ export default function Founder() {
       <FounderGameBirth />
       <div className="hud-line" />
       <FounderProduct />
+      <FounderAppShowcase />
       <div className="hud-line" />
       <FounderStatus />
       <div className="hud-line" />

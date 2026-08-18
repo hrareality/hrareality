@@ -37,6 +37,18 @@ AIRTABLE_TABLE_ENTITLEMENTS=ENTITLEMENTS
 FOUNDER_TOKEN_SECRET=         # náhodný 32+ byte string, pro podpis JWT děkovací stránky
 MAKE_WEBHOOK_URL_PAYMENT=     # scénář č.1 trigger
 MAKE_WEBHOOK_URL_DISCORD_FORM=  # scénář č.2 trigger
+
+FOUNDER_COUNT_BASE_OFFSET=17  # volitelné, default 17 — viz otazky-pro-tomase.md bod 5.
+                               # Kolik Founderů existuje mimo Airtable, připočte se k veřejně
+                               # zobrazenému číslu (Hero + Sekce 10). Neovlivňuje limity balíčků.
+
+# Rozpis 17 Founderů po balíčcích — potvrzeno klientem 13. 8. 2026 (otazky-pro-tomase.md
+# bod 5): všech 17 mělo balíček za 1999 Kč (Tvůrce Season 0). Ovlivňuje LIMITY
+# (Zakladatel/Tvůrce/Strážce), viz getPackageCountOffset() v api/_lib/founder-packages.js.
+# Nemusí sedět na 17 dohromady (netýká se neomezených Podporovatel/První hráč).
+FOUNDER_COUNT_OFFSET_FOUNDER_TIER=0   # Zakladatel Season 0 (limit 1000)
+FOUNDER_COUNT_OFFSET_CREATOR=17       # Tvůrce Season 0 (limit 500)
+FOUNDER_COUNT_OFFSET_GUARDIAN=0       # Strážce Season 0 (limit 100 — nejcitlivější)
 ```
 
 ## 3. Checkout endpoint — `api/founder/create-checkout-session.js`

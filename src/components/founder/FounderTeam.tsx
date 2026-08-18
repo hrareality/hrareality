@@ -22,7 +22,7 @@ export default function FounderTeam() {
             <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
               <p>Ahoj, jmenuji se Tomáš.</p>
               <p>Přes 18 let se pohybuji v online prostředí. Za tu dobu jsem sledoval, jak se internet proměnil — z místa, kde člověk mohl cokoliv vytvořit, na místo, které stále sofistikovaněji soutěží o jeho čas a pozornost.</p>
-              <p>iWau Hra Reality vznikla díky jednoduché otázce: co kdyby technologie fungovala obráceně? Ne aby člověka držela u displeje co nejdéle, ale aby ho poslala zpátky do jeho skutečného života — s konkrétním krokem, který by jinak ani neudělal.</p>
+              <p>iWau Hra Reality vznikla díky jednoduché otázce: Co kdyby technologie fungovala obráceně? Ne aby člověka držela u displeje co nejdéle, ale aby ho poslala zpátky do jeho skutečného života — s konkrétním krokem, který by jinak ani neudělal.</p>
               <p>Právě na tom pracuji společně s týmem lidí, kteří pokrývají produkt, vývoj, design, komunitu, obsah, provoz a celý herní svět.</p>
             </div>
           </div>

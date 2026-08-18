@@ -17,7 +17,7 @@ export default function FounderPersonalOpening() {
             <p>Čím víc sledujeme, tím míň jednáme. Ne proto, že bychom nechtěli, ale proto, že nikdo dosud nevytvořil prostředí, které by nás přirozeně dovedlo od znalosti přímo k akci.</p>
             <p>A právě proto vzniká iWau Hra Reality.</p>
           </div>
-          <div className="mt-8 p-6 glass-card border-primary/30">
+          <div className="mt-8 p-6 glass-card border-primary/30 text-center">
             <p className="text-xl font-display font-medium text-primary">
               Co kdyby technologie neodměňovala čas strávený sledováním, ale to, co člověk skutečně udělá ve svém reálném životě?
             </p>

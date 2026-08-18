@@ -21,12 +21,14 @@ export default function FounderWhy() {
               <strong>Founder Membership není investice.</strong> Zakoupením nezískáváš podíl ve společnosti, nárok na zisk ani garanci finančního zhodnocení. Získáváš konkrétní Founder balíček a výhody odpovídající zvolené úrovni.
             </p>
           </div>
-          <button
-            onClick={() => scrollToId("balicky")}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-display font-bold text-sm rounded-xl pulse-glow hover:brightness-110 transition-all min-h-[44px]"
-          >
-            Chci být součástí první generace →
-          </button>
+          <div className="flex justify-center">
+            <button
+              onClick={() => scrollToId("balicky")}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-display font-bold text-sm rounded-xl pulse-glow hover:brightness-110 transition-all min-h-[44px]"
+            >
+              Chci být součástí první generace →
+            </button>
+          </div>
         </FadeIn>
       </div>
     </section>

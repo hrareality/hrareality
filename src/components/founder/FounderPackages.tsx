@@ -21,9 +21,26 @@ interface PackageCopy {
   limitNote?: string;
   identity: string;
   description: string;
-  contents: string;
+  /** Starší plochý formát (název + čárkou oddělené položky) — používá se, dokud balíček nemá `benefits`. */
+  contents?: string;
+  /**
+   * Nový strukturovaný formát benefitů (název + vlastní popisek u každé položky) —
+   * viz Landing Page Texty-6, mockupy jednotlivých balíčků. Má přednost před `contents`,
+   * pokud je vyplněný. Zdrojem textu jsou přímo klientem dodané obrázky balíčků
+   * (na rozdíl od dřívějšího kola — Texty-5 — kde se text z obrázků NEpřebíral,
+   * viz historie public/founder/packages/README.md).
+   */
+  benefits?: { title: string; desc: string }[];
+  /** Text vedle ceny — default "Jednorázově". Přepiš, pokud obrázek balíčku uvádí jinou informaci (např. časové omezení nabídky). */
+  priceNote?: string;
   cta: string;
   microtext: string;
+  /**
+   * Volitelná ilustrace postavy pro balíček (viz public/founder/packages/README.md).
+   * Dokud pole chybí, karta zůstává v současné čistě textové podobě — žádný jiný
+   * zásah v kódu není potřeba, jakmile soubory dorazí, stačí sem doplnit cestu.
+   */
+  image?: string;
 }
 
 const PACKAGES: PackageCopy[] = [
@@ -31,9 +48,16 @@ const PACKAGES: PackageCopy[] = [
     key: "supporter",
     name: "Podporovatel Season 0",
     price: 149,
-    identity: "Chci být u začátku.",
+    image: "/founder/packages/supporter.webp",
+    identity: "Dává mi to smysl. Chci pomoct, aby to vzniklo.",
     description: `Jednoduchý způsob, jak říct — "věřím tomu, co stavíte". Tvoje jméno se zapíše mezi Foundery Season 0 — a to je víc, než by se na první pohled mohlo zdát.`,
-    contents: `Founder badge, jméno v Knize Zakladatelů, Discord role "Podporovatel Season 0", poděkování`,
+    priceNote: "Do ukončení Season 0",
+    benefits: [
+      { title: "Origin Badge – Founder Season 1", desc: "Automaticky se zapíše po platbě do tvého alba k dalším artefaktům." },
+      { title: "Jméno v Knize Zakladatelů", desc: "Jméno nebo značka zapsané mezi lidmi, kteří projekt podpořili během Season 0." },
+      { title: `Discord role "Podporovatel Season 0"`, desc: "Exkluzivní role na Discordu." },
+      { title: "Poděkování", desc: "Speciální e-mail zpráva s poděkováním ihned po nákupu." },
+    ],
     cta: "Stát se Podporovatelem",
     microtext: "Jednorázová platba. Nejedná se o investici ani pravidelné předplatné.",
   },
@@ -41,9 +65,18 @@ const PACKAGES: PackageCopy[] = [
     key: "first_player",
     name: "První hráč Season 0",
     price: 499,
-    identity: "Chci být mezi prvními, kdo vstoupí do hry.",
+    image: "/founder/packages/first-player.webp",
+    identity: "Chci být mezi prvními, kteří budou hrát.",
     description: "Pro ty, kdo nechtějí pouze podpořit, ale být uvnitř. Přednostní přístup k Season 1 (MVP1), vlastní Founder Card a místo v první generaci hráčů.",
-    contents: `Vše z úrovně Podporovatel a navíc: přednostní vstup do Season 1 (MVP1), digitální Founder Card, Discord role "První hráč Season 0", Founder číslo, přístup do Inner Circle`,
+    priceNote: "Do ukončení Season 0",
+    benefits: [
+      { title: "Vše z předchozí úrovně", desc: "Získáváš vše z úrovně Podporovatel Season 0." },
+      { title: "Přednostní vstup do Season 1 (MVP1)", desc: "Získáš přednostní vstup do Season 1 a jejího testování." },
+      { title: "Digitální Founder Collection Card", desc: "Speciální founder karta v digitální podobě do tvého alba artefaktů iWau Hry Reality." },
+      { title: "Season 1 Player Pack", desc: "Vstupní Mystery Box v Season 1 pouze pro foundery." },
+      { title: "Founder číslo", desc: "Unikátní Founder číslo, které podpoří tvůj status ve hře." },
+      { title: "Přístup do Inner Circle", desc: "Přístup do soukromé komunity na Telegramu." },
+    ],
     cta: "Stát se Prvním hráčem",
     microtext: "Přístup do testování může být kapacitně omezený a nemusí být aktivován všem Founderům současně.",
   },
@@ -51,10 +84,23 @@ const PACKAGES: PackageCopy[] = [
     key: "founder_tier",
     name: "Zakladatel Season 0",
     price: 999,
+    image: "/founder/packages/founder-tier.webp",
+    badge: { label: "Nejoblíbenější", tone: "recommended" },
     limitNote: "Limit 1 000 Zakladatelů",
-    identity: "Chci skutečně podpořit vývoj.",
+    identity: "Chci být u první Season naplno.",
     description: "Plná Founder úroveň pro člověka, který chce být viditelnou součástí první generace. Premium po spuštění Season 1, priorita při testování a přímý přístup k aktualizacím celého vývoje.",
-    contents: `Vše z úrovně První Hráč a navíc: 12 měsíců Premium po spuštění Season 1 (MVP1), přístup do uzavřeného update kanálu, Discord role "Zakladatel Season 0", digitální Founder certifikát, priorita při beta testování`,
+    priceNote: "1 000 Zakladatelů",
+    benefits: [
+      { title: "Vše z předchozích úrovní", desc: "Získáváš vše z předchozích balíčků." },
+      { title: "12 měsíců Premium", desc: "Po spuštění MVP1 získáš 12 měsíců Premium Pass iWau Hry Reality." },
+      { title: "Přístup do uzavřeného vývojového deníku", desc: "Okamžitý přístup do #founders kanálu na Discordu." },
+      { title: "Kronika vzniku", desc: "Neveřejný PDF artefakt vzniku iWau Hry Reality." },
+      { title: "Digitální Founder certifikát", desc: "Unikátní certifikát s tvým jménem a číslem Foundera." },
+      { title: "Inner Circle", desc: "Přístup do soukromé komunity na Instagramu." },
+      { title: "Exkluzivní přednosti", desc: "Buď u všeho jako první. Ovlivni budoucnost hry." },
+      { title: "Omezená edice", desc: "Pouze do spuštění Season 1 (MVP1)." },
+      { title: "Trvalá hodnota", desc: "Tvé místo v historii iWau Hry Reality." },
+    ],
     cta: "Stát se Zakladatelem",
     microtext: "Premium začne běžet až po spuštění příslušné Premium vrstvy Season 1. Founder hlasování jsou poradní a nezakládají nárok na rozhodovací kontrolu nad projektem.",
   },
@@ -62,11 +108,23 @@ const PACKAGES: PackageCopy[] = [
     key: "creator",
     name: "Tvůrce Season 0",
     price: 1999,
-    badge: { label: "Doporučená Founder úroveň", tone: "recommended" },
+    image: "/founder/packages/creator.webp",
     limitNote: "500 Founderů",
-    identity: "Chci pomoct formovat hru.",
+    identity: "Chci pomoci určovat podobu iWau Hry Reality.",
     description: "Pro lidi, kteří chtějí víc než jen sledovat vývoj — chtějí se na něm aktivně podílet. Zpětná vazba, hlasování o klíčových rozhodnutích a místo u prvního eventu.",
-    contents: `Vše z úrovně Zakladatel a navíc: přístup do #founder-council na Discordu, hlasování o vybraných rozhodnutích MVP1, dvě vstupenky na první event, celý set artefaktů Season 0, Discord role "Tvůrce Season 0", priorita při beta testování`,
+    priceNote: "500 Tvůrců",
+    benefits: [
+      { title: "Vše z předchozích úrovní", desc: "Získáváš vše z předchozích balíčků." },
+      { title: "Přístup do #founder-council roomky", desc: "Exkluzivní skupina, kterou budeme zapojovat do vybraných produktových rozhodnutí." },
+      { title: "Hlasování u vybraných rozhodnutích", desc: "Dostaneš možnost ovlivňovat a hlasovat o klíčových rozhodnutích a směřování iWau Hry Reality." },
+      { title: "Dvě vstupenky na event", desc: "2 vstupy na první způsobilý Founder event iWau Hry Reality podle kapacity a podmínek eventu." },
+      { title: "Celý set artefaktů Season 0", desc: "Získáš kompletní digitální set artefaktů Season 0 do svého alba." },
+      { title: "Inner Circle", desc: "Přístup k dalším možnostem mimo hru." },
+      { title: "Společné rozhodování", desc: "Pomáhej utvářet budoucnost iWau Hry Reality." },
+      { title: "Exkluzivní zážitky", desc: "Dvě vstupenky na první oficiální event." },
+      { title: "Kompletní artefakty", desc: "Získej celý set digitálních artefaktů Season 0." },
+      { title: "Founder status", desc: "Jsi zapsán/a nesmazatelným písmem do iWau Hry Reality." },
+    ],
     cta: "Stát se Tvůrcem",
     microtext: "Founder Council je poradní komunitní prostor. Účast na událostech může být podmíněna registrací, kapacitou, lokalitou a organizačními pravidly.",
   },
@@ -74,11 +132,24 @@ const PACKAGES: PackageCopy[] = [
     key: "guardian",
     name: "Strážce Season 0",
     price: 4999,
+    image: "/founder/packages/guardian.webp",
     badge: { label: "Limitovaná úroveň", tone: "limited" },
     limitNote: "Pouze 100 Strážců",
-    identity: "Chci být jedním z pilířů, na kterých to celé stojí.",
+    identity: "Chci zanechat výraznější stopu.",
     description: "Nejvyšší Founder úroveň. Pouze 100 míst. Founder Set, VIP přístup na první event, jméno v komiksech a zvýrazněná pozice v Knize Zakladatelů. Po Season 0 navždy nedostupné.",
-    contents: `Vše z úrovně Tvůrce a navíc: VIP přístup na první event, Founder Set, zvýrazněné jméno v Knize Zakladatelů, jméno/logo v digitální verzi komiksu, Discord role "Strážce Season 0"`,
+    priceNote: "100 Strážců",
+    benefits: [
+      { title: "Vše z předchozích úrovní", desc: "Získáváš vše z předchozích balíčků." },
+      { title: "VIP přístup na první event", desc: "Získáváš VIP přístup na první oficiální event iWau Hry Reality." },
+      { title: "Origin Founder Set Season 0", desc: "Limitovaný set s překvapením pro každého strážce." },
+      { title: "Founder Session", desc: "Uzavřený online call s týmem před spuštěním Season 1 (MVP1)." },
+      { title: "Komiks credit", desc: `Tvé jméno, přezdívka nebo značka zapsaná do digitální verze komiksů „Probuď v sobě hráče“ a „Dr. Wetom: Kód naděje“.` },
+      { title: "Inner Circle", desc: "Další know-how do tvé hry zvané život." },
+      { title: "Společné rozhodování", desc: "I tvé rozhodnutí může ovlivnit směr hry." },
+      { title: "Exkluzivní zážitky", desc: "VIP přístup na event a speciální odměny." },
+      { title: "Kompletní artefakty", desc: "Tvá sbírka bude kompletní." },
+      { title: "Legendární status", desc: "Zvýrazněné jméno v Knize Zakladatelů." },
+    ],
     cta: "Stát se Strážcem",
     microtext: "Počet Strážců je omezen na 100. Fyzické předměty budou odesílány samostatně podle výrobního a doručovacího harmonogramu. Doprava, dostupnost zemí a případné doplatky musí být uvedeny před dokončením objednávky.",
   },
@@ -99,19 +170,49 @@ function parsePackageContents(contents: string): { intro: string | null; items: 
   };
 }
 
-function PackageContentsList({ contents }: { contents: string }) {
-  const { intro, items } = parsePackageContents(contents);
+/**
+ * Benefity jsou dominantní prvek karty (viz klientský feedback: "musí to být
+ * víc přehledné, dominantní by měly být body, co za to Founder získá, ne popis
+ * balíčku"). Pokud balíček má `benefits` (nový strukturovaný formát s popiskem
+ * u každé položky, viz Texty-6), použije se ten — jinak fallback na starší
+ * plochý `contents` řetězec, dokud daný balíček nemá vlastní obrázek/text.
+ */
+function PackageContentsList({ pkg }: { pkg: PackageCopy }) {
   return (
-    <div className="mb-4 border-t border-border/30 pt-4">
-      {intro && <p className="text-xs text-foreground/60 mb-2">{intro}</p>}
-      <ul className="space-y-1.5">
-        {items.map((item) => (
-          <li key={item} className="flex items-start gap-2 text-xs text-foreground/80">
-            <Check size={13} className="text-primary shrink-0 mt-0.5" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+    <div className="mb-4">
+      <p className="text-[11px] uppercase tracking-widest text-primary font-display font-bold mb-2.5">
+        Co jako Founder získáš
+      </p>
+      {pkg.benefits ? (
+        <ul className="space-y-3">
+          {pkg.benefits.map((b) => (
+            <li key={b.title} className="flex items-start gap-2">
+              <Check size={16} className="text-primary shrink-0 mt-0.5" strokeWidth={2.5} />
+              <div>
+                <p className="text-sm font-semibold text-foreground/90 leading-snug">{b.title}</p>
+                <p className="text-xs text-muted-foreground/80 leading-snug mt-0.5">{b.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        (() => {
+          const { intro, items } = parsePackageContents(pkg.contents ?? "");
+          return (
+            <>
+              {intro && <p className="text-xs text-foreground/60 mb-2">{intro}</p>}
+              <ul className="space-y-2">
+                {items.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-foreground/90 leading-snug">
+                    <Check size={16} className="text-primary shrink-0 mt-0.5" strokeWidth={2.5} />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          );
+        })()
+      )}
     </div>
   );
 }
@@ -171,7 +272,10 @@ export default function FounderPackages() {
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 mb-10 items-start">
+        {/* items-stretch (ne items-start) — karty musí mít stejnou výšku v řádku,
+            jinak tlačítka "Stát se..." nejsou zarovnaná na stejné úrovni napříč
+            balíčky (klientský feedback: dát tlačítka "do jedné roviny"). */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 mb-10 items-stretch">
           {PACKAGES.map((pkg, i) => (
             <FadeIn key={pkg.key} delay={i * 0.07} className="h-full">
               <div
@@ -195,19 +299,28 @@ export default function FounderPackages() {
                 <h3 className="font-display font-bold text-lg mb-1">{pkg.name}</h3>
                 <p className="text-sm text-primary italic mb-3">„{pkg.identity}“</p>
                 <p className="text-2xl font-display font-bold mb-1">{pkg.price.toLocaleString("cs-CZ")} Kč</p>
-                <p className="text-xs text-muted-foreground mb-4">Jednorázově</p>
+                <p className="text-xs text-muted-foreground mb-4">{pkg.priceNote ?? "Jednorázově"}</p>
                 {pkg.limitNote && (
                   <p className="text-xs font-semibold text-accent mb-3">{pkg.limitNote}</p>
                 )}
-                <p className="text-sm text-muted-foreground mb-4 flex-1">{pkg.description}</p>
-                <PackageContentsList contents={pkg.contents} />
-                <button
-                  onClick={() => openCheckout(pkg)}
-                  className="w-full inline-flex items-center justify-center px-4 py-3 bg-primary text-primary-foreground font-display font-bold text-sm rounded-xl hover:brightness-110 transition-all mb-3 min-h-[44px]"
-                >
-                  {pkg.cta}
-                </button>
-                <p className="text-[11px] text-muted-foreground leading-relaxed">{pkg.microtext}</p>
+
+                {/* Benefity — dominantní prvek karty */}
+                <div className="border-t border-primary/20 pt-4">
+                  <PackageContentsList pkg={pkg} />
+                </div>
+
+                {/* Popis balíčku — teď doplňkový, menší a tišší než benefity */}
+                <p className="text-xs text-muted-foreground/80 leading-relaxed mb-5">{pkg.description}</p>
+
+                <div className="mt-auto">
+                  <button
+                    onClick={() => openCheckout(pkg)}
+                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-primary text-primary-foreground font-display font-bold text-sm rounded-xl hover:brightness-110 transition-all mb-3 min-h-[44px]"
+                  >
+                    {pkg.cta}
+                  </button>
+                  <p className="text-[11px] text-muted-foreground leading-relaxed">{pkg.microtext}</p>
+                </div>
               </div>
             </FadeIn>
           ))}

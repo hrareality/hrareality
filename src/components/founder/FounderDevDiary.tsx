@@ -7,7 +7,7 @@ const timeline = [
   { status: "HOTOVO", title: "Discord komunita běží", desc: "Vzniklo místo pro první hráče, mise a testování." },
   { status: "HOTOVO", title: "Svět a postavy jsou ready", desc: "První příběhové vrstvy a charaktery Hry Reality už jsou na svých místech." },
   { status: "PROBÍHÁ", title: "Season 1 (MVP1) ve vývoji", desc: "Stavíme první hratelnou digitální verzi." },
-  { status: "NÁSLEDUJE", title: "Uzavřené testování", desc: "Vybraní Founderi a hráči otestují hlavní flow." },
+  { status: "NÁSLEDUJE", title: "Uzavřené testování", desc: "Vybraní Foundeři a hráči otestují hlavní flow." },
   { status: "NÁSLEDUJE", title: "Veřejné spuštění", desc: "Po testování a opravách otevřeme Season 1 pro všechny." },
 ];
 

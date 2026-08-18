@@ -87,7 +87,7 @@ export default function FounderStatus() {
             <div className="flex justify-center mb-4 text-sm">
               <div>
                 <p className="text-muted-foreground text-xs mb-1">Plánované spuštění</p>
-                <p className="font-medium">7. 9. 2026</p>
+                <p className="font-medium">Říjen 2026</p>
               </div>
             </div>
             <p className="text-xs text-muted-foreground mb-6">

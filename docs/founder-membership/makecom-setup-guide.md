@@ -127,10 +127,32 @@ Tři prázdné Email moduly čekají na obsah — dva potvrzovací (jeden pro no
 **Prázdný modul pro tohle už je v scénáři přidaný — hned za webhookem, před Routerem** (jediný Email modul, co NENÍ uvnitř žádné větve).
 
 1. Otevři ten Email modul (**Send an Email**, stejné připojení jako u ostatních).
-2. **To:** e-maily Tomáše a Vítka (napiš ručně, oddělené čárkou).
+2. **To:** `hrareality@gmail.com, kosatomas123@gmail.com` (potvrzeno v Landing Page Texty-6 — "přijde na email hrareality@gmail.com a kosatomas123@gmail.com potvrzení o objednávce"; pokud má jít i na Vítka, doplň jeho adresu do stejného pole, oddělené čárkou).
 3. **Subject:** `Nový Founder #{{founderNumber}} — {{package}}` (klikni do pole a slož si to z textu + proměnných).
 4. **Content:** krátce — balíček, cena, e-mail, isUpgrade ano/ne.
 5. **Send.**
+
+### 1.6b Google Sheets — záznam každé platby (potvrzeno, Landing Page Texty-6)
+
+Klient potvrdil, že kromě Airtable chce **i** samostatný Google Sheet s přehledem plateb. Přidej to jako druhou větev hned vedle interního e-mailu (kroku 1.6) — obě mají běžet při **každé** platbě, ne jen u jedné z nich.
+
+1. Klikni na malé **+** přímo na spojovací čáře **za Webhookem, před interním Email modulem** (krok 1.6) — vytvoří se druhá paralelní větev.
+2. Vyhledej **Google Sheets** → zvol **Add a Row**.
+3. Pokud ještě nemáš připojení: **Add a connection** → přihlas se Google účtem, kam se má Sheet ukládat → autorizuj přístup k Sheets.
+4. **Spreadsheet:** vyber existující (pošli mi odkaz, ať ho založím předem se správnými hlavičkami sloupců), nebo v Make.com vytvoř nový a hlavičkový řádek přidej ručně.
+5. **Sheet (tab):** např. `Platby`.
+6. **Doporučené sloupce → mapování z webhook dat:**
+   - `Datum` ← `purchaseDate`
+   - `Founder číslo` ← `founderNumber`
+   - `Jméno` ← `firstName`
+   - `E-mail` ← `email`
+   - `Balíček` ← `package`
+   - `Cena` ← `pricePaid`
+   - `Upgrade?` ← `isUpgrade`
+   - `Objednávka č.` ← `orderNumber`
+7. **Send.**
+
+> Založ hlavičkový řádek v Sheetu **před** prvním testem (Add a Row v Google Sheets modulu čeká na existující sloupce podle názvu, jinak si je pojmenuje `A`, `B`, `C`...). Než mi pošleš odkaz na Sheet, tenhle krok nech rozpracovaný — zbytek scénáře 1 na něm nezávisí.
 
 ### 1.7 (Volitelné, pokročilé) Discord role hned při nákupu
 

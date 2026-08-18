@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "Kdy se spustí MVP1?",
-    a: "Plánované spuštění je 7. 9. 2026. Pracujeme na tom, aby to vyšlo, ale vývoj softwaru přináší proměnné, které nemůžeme stoprocentně kontrolovat. Z toho důvodu uvádíme tento termín jako plán, ne jako slib. Foundery budeme o případných změnách informovat.",
+    a: "Plánované spuštění je říjen 2026. Pracujeme na tom, aby to vyšlo, ale vývoj softwaru přináší proměnné, které nemůžeme stoprocentně kontrolovat. Z toho důvodu uvádíme tento termín jako plán, ne jako slib. Foundery budeme o případných změnách informovat.",
   },
   {
     q: "A co když se to zdrží?",

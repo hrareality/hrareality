@@ -6,7 +6,7 @@
  */
 import { getStripeClient, getPriceIdForPackageKey } from "../_lib/stripe-client.js";
 import { findFounderByEmail, countConfirmedByPackage } from "../_lib/airtable.js";
-import { getPackageDefinition, packageRank, packageNameToKey } from "../_lib/founder-packages.js";
+import { getPackageDefinition, packageRank, packageNameToKey, getPackageCountOffset } from "../_lib/founder-packages.js";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -32,9 +32,12 @@ export default async function handler(req, res) {
     }
 
     // 1. Limit check (viz airtable-schema.md — limity mimo "neomezeně")
+    // + offset za Foundery mimo Airtable v tomhle balíčku (0, dokud klient nedodá
+    //   rozpis — viz otazky-pro-tomase.md bod 5 a getPackageCountOffset()).
     if (packageDef.limit !== null) {
       const confirmedCount = await countConfirmedByPackage(packageDef.name);
-      if (confirmedCount >= packageDef.limit) {
+      const offsetCount = getPackageCountOffset(packageKey);
+      if (confirmedCount + offsetCount >= packageDef.limit) {
         return res.status(409).json({ error: "sold_out", message: "Tato úroveň je bohužel vyprodaná." });
       }
     }

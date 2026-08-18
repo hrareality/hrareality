@@ -135,7 +135,7 @@ Co ale můžu udělat, je otevřeně ukázat, kde přesně jsme. Co reálně exi
 **Statusový box:**
 - Aktuální fáze: Season 1 (MVP1) ve vývoji
 - Poslední aktualizace: `[DATUM POSLEDNÍ AKTUALIZACE]`
-- Plánované spuštění: `7. 9. 2026`
+- Plánované spuštění: `říjen 2026` *(aktualizováno 13. 8. 2026, dřív 7. 9. 2026)*
 
 **Mikrotext:** Plánovaný termín není právně garantovaným datem spuštění. Během vývoje může dojít k jeho posunu. O zásadních změnách budeme Foundery průběžně informovat.
 
@@ -301,7 +301,7 @@ Cílem Season 0 je vytvořit první generaci 1 000 Founderů. Ne jako číslo na
 - ✅ HOTOVO — Discord komunita běží: Vzniklo místo pro první hráče, mise a testování.
 - ✅ HOTOVO — Svět a postavy jsou ready: První příběhové vrstvy a charaktery Hry Reality už jsou na svých místech.
 - 🔄 PROBÍHÁ — Season 1 (MVP1) ve vývoji: Stavíme první hratelnou digitální verzi.
-- ⏭ NÁSLEDUJE — Uzavřené testování: Vybraní Founderi a hráči otestují hlavní flow.
+- ⏭ NÁSLEDUJE — Uzavřené testování: Vybraní Foundeři a hráči otestují hlavní flow. *(oprava 12. 8. 2026, viz Sekce 15)*
 - ⏭ NÁSLEDUJE — Veřejné spuštění: Po testování a opravách otevřeme Season 1 pro všechny.
 
 **CTA:** Stát se Founderem
@@ -343,10 +343,10 @@ Tímto krokem se stáváš nesmazatelnou součástí iWau Hry Reality a pokud us
 
 ## Sekce 15 — Krátké výpovědi Founderů
 
-**H1:** Proč se přidali první Founderi?
+**H1:** Proč se přidali první Foundeři? *(oprava 12. 8. 2026 — klient potvrdil "Founderi" → "Foundeři", stejná oprava i v `FounderDevDiary.tsx`)*
 **Úvodní text:** Žádné anonymní recenze ani vymyšlené citáty. Skutečné důvody reálných lidí, kteří se rozhodli být u samého začátku.
 
-*(Žádné konkrétní citace/screeny nejsou v dodaném souboru — obsah pořád chybí, viz otevřená otázka.)*
+*(První reálná reference doplněna 12. 8. 2026 — David Chvojka, viz `FounderTestimonials.tsx`.)*
 
 ---
 
@@ -357,7 +357,7 @@ Tímto krokem se stáváš nesmazatelnou součástí iWau Hry Reality a pokud us
 
 1. **Co je Founder Membership?** Jednorázový balíček, kterým podpoříš vznik první hratelné verze iWau Hry Reality. Vybereš si úroveň, jednou zaplatíš a získáš konkrétní Founder výhody — digitální, komunitní nebo fyzické dle zvoleného balíčku. Žádné měsíční platby.
 2. **Je to investice?** Rozhodně ne. Nekupuješ podíl ve firmě a ani nárok na zisk. Kupuješ konkrétní balíček s jasně definovanými výhodami — nic víc, nic míň.
-3. **Kdy se spustí MVP1?** Plánované spuštění je 7. 9. 2026. Pracujeme na tom, aby to vyšlo, ale vývoj softwaru přináší proměnné, které nemůžeme stoprocentně kontrolovat. Z toho důvodu uvádíme tento termín jako plán, ne jako slib. Foundery budeme o případných změnách informovat.
+3. **Kdy se spustí MVP1?** Plánované spuštění je říjen 2026. Pracujeme na tom, aby to vyšlo, ale vývoj softwaru přináší proměnné, které nemůžeme stoprocentně kontrolovat. Z toho důvodu uvádíme tento termín jako plán, ne jako slib. Foundery budeme o případných změnách informovat.
 4. **A co když se to zdrží?** Řekneme to, otevřeně a včas. Harmonogram se může měnit podle vývoje projektu. Práva zákazníka podle platných předpisů tím nejsou dotčena.
 5. **Musím být na Discordu?** Ne, ale v Season 0 se většina dění odehrává právě tam — aktualizace, komunita, průběžné výhody. Pokud chceš být blízko vývoji, Discord je to správné místo.
 6. **Co se stane, když zaplatím?** Dostaneš potvrzovací e-mail, vytvoříme ti Founder záznam s tvým číslem, aktivujeme dostupné výhody a pošleme instrukce, co dál. Nepřišel ti e-mail? Zkontroluj spam, pak napiš na podporu: hrareality@gmail.com
