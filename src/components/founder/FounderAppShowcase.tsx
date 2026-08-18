@@ -16,11 +16,11 @@ import FadeIn from "@/components/FadeIn";
  * s přesně tímhle názvem (viz README.md tamtéž) — v kódu není nic potřeba měnit.
  */
 const SCREENS: { image?: string; title: string; desc: string }[] = [
-  { image: "/founder/app/dashboard.webp", title: "Denní přehled", desc: "XP, série a další krok" },
-  { image: "/founder/app/interrupt.webp", title: "Zásah do reality", desc: "Moment, kdy hra promluví do tvého dne" },
-  { image: "/founder/app/feed.webp", title: "Feed komunity", desc: "Vidíš, co právě dělají ostatní" },
-  { image: "/founder/app/share-card.webp", title: "Sdílej úspěch", desc: "Ukaž svůj postup dál" },
-  { image: "/founder/app/roadmap.webp", title: "Mapa cesty", desc: "Tvoje trasa Season 0" },
+  { image: "/founder/app/dashboard.webp", title: "Denní přehled", desc: "Tvůj dnešní krok ve Hře Reality. XP, mise, progres a dění komunity na jednom místě." },
+  { image: "/founder/app/interrupt.webp", title: "Zásah do reality", desc: "Příběh tě pošle něco skutečně udělat. Krátké momenty propojují svět hry s reálným životem." },
+  { image: "/founder/app/feed.webp", title: "Feed hry", desc: "Místo, kde je vidět akce, ne dokonalost. Sleduj, co ostatní hráči skutečně udělali." },
+  { image: "/founder/app/share-card.webp", title: "Share Card", desc: "Proměň svou akci v herní moment. Sdílej progres a pošli výzvu dál." },
+  { image: "/founder/app/roadmap.webp", title: "Mapa cesty", desc: "Vidíš, kde právě jsi a co tě čeká dál. Postupuj uzly Seasons a postupně odemykej další části hry." },
 ];
 
 // Jemný, nesynchronní pohyb (každý telefon plave jinak rychle/s jiným zpožděním)
@@ -45,13 +45,22 @@ export default function FounderAppShowcase() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full bg-primary/5 blur-[140px]" aria-hidden />
       <div className="section-container relative">
         <FadeIn>
-          <p className="text-xs uppercase tracking-widest text-primary mb-3 font-display text-center">Nahlédni dovnitř</p>
+          <p className="text-xs uppercase tracking-widest text-primary mb-3 font-display text-center">Nahlédni do vývoje</p>
           <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4 text-center">
-            Takhle to vypadá <span className="neon-text">v appce</span>.
+            Tohle už není jen nápad. Hra právě vzniká.
           </h2>
-          <p className="max-w-2xl mx-auto text-center text-muted-foreground text-lg mb-20">
-            Zatím rozpracované, ale živé. Žádné vizualizace z prezentace — reálné obrazovky appky, na které právě teď pracujeme.
+          <p className="max-w-2xl mx-auto text-center text-muted-foreground text-lg mb-2">
+            Tohle jsou skutečné obrazovky první verze iWau Hry Reality, na které právě pracujeme. Ne marketingový koncept ani finální design. Rozpracovaný build, který postupně měníme v první hratelnou Season 1.
           </p>
+          <p className="max-w-2xl mx-auto text-center text-sm text-primary/80 mb-10">
+            Jako Founder pomáháš dokončit právě tuhle verzi.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-20">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-500/30 bg-green-500/5 text-green-400 text-xs font-display tracking-widest">
+              🟢 MVP1 · AKTIVNĚ VE VÝVOJI
+            </span>
+            <span className="text-xs text-muted-foreground">Poslední aktualizace: srpen 2026</span>
+          </div>
         </FadeIn>
 
         {/* Jedna řada vedle sebe (ne schodovitě) — na menších šířkách, kam se
@@ -78,7 +87,7 @@ export default function FounderAppShowcase() {
                   </div>
                   <figcaption className="mt-5 text-center">
                     <p className="font-display font-bold text-sm">{s.title}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">{s.desc}</p>
+                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{s.desc}</p>
                   </figcaption>
                 </figure>
               </FadeIn>
