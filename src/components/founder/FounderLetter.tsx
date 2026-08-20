@@ -12,7 +12,7 @@ export default function FounderLetter() {
           </h2>
           <div className="space-y-4 text-muted-foreground text-lg leading-relaxed text-left mb-8">
             <p>Nevím, jak velká iWau Hra Reality jednou bude. Kolik lidí ji bude hrát za rok nebo třeba za pět let. A ani nebudu předstírat, že to vím.</p>
-            <p>Vím ale, proč ji stavíme. Digitální svět totiž nemusí člověka jen rozptylovat. Může ho vést a ukázat mu, že se nemusí posouvat jen imaginární postava na obrazovce, ale i on sám, díky stovkám malým krůčkům, které dělá v běžném životě, které by jinak neudělal.</p>
+            <p>Vím ale, proč ji stavíme. Digitální svět totiž nemusí člověka jen rozptylovat. Může ho vést a ukázat mu, že se nemusí posouvat jen imaginární postava na obrazovce, ale i on sám, díky stovkám malých krůčků, které dělá v běžném životě, které by jinak neudělal.</p>
             <p>Ještě nejsme v cíli. Jsme na samém začátku. A právě proto má Founder Membership smysl jen v tento moment.</p>
             <p>Ti, kdo přijdou později, dostanou lepší aplikaci, víc obsahu, nové funkce a větší komunitu. Ovšem, nikdy nebudou stát u první kapitoly.</p>
             <p>Pokud se rozhodneš stát Founderem, nebudeš jeden z lidí, kteří si jen něco koupili. Budeš jeden z lidí, kteří dali téhle myšlence důvěru ve chvíli, kdy se teprve měnila ve skutečnou hru.</p>

@@ -11,7 +11,7 @@ export default function FounderBook() {
           </h2>
           <div className="space-y-4 text-muted-foreground text-lg leading-relaxed text-center">
             <p>Za každým projektem stojí lidé, kteří mu dali důvěru ještě předtím, než měl co ukázat. Kniha Zakladatelů je veřejný záznam právě takových lidí — první generace iWau Hry Reality.</p>
-            <p>Jak chceš být zobrazen, je jen na tobě. Celým jménem, jako značka, přezdívkou, iniciálami, nebo třeba i anonymně.</p>
+            <p>Jak chceš být zobrazen, je jen na tobě. Celým jménem, jako značka, přezdívkou, iniciály, nebo třeba i anonymně.</p>
             <p>Tímto krokem se stáváš nesmazatelnou součástí iWau Hry Reality a pokud uspěje, můžeš jednoho dne říci, byl jsem na samém začátku a i díky mé podpoře to teď existuje.</p>
           </div>
           <p className="mt-6 text-xs text-muted-foreground text-center">

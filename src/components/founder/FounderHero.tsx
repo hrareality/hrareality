@@ -24,7 +24,7 @@ export default function FounderHero() {
               Staň se součástí <span className="neon-text">první kapitoly</span> iWau Hry Reality.
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Budujeme prostředí, který lidi přiměje jednat a růst, formou hry v reálném světě. Právě teď dokončujeme první hratelnou verzi — a otevíráme možnost být u toho jako Founder. Ne jako zákazník, ale jako člověk, který stál u úplného začátku.
+              Budujeme prostředí, které lidi přiměje jednat a růst, formou hry v reálném světě. Právě teď dokončujeme první hratelnou verzi — a otevíráme možnost být u toho jako Founder. Ne jako zákazník, ale jako člověk, který stál u úplného začátku.
             </p>
 
             {/* Tomášova promluva — zvětšeno a zvýrazněno (klientský feedback: "rozšířit,
@@ -50,7 +50,7 @@ export default function FounderHero() {
                 onClick={() => scrollToId("pribeh")}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary/50 border border-primary/20 hover:bg-secondary text-foreground font-display font-bold text-sm rounded-xl hover:border-primary/50 transition-all min-h-[44px]"
               >
-                Přečíst si příběh iWau Hrou Reality
+                Přečíst si příběh iWau Hry Reality
               </button>
             </div>
             <p className="text-xs text-muted-foreground mb-12">

@@ -19,7 +19,7 @@ export default function FounderProduct() {
             Hra, ve které neroste jen postava. <span className="neon-text">Rosteš hlavně ty.</span>
           </h2>
           <p className="max-w-2xl mx-auto text-center text-muted-foreground text-lg mb-12">
-            iWau Hra Reality spojuje několik vrstev do jednoho systému. Všechny mají společný cíl — pomoct člověku přejít od sledování k reálnému jednání.
+            iWau Hra Reality spojuje několik vrstev do jednoho systému. Všechny mají společný cíl — pomoci člověku přejít od sledování k reálnému jednání.
           </p>
         </FadeIn>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">

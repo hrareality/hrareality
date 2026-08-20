@@ -18,7 +18,7 @@ export default function FounderGameBirth() {
           </h2>
           <div className="space-y-4 text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto text-center mb-12">
             <p>iWau Hra Reality je pokus o změnu způsobu, jakým používáme digitální svět.</p>
-            <p>Nechceme postavit další aplikaci, kterou si člověk stáhne, pár dní ji zkouší a pak na ni zase zapomene. Chceme vytvořit prostředí, který člověku pomůže něco skutečně udělat, ať už třeba zlepšit své zdraví, zvýšit produktivitu, posílit vztahy, navýšit příjmy, pomoct někomu dalšímu nebo přírodě. Nebo cokoliv jiného, co právě potřebuje.</p>
+            <p>Nechceme postavit další aplikaci, kterou si člověk stáhne, pár dní ji zkouší a pak na ni zase zapomene. Chceme vytvořit prostředí, které člověku pomůže něco skutečně udělat, ať už třeba zlepšit své zdraví, zvýšit produktivitu, posílit vztahy, navýšit příjmy, pomoct někomu dalšímu nebo přírodě. Nebo cokoliv jiného, co právě potřebuje.</p>
             <p>Princip je jednoduchý. Když hráč udělá skutečný krok ve svém reálném životě, hra na to zareaguje. Získá progres, odměnu, novou část příběhu, sběratelské artefakty, XP a přístup k dalším možnostem.</p>
             <p>Digitální svět se tak nestane místem, kde člověk zůstává. Stane se nástrojem, který ho pošle zpět do jeho vlastního života.</p>
           </div>

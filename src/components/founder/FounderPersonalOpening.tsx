@@ -10,7 +10,7 @@ export default function FounderPersonalOpening() {
             Otázka, na kterou jsem několik let hledal odpověď.
           </h2>
           <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
-            <p>Máme přístup k víc informacím než kterákoliv jiná generace před námi. Každý den můžeme sledovat videa, poslouchat podcasty, číst knihy a ukládat si obsah na později. Moc dobře víme, co bychom měli dělat.</p>
+            <p>Máme přístup k více informacím než kterákoliv jiná generace před námi. Každý den můžeme sledovat videa, poslouchat podcasty, číst knihy a ukládat si obsah na později. Moc dobře víme, co bychom měli dělat.</p>
             <p>A přesto většina z nás stojí na místě.</p>
             <p>Sledujeme cizí pokroky. Koukáme se na cizí výsledky. Na chvíli nás to inspiruje — a pak přejedeme prstem k dalšímu videu. Motivace přijde a zase rychle odejde. Nic se ale nezmění.</p>
             <p>A není to o tom, že bychom byli líní nebo neschopní. Celý digitální svět kolem nás je postavený tak, aby nás držel u obrazovky co nejdéle. Odměňuje naši pozornost, ale už ne to, co s ní uděláme.</p>
