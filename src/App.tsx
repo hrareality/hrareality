@@ -14,6 +14,8 @@ import Partners from "./pages/Partners";
 import Collection from "./pages/Collection";
 import Founder from "./pages/Founder";
 import ThankYou from "./pages/ThankYou";
+import ObchodniPodminky from "./pages/ObchodniPodminky";
+import Gdpr from "./pages/Gdpr";
 import NotFound from "./pages/NotFound";
 
 import ScrollToTop from "@/components/ScrollToTop";
@@ -39,6 +41,8 @@ const App = () => (
             <Route path="/collection" element={<Collection />} />
             <Route path="/founder" element={<Founder />} />
             <Route path="/founder/dekujeme" element={<ThankYou />} />
+            <Route path="/obchodni-podminky" element={<ObchodniPodminky />} />
+            <Route path="/gdpr" element={<Gdpr />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

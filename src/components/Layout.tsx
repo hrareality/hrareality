@@ -170,6 +170,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
         </div>
+
+        {/* Právní odkazy — samostatný řádek pod hlavní patičkou, ať nesplývají
+            s hlavní navigací. Cílové stránky zatím jen placeholder (viz
+            ObchodniPodminky.tsx / Gdpr.tsx), prostor/odkaz je ale hotový. */}
+        <div className="section-container py-4 border-t border-border/20 flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <Link to="/obchodni-podminky" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+            Obchodní podmínky
+          </Link>
+          <Link to="/gdpr" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+            GDPR
+          </Link>
+        </div>
       </footer>
       <CookieConsent />
     </div>
