@@ -4,15 +4,19 @@ import { scrollToId } from "@/lib/utils";
 /**
  * Perzistentní CTA lišta pro dlouhou (18sekční) stránku Founder — ukáže se, jakmile
  * uživatel sjede pod Hero, a schová se znovu, jakmile má na obrazovce přímo balíčky
- * (#balicky), aby nedublovala CTA, které tam už je.
+ * (#balicky), aby nedublovala CTA, které tam už je. Stejně tak se schová, jakmile
+ * je vidět patička webu (#site-footer, viz Layout.tsx) — lišta je `fixed`, takže bez
+ * tohohle by ležela přes obsah patičky (klientský feedback: "překrývá to patičku").
  */
 export default function FounderStickyCTA() {
   const [pastHero, setPastHero] = useState(false);
   const [inPackages, setInPackages] = useState(false);
+  const [inFooter, setInFooter] = useState(false);
 
   useEffect(() => {
     const hero = document.getElementById("hero");
     const packages = document.getElementById("balicky");
+    const footer = document.getElementById("site-footer");
     const observers: IntersectionObserver[] = [];
 
     if (hero) {
@@ -33,10 +37,19 @@ export default function FounderStickyCTA() {
       observers.push(packagesObserver);
     }
 
+    if (footer) {
+      const footerObserver = new IntersectionObserver(
+        ([entry]) => setInFooter(entry.isIntersecting),
+        { threshold: 0 }
+      );
+      footerObserver.observe(footer);
+      observers.push(footerObserver);
+    }
+
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  const visible = pastHero && !inPackages;
+  const visible = pastHero && !inPackages && !inFooter;
 
   return (
     <div
