@@ -39,7 +39,15 @@ export default async function handler(req, res) {
     // Volitelná pole Knihy zakladatelů — zapsat jen pokud uživatel skutečně něco vybral,
     // souhlas se zobrazením se nikdy nepředzaškrtává (viz zadání 4.5).
     if (founderWallChoice) fields["Founder Wall Display Choice"] = founderWallChoice;
-    if (founderWallDisplayName) fields["Founder Wall Display Name"] = founderWallDisplayName;
+    // "Anonymně" musí vždy přepsat případné dřívější zobrazované jméno prázdnou hodnotou —
+    // frontend při téhle volbě pole vůbec neposílá (viz ThankYouDiscordForm.tsx showWallNameField),
+    // takže bez tohohle větvení by v Airtable zůstalo viset staré jméno z předchozího odeslání,
+    // i když uživatel teď explicitně chce být anonymní (QA edge case, ověřeno testem).
+    if (founderWallChoice === "Anonymně") {
+      fields["Founder Wall Display Name"] = "";
+    } else if (founderWallDisplayName) {
+      fields["Founder Wall Display Name"] = founderWallDisplayName;
+    }
     if (typeof founderWallConsent === "boolean") fields["Founder Wall Consent"] = founderWallConsent;
 
     const updated = await updateFounderRecord(founder.id, fields);
