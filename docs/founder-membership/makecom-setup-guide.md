@@ -132,27 +132,9 @@ Tři prázdné Email moduly čekají na obsah — dva potvrzovací (jeden pro no
 4. **Content:** krátce — balíček, cena, e-mail, isUpgrade ano/ne.
 5. **Send.**
 
-### 1.6b Google Sheets — záznam každé platby (potvrzeno, Landing Page Texty-6)
+### 1.6b Google Sheets — ZRUŠENO (25. 8. 2026)
 
-Klient potvrdil, že kromě Airtable chce **i** samostatný Google Sheet s přehledem plateb. Přidej to jako druhou větev hned vedle interního e-mailu (kroku 1.6) — obě mají běžet při **každé** platbě, ne jen u jedné z nich.
-
-1. Klikni na malé **+** přímo na spojovací čáře **za Webhookem, před interním Email modulem** (krok 1.6) — vytvoří se druhá paralelní větev.
-2. Vyhledej **Google Sheets** → zvol **Add a Row**.
-3. Pokud ještě nemáš připojení: **Add a connection** → přihlas se Google účtem, kam se má Sheet ukládat → autorizuj přístup k Sheets.
-4. **Spreadsheet:** vyber existující (pošli mi odkaz, ať ho založím předem se správnými hlavičkami sloupců), nebo v Make.com vytvoř nový a hlavičkový řádek přidej ručně.
-5. **Sheet (tab):** např. `Platby`.
-6. **Doporučené sloupce → mapování z webhook dat:**
-   - `Datum` ← `purchaseDate`
-   - `Founder číslo` ← `founderNumber`
-   - `Jméno` ← `firstName`
-   - `E-mail` ← `email`
-   - `Balíček` ← `package`
-   - `Cena` ← `pricePaid`
-   - `Upgrade?` ← `isUpgrade`
-   - `Objednávka č.` ← `orderNumber`
-7. **Send.**
-
-> Založ hlavičkový řádek v Sheetu **před** prvním testem (Add a Row v Google Sheets modulu čeká na existující sloupce podle názvu, jinak si je pojmenuje `A`, `B`, `C`...). Než mi pošleš odkaz na Sheet, tenhle krok nech rozpracovaný — zbytek scénáře 1 na něm nezávisí.
+Klient se rozhodl Google Sheets integraci (jak tuhle jednodušší "Platby" variantu, tak i FOUNDER DATA HUB od Tomáše, viz [google-sheets-sync.md](google-sheets-sync.md)) úplně zrušit kvůli opakovaným problémům s Google OAuth připojením v Make.com. **Prázdné Google Sheets moduly ve scénáři smaž** (klikni na modul → Delete) — scénář 1 tak končí u kroku 1.6 (interní e-mail) a routeru s potvrzovacími e-maily.
 
 ### 1.7 (Volitelné, pokročilé) Discord role hned při nákupu
 
