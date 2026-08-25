@@ -19,6 +19,7 @@ Přehledy/filtry (Kniha zakladatelů, admin dashboard) jsou jen **views** nad t�
 | `First Name` | Single line text | |
 | `Last Name` | Single line text | |
 | `Email` | Email | **Identita platby** — párování Stripe objednávky na Foundera |
+| `Phone` | Phone number | Povinné pole ve Stripe Checkoutu (`phone_number_collection.enabled`), přidáno 25. 8. 2026 na žádost klienta. Zapisuje se ze `session.customer_details.phone` |
 | `Discord Username` | Single line text | Nick, jen informativní — může se změnit |
 | `Discord ID` | Single line text | **Identita pro role/přístupy** — neměnná, tohle používá Make.com pro přiřazení role |
 | `Purchase Date` | Date + time | |

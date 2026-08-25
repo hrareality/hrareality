@@ -88,6 +88,7 @@ export default async function handler(req, res) {
     const packageDef = getPackageDefinition(packageKey);
     const email = session.customer_email || session.customer_details?.email;
     const customerName = session.customer_details?.name || "";
+    const phone = session.customer_details?.phone || null;
     const [firstName, ...restName] = customerName.split(" ");
 
     let founderRecord;
@@ -106,6 +107,7 @@ export default async function handler(req, res) {
         "Is Upgrade": true,
         "Upgraded From Package": previous.fields["Package"],
         "Upgrade Date": new Date().toISOString(),
+        ...(phone ? { Phone: phone } : {}),
       });
       founderRecord = updated;
     } else {
@@ -117,6 +119,7 @@ export default async function handler(req, res) {
         "First Name": firstName || "",
         "Last Name": restName.join(" ") || "",
         Email: email,
+        Phone: phone || "",
         "Purchase Date": new Date().toISOString(),
         Package: packageDef.name,
         "Price Paid": packageDef.priceCzk,

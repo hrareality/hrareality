@@ -70,6 +70,9 @@ export default async function handler(req, res) {
       mode: "payment",
       line_items: [{ price: priceId, quantity: 1 }],
       customer_email: cleanEmail,
+      // Klient chce telefonní číslo povinně u každé objednávky (viz konverzace).
+      // Stripe Checkout tohle pole při zapnutí vyžaduje k dokončení platby.
+      phone_number_collection: { enabled: true },
       metadata: {
         package_key: packageKey,
         is_upgrade: String(isUpgrade),
