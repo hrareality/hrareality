@@ -25,7 +25,98 @@
 | `[ODKAZ NA DISCORD]` | statická hodnota `https://discord.com/invite/Qe2Zxr4bWJ` | |
 | `[ODKAZ NA PROPOJENÍ / FORMULÁŘ]` | `thankYouPageUrl` | vede na `/founder/dekujeme?t=...` |
 
-*(Plné znění viz konverzace / commit historie — nemění se, beze změn od minula.)*
+**Text (dodáno klientem 25. 8. 2026, verbatim):**
+
+> Vítej v Season 0. ∞
+>
+> Ahoj [JMÉNO],
+> je to potvrzené. Od této chvíle jsi součástí první generace iWau Hry Reality.
+> A chci ti osobně poděkovat. Ne jen za nákup balíčku. Ale za to, že ses rozhodl/a vstoupit právě teď — v momentě, kdy iWau Hra Reality ještě není hotovým produktem.
+>
+> Season 1 (MVP1) právě stavíme. Některé věci už fungují, jiné teprve vznikají a stále před sebou máme spoustu rozhodnutí.
+>
+> Právě proto pro nás Season 0 znamená tolik.
+> Nepřicházíš k hotové hře. Pomáháš nám ji dostat do její první skutečně hratelné podoby.
+> A až jednou budou do iWau Hry Reality vstupovat další tisíce hráčů, její úplný začátek už znovu existovat nebude.
+>
+> Ty jsi u něj právě teď.
+> Díky.
+> Tomáš
+> Founder Hry Reality
+>
+> **TVŮJ SEASON 0 STATUS**
+> [NÁZEV BALÍČKU]
+> Zakoupeno za: [CENA]
+> Founder ID: #[FOUNDER ČÍSLO]
+> Datum vstupu: [DATUM]
+> STATUS: AKTIVNÍ ✓
+>
+> Tvoje Founder ID je unikátní označení tvého záznamu v Season 0.
+>
+> *Pokud Founder číslo ještě nebylo přiděleno:*
+> Tvoje Founder ID právě vytváříme.
+> Platba je v pořádku. Číslo ti pošleme na tento e-mail nejpozději do 24 hodin.
+>
+> **CO JSI PRÁVĚ ZÍSKAL/A**
+> S tvým balíčkem [NÁZEV BALÍČKU] se ti odemykají Founder výhody odpovídající této úrovni:
+> [DYNAMICKÝ SEZNAM BENEFITŮ DANÉHO BALÍČKU]
+>
+> Některé získáš okamžitě.
+> Jiné — například Premium, Early Access, eventové výhody nebo další části Season 1 — se aktivují ve chvíli, kdy bude příslušná část Hry Reality spuštěna. O nic nemusíš žádat znovu. Tvůj nárok evidujeme.
+>
+> **TEĎ UDĚLEJ JEDNU VĚC**
+> Vstup do iWau Hry Reality na Discordu.
+> Season 0 už probíhá.
+>
+> Uvnitř najdeš komunitu prvních hráčů, aktuální dění ve světě iWau Hry Reality, questy, dropy, artefakty a postupně také zákulisí vývoje MVP1.
+> Právě tam se bude odehrávat velká část Founder experience.
+> [ VSTOUPIT DO DISCORDU → ]
+> [ODKAZ NA DISCORD]
+>
+> Už na Discordu jsi?
+> Potřebujeme propojit tvůj nákup s Discord účtem, abychom věděli, komu máme přidělit správnou Founder roli a přístupy.
+>
+> [ PROPOJIT MŮJ DISCORD → ]
+> [ODKAZ NA PROPOJENÍ / FORMULÁŘ]
+>
+> Po propojení ti podle zakoupeného balíčku přiřadíme odpovídající roli a přístupy.
+>
+> **CO BUDE NÁSLEDOVAT**
+> 01 — Platba potvrzena ✓
+> Tohle už máš za sebou.
+>
+> 02 — Founder záznam
+> Tvůj nákup a všechny nároky evidujeme v systému Season 0.
+>
+> 03 — Propojení Discordu
+> Díky němu poznáme tvůj účet a můžeme ti přiřadit správný status.
+>
+> 04 — Founder role a výhody
+> Odemkneme okamžité digitální nároky podle tvého balíčku.
+>
+> 05 — Vznik MVP1
+> Uvnitř Founder části budeš postupně sledovat vývoj, zákulisí, rozhodnutí a vybrané možnosti zapojení.
+>
+> 06 — Season 1
+> Jakmile přijde čas na Early Access, Premium, beta testování nebo další nároky z tvého balíčku, dostaneš od nás instrukce.
+>
+> **JEDNA DŮLEŽITÁ VĚC**
+> iWau Hra Reality je stále ve vývoji.
+> Season 0 je právě období, během kterého vzniká její první hratelná verze. Plánované termíny, pořadí vývoje nebo některé konkrétní funkce se proto mohou na základě vývoje a testování změnit.
+>
+> Pokud se něco podstatného změní, Foundeři se to dozvědí přímo od nás.
+>
+> **NĚCO NEFUNGUJE?**
+> Pokud ti chybí Founder role, nesedí zakoupený balíček, nedorazila některá z výhod nebo potřebuješ s čímkoliv pomoct, napiš nám: hrareality@gmail.com
+>
+> Do zprávy přidej e-mail použitý při nákupu a své Founder ID, pokud už ho máš. Díky tomu tě rychleji dohledáme.
+>
+> Ještě jednou díky, že jsi u toho právě teď.
+> Season 0 už běží.
+> Tomáš
+> Founder Hry Reality ∞
+
+**Kontrola proti mapovací tabulce výše:** všech 8 placeholderů (`[JMÉNO]`, `[NÁZEV BALÍČKU]`, `[CENA]`, `[FOUNDER ČÍSLO]`, `[DATUM]`, `[DYNAMICKÝ SEZNAM BENEFITŮ DANÉHO BALÍČKU]`, `[ODKAZ NA DISCORD]`, `[ODKAZ NA PROPOJENÍ / FORMULÁŘ]`) použitých v textu sedí 1:1 s tím, co posílá `api/founder/stripe-webhook.js` — žádný nový placeholder navíc, žádný chybí.
 
 ---
 
