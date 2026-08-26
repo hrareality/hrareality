@@ -73,6 +73,14 @@ export default async function handler(req, res) {
       // Klient chce telefonní číslo povinně u každé objednávky (viz konverzace).
       // Stripe Checkout tohle pole při zapnutí vyžaduje k dokončení platby.
       phone_number_collection: { enabled: true },
+      // Stripe má na nových/live účtech Managed Payments (Stripe jako merchant of record)
+      // ZAPNUTÉ VÝCHOZÍ, i bez explicitního zapnutí v Dashboardu — bez tax_code na produktech
+      // by to jinak tvrdě shodilo VŠECHNY live checkouty chybou "Product tax code is missing"
+      // (ověřeno naživo 26. 8. 2026). Nechceme Managed Payments — je to jiná architektura
+      // (Stripe/Link jako merchant of record, jiný statement descriptor, jiný refund flow),
+      // se kterou náš webhook a Airtable zápis nepočítá. Explicitní opt-out přímo v kódu,
+      // ne spoléhání na Dashboard nastavení, co se dá kdykoliv omylem přepnout zpátky.
+      managed_payments: { enabled: false },
       metadata: {
         package_key: packageKey,
         is_upgrade: String(isUpgrade),
