@@ -56,6 +56,18 @@ export function getPackageCountOffset(packageKey) {
 }
 
 /**
+ * Celkový počet Founderů "mimo Airtable" (prodáno dřív/jinou cestou, potvrzeno
+ * klientem — viz otazky-pro-tomase.md bod 5). Jediný zdroj pravdy sdílený mezi:
+ *  - api/founder/counter.js — veřejně zobrazované číslo na webu (Hero + Sekce 10),
+ *  - getNextFounderNumber() v _lib/airtable.js — Founder číslo přidělené dalšímu nákupu.
+ * Drženo na jednom místě schválně, aby ty dvě čísla nikdy nerozjela (např. web ukazuje
+ * "17 Founderů", ale další nákup by dostal #0001 místo #0018).
+ */
+export function getFounderCountBaseOffset() {
+  return Number(process.env.FOUNDER_COUNT_BASE_OFFSET ?? 17);
+}
+
+/**
  * Nároky (Benefit Type) podle balíčku — jen ty, co jsou vlastní dané úrovni
  * (kumulace se řeší v aplikační logice, ne opakováním v tomto seznamu).
  * Viz docs/founder-membership/airtable-schema.md pro plné ihned/později mapování.

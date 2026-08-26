@@ -16,9 +16,7 @@
  * počet — zatím neřešeno, viz otázka pro klienta.
  */
 import { countConfirmedByPackage } from "../_lib/airtable.js";
-import { FOUNDER_PACKAGE_DEFINITIONS } from "../_lib/founder-packages.js";
-
-const FOUNDER_COUNT_BASE_OFFSET = Number(process.env.FOUNDER_COUNT_BASE_OFFSET ?? 17);
+import { FOUNDER_PACKAGE_DEFINITIONS, getFounderCountBaseOffset } from "../_lib/founder-packages.js";
 
 // Milníky pro "Další milník: X Founderů" — nejsou v zadání číselně upřesněné,
 // zvoleno jako rozumné kulaté hodnoty mezi validačním cílem (200) a stropem (1000).
@@ -39,7 +37,7 @@ export default async function handler(req, res) {
     const counts = await Promise.all(
       FOUNDER_PACKAGE_DEFINITIONS.map((p) => countConfirmedByPackage(p.name))
     );
-    const total = FOUNDER_COUNT_BASE_OFFSET + counts.reduce((sum, c) => sum + c, 0);
+    const total = getFounderCountBaseOffset() + counts.reduce((sum, c) => sum + c, 0);
 
     // CDN cache na 3 minuty, mezitím stale-while-revalidate — counter nemusí být real-time.
     res.setHeader("Cache-Control", "public, s-maxage=180, stale-while-revalidate=300");
@@ -51,10 +49,11 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error("[api/founder/counter] Chyba:", error);
     // Fallback: i při výpadku Airtable radši ukázat aspoň potvrzený základ (offset) než 0.
+    const baseOffset = getFounderCountBaseOffset();
     return res.status(200).json({
-      count: FOUNDER_COUNT_BASE_OFFSET,
+      count: baseOffset,
       cap: CAP,
-      nextMilestone: nextMilestone(FOUNDER_COUNT_BASE_OFFSET),
+      nextMilestone: nextMilestone(baseOffset),
       degraded: true,
     });
   }

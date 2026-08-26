@@ -6,6 +6,8 @@
  * Schéma polí viz docs/founder-membership/airtable-schema.md — tady se drží 1:1.
  */
 
+import { getFounderCountBaseOffset } from "./founder-packages.js";
+
 const AIRTABLE_API_BASE = "https://api.airtable.com/v0";
 
 function requireEnv(name) {
@@ -79,6 +81,10 @@ export async function countConfirmedByPackage(packageName) {
  * platbách hrozí race condition — mitigace: krátký retry na conflict (viz TODO níže),
  * definitivní řešení případné kolize je součástí ručního fallback procesu
  * (zadani-landing-page.md sekce 5.5), ne blokující podmínka pro tuto fázi.
+ *
+ * Zohledňuje getFounderCountBaseOffset() (stejný zdroj jako veřejné počítadlo
+ * v api/founder/counter.js) — dokud je Airtable prázdný/pod offsetem, další
+ * číslo naváže rovnou za offset (offset 17 → další nákup = #0018), ne od 1.
  */
 export async function getNextFounderNumber() {
   const formula = `{Founder Number} != ""`;
@@ -87,8 +93,8 @@ export async function getNextFounderNumber() {
     `?filterByFormula=${encodeURIComponent(formula)}&fields[]=Founder Number&sort[0][field]=Founder Number&sort[0][direction]=desc&maxRecords=1`
   );
   const data = await airtableFetch(url);
-  const max = data.records?.[0]?.fields?.["Founder Number"] || 0;
-  return max + 1;
+  const maxInAirtable = data.records?.[0]?.fields?.["Founder Number"] || 0;
+  return Math.max(maxInAirtable, getFounderCountBaseOffset()) + 1;
 }
 
 export async function getFounderById(recordId) {
