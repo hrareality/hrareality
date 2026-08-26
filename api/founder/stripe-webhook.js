@@ -147,7 +147,8 @@ export default async function handler(req, res) {
       founderRecordId: founderRecord.id,
       orderNumber: founderRecord.fields["Order Number"],
     });
-    const thankYouPageUrl = `${process.env.PUBLIC_SITE_URL || "https://hrareality.cz"}/founder/dekujeme?t=${token}`;
+    // URL přejmenováno z /founder na /zakladatel kvůli českému SEO (26. 8. 2026).
+    const thankYouPageUrl = `${process.env.PUBLIC_SITE_URL || "https://hrareality.cz"}/zakladatel/dekujeme?t=${token}`;
 
     // Předání dál na Make.com scénář č. 1 (e-mail, interní notifikace, Discord úkol).
     // Webhook musí odpovědět Stripu rychle — tohle proto neblokujeme na výsledku.

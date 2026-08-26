@@ -86,10 +86,11 @@ export default async function handler(req, res) {
         is_upgrade: String(isUpgrade),
         previous_record_id: previousRecordId || "",
       },
-      // Bezpečný token pro /founder/dekujeme se generuje až webhookem po potvrzené platbě
+      // Bezpečný token pro /zakladatel/dekujeme se generuje až webhookem po potvrzené platbě
       // (viz security-and-access.md) — do té doby stránka zobrazuje "zpracováváme platbu".
-      success_url: `${origin}/founder/dekujeme?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/founder#balicky`,
+      // URL přejmenováno z /founder na /zakladatel kvůli českému SEO (26. 8. 2026).
+      success_url: `${origin}/zakladatel/dekujeme?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/zakladatel#balicky`,
     });
 
     return res.status(200).json({ url: session.url });
