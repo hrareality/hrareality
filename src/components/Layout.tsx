@@ -11,6 +11,7 @@ const navLinks: { to: string; label: string; external?: boolean }[] = [
   { to: "/komiksy", label: "Komiksy" },
   { to: "/start", label: "Příběh" },
   { to: "/collection", label: "Season 0" },
+  { to: "/zakladatel", label: "Founder" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -127,14 +128,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="pt-14 md:pt-16 relative z-10">{children}</main>
 
       {/* Footer */}
-      <footer className="border-t border-border/30 mt-20">
+      <footer id="site-footer" className="border-t border-border/30 mt-20">
         <div className="section-container py-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
           <div className="flex flex-col gap-2 md:items-start items-center">
             <Link to="/" className="block transition-all hover:opacity-80">
               <img src="/logo.png" alt="iWau HRA REALITY" className="h-32 md:h-40 w-auto object-contain" />
             </Link>
-            <p className="text-xs text-muted-foreground text-center md:text-left mt-0">
-              © 2026 iWau HRA REALITY. Systém výzev v reálném životě.
+            <p className="text-xs text-muted-foreground text-center md:text-left mt-0 flex flex-wrap items-center justify-center md:justify-start gap-x-2">
+              <span>© 2026 iWau HRA REALITY. Systém výzev v reálném životě.</span>
+              <span className="inline-flex items-center gap-x-2">
+                <Link to="/obchodni-podminky" className="hover:text-primary transition-colors">Obchodní podmínky</Link>
+                <span aria-hidden>·</span>
+                <Link to="/gdpr" className="hover:text-primary transition-colors">GDPR</Link>
+              </span>
             </p>
           </div>
 

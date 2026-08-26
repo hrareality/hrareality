@@ -115,3 +115,11 @@
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100vh); }
 }
+
+/* Kdo má v OS zapnuté "omezit pohyb", nechceme mu vnucovat nekonečné pulzování a plování. */
+@media (prefers-reduced-motion: reduce) {
+  .pulse-glow,
+  .animate-float {
+    animation: none;
+  }
+}
