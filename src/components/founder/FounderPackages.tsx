@@ -206,12 +206,14 @@ function PackageContentsList({ pkg }: { pkg: PackageCopy }) {
 export default function FounderPackages() {
   const [activePackage, setActivePackage] = useState<PackageCopy | null>(null);
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   function openCheckout(pkg: PackageCopy) {
     setActivePackage(pkg);
     setEmail("");
+    setPhone("");
     setError(null);
   }
 
@@ -224,14 +226,12 @@ export default function FounderPackages() {
       const res = await fetch("/api/founder/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ packageKey: activePackage.key, email }),
+        body: JSON.stringify({ packageKey: activePackage.key, email, phone }),
       });
       const data = await res.json();
       if (!res.ok) {
         if (data.error === "sold_out") {
           setError("Tato úroveň je bohužel vyprodaná.");
-        } else if (data.error === "already_founder_equal_or_higher") {
-          setError("U tohoto e-mailu už evidujeme stejnou nebo vyšší Founder úroveň.");
         } else {
           setError(data.message || "Něco se nepovedlo. Zkus to prosím znovu.");
         }
@@ -335,7 +335,7 @@ export default function FounderPackages() {
           <DialogHeader>
             <DialogTitle className="font-display">{activePackage?.name}</DialogTitle>
             <DialogDescription>
-              {activePackage?.price.toLocaleString("cs-CZ")} Kč / jednorázově. Zadej e-mail, na který ti pošleme potvrzení a Founder číslo.
+              {activePackage?.price.toLocaleString("cs-CZ")} Kč / jednorázově. Zadej e-mail a telefon, ať tě k objednávce vždycky dohledáme.
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={submitCheckout} className="space-y-4">
@@ -346,6 +346,13 @@ export default function FounderPackages() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoFocus
+            />
+            <Input
+              type="tel"
+              required
+              placeholder="+420 777 123 456"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
             {error && <p className="text-sm text-destructive">{error}</p>}
             <Button type="submit" disabled={loading} className="w-full font-display font-bold">

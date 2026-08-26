@@ -2,11 +2,18 @@
  * Vytvoří Stripe Checkout Session pro zvolený Founder balíček.
  * Viz docs/founder-membership/stripe-and-checkout.md.
  *
- * POST body: { packageKey: "supporter"|"first_player"|"founder_tier"|"creator"|"guardian", email: string }
+ * POST body: { packageKey: "supporter"|"first_player"|"founder_tier"|"creator"|"guardian", email: string, phone: string }
+ * E-mail i telefon jsou povinné — sbírají se tady, ne přes Stripe (kvůli Apple Pay/Google Pay,
+ * viz komentář u phone_number_collection níže).
  */
 import { getStripeClient, getPriceIdForPackageKey } from "../_lib/stripe-client.js";
-import { findFounderByEmail, countConfirmedByPackage } from "../_lib/airtable.js";
-import { getPackageDefinition, packageRank, packageNameToKey, getPackageCountOffset } from "../_lib/founder-packages.js";
+import { countConfirmedByPackage } from "../_lib/airtable.js";
+import { getPackageDefinition, getPackageCountOffset } from "../_lib/founder-packages.js";
+
+// Lehká validace — jen "vypadá to jako telefonní číslo", žádný přísný formát
+// podle země. Cíl je mít telefon 100% jistě vyplněný, ne odradit lidi regexem
+// (viz konverzace 26. 8. 2026).
+const PHONE_PATTERN = /^[\d\s+()-]{6,}$/;
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -15,13 +22,20 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { packageKey, email } = req.body || {};
+    const { packageKey, email, phone } = req.body || {};
 
     if (!packageKey || typeof packageKey !== "string") {
       return res.status(400).json({ error: "Chybí platný balíček." });
     }
     if (!email || typeof email !== "string" || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
       return res.status(400).json({ error: "Zadejte platnou e-mailovou adresu." });
+    }
+    // Telefon se sbírá tady, ne přes Stripe phone_number_collection — u Apple Pay/Google Pay
+    // expresního checkoutu Stripe vlastní custom pole nezobrazuje, takže by nám telefon
+    // spolehlivě nedorazil (ověřeno naživo 26. 8. 2026). Takhle ho máme jisté vždycky.
+    const cleanPhone = typeof phone === "string" ? phone.trim() : "";
+    if (!cleanPhone || !PHONE_PATTERN.test(cleanPhone)) {
+      return res.status(400).json({ error: "Zadejte platné telefonní číslo." });
     }
 
     let packageDef;
@@ -42,24 +56,14 @@ export default async function handler(req, res) {
       }
     }
 
-    // 2. Upgrade check — plná cena, žádné sčítání entitlementů, nikdy downgrade/stejná úroveň
+    // 2. E-mail se NEkontroluje proti existujícím záznamům (rozhodnutí klienta, 26. 8. 2026) —
+    // stejný e-mail může koupit Founder Membership kolikrát chce (např. jako dárek, pro víc lidí
+    // přes stejnou adresu apod.). Každý nákup vytvoří vlastní nezávislý Founder záznam ve
+    // stripe-webhook.js s vlastním Founder číslem — žádné mergování/upgrade podle e-mailu.
+    // is_upgrade v metadatech zůstává vždy "false", aby webhook nikdy nešel upgrade větví.
     const cleanEmail = email.trim().toLowerCase();
-    const existingFounder = await findFounderByEmail(cleanEmail);
-
-    let isUpgrade = false;
-    let previousRecordId = null;
-
-    if (existingFounder && existingFounder.fields["Payment Status"] === "Potvrzeno") {
-      const existingPackageKey = packageNameToKey(existingFounder.fields["Package"]);
-      if (existingPackageKey && packageRank(packageKey) <= packageRank(existingPackageKey)) {
-        return res.status(409).json({
-          error: "already_founder_equal_or_higher",
-          message: "U tohoto e-mailu už evidujeme stejnou nebo vyšší Founder úroveň.",
-        });
-      }
-      isUpgrade = true;
-      previousRecordId = existingFounder.id;
-    }
+    const isUpgrade = false;
+    const previousRecordId = null;
 
     // 3. Stripe Checkout Session
     const stripe = getStripeClient();
@@ -70,9 +74,9 @@ export default async function handler(req, res) {
       mode: "payment",
       line_items: [{ price: priceId, quantity: 1 }],
       customer_email: cleanEmail,
-      // Klient chce telefonní číslo povinně u každé objednávky (viz konverzace).
-      // Stripe Checkout tohle pole při zapnutí vyžaduje k dokončení platby.
-      phone_number_collection: { enabled: true },
+      // phone_number_collection (Stripeovo vlastní pole) záměrně VYPNUTÉ — telefon už máme
+      // z vlastního formuláře výš, ptát se na něj znovu na Stripe stránce by byla zbytečná
+      // dvojitá otázka navíc (viz "co nejjednodušeji, ať zbytečně neodrazujeme").
       // Stripe má na nových/live účtech Managed Payments (Stripe jako merchant of record)
       // ZAPNUTÉ VÝCHOZÍ, i bez explicitního zapnutí v Dashboardu — bez tax_code na produktech
       // by to jinak tvrdě shodilo VŠECHNY live checkouty chybou "Product tax code is missing"
@@ -85,6 +89,9 @@ export default async function handler(req, res) {
         package_key: packageKey,
         is_upgrade: String(isUpgrade),
         previous_record_id: previousRecordId || "",
+        // Náš vlastní telefon (ne Stripeovo phone_number_collection) — webhook ho čte odsud
+        // jako primární zdroj, garantuje to hodnotu nezávisle na zvolené platební metodě.
+        customer_phone: cleanPhone,
       },
       // Bezpečný token pro /zakladatel/dekujeme se generuje až webhookem po potvrzené platbě
       // (viz security-and-access.md) — do té doby stránka zobrazuje "zpracováváme platbu".
