@@ -88,7 +88,11 @@ export default async function handler(req, res) {
     const packageDef = getPackageDefinition(packageKey);
     const email = session.customer_email || session.customer_details?.email;
     const customerName = session.customer_details?.name || "";
-    const phone = session.customer_details?.phone || null;
+    // Primárně náš vlastní telefon z checkout formuláře (metadata.customer_phone) — validovaný
+    // a povinný už v create-checkout-session.js, nezávislý na platební metodě. Stripeovo vlastní
+    // customer_details.phone necháváme jen jako fallback pro jistotu (mělo by být prázdné,
+    // protože phone_number_collection už tam záměrně nezapínáme, viz create-checkout-session.js).
+    const phone = session.metadata?.customer_phone || session.customer_details?.phone || null;
     const [firstName, ...restName] = customerName.split(" ");
 
     let founderRecord;
