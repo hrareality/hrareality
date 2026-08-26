@@ -5,8 +5,8 @@
  * POST body: { packageKey: "supporter"|"first_player"|"founder_tier"|"creator"|"guardian", email: string }
  */
 import { getStripeClient, getPriceIdForPackageKey } from "../_lib/stripe-client.js";
-import { countConfirmedByPackage } from "../_lib/airtable.js";
-import { getPackageDefinition, getPackageCountOffset } from "../_lib/founder-packages.js";
+import { findFounderByEmail, countConfirmedByPackage } from "../_lib/airtable.js";
+import { getPackageDefinition, packageRank, packageNameToKey, getPackageCountOffset } from "../_lib/founder-packages.js";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -42,14 +42,24 @@ export default async function handler(req, res) {
       }
     }
 
-    // 2. E-mail se NEkontroluje proti existujícím záznamům (rozhodnutí klienta, 26. 8. 2026) —
-    // stejný e-mail může koupit Founder Membership kolikrát chce (např. jako dárek, pro víc lidí
-    // přes stejnou adresu apod.). Každý nákup vytvoří vlastní nezávislý Founder záznam ve
-    // stripe-webhook.js s vlastním Founder číslem — žádné mergování/upgrade podle e-mailu.
-    // is_upgrade v metadatech zůstává vždy "false", aby webhook nikdy nešel upgrade větví.
+    // 2. Upgrade check — plná cena, žádné sčítání entitlementů, nikdy downgrade/stejná úroveň
     const cleanEmail = email.trim().toLowerCase();
-    const isUpgrade = false;
-    const previousRecordId = null;
+    const existingFounder = await findFounderByEmail(cleanEmail);
+
+    let isUpgrade = false;
+    let previousRecordId = null;
+
+    if (existingFounder && existingFounder.fields["Payment Status"] === "Potvrzeno") {
+      const existingPackageKey = packageNameToKey(existingFounder.fields["Package"]);
+      if (existingPackageKey && packageRank(packageKey) <= packageRank(existingPackageKey)) {
+        return res.status(409).json({
+          error: "already_founder_equal_or_higher",
+          message: "U tohoto e-mailu už evidujeme stejnou nebo vyšší Founder úroveň.",
+        });
+      }
+      isUpgrade = true;
+      previousRecordId = existingFounder.id;
+    }
 
     // 3. Stripe Checkout Session
     const stripe = getStripeClient();
