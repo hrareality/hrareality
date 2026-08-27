@@ -3,8 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
 import { initTracking } from "@/lib/tracking";
 
+/**
+ * Jméno custom DOM eventu, přes který jde lišta znovu vyvolat kdykoliv (ne jen
+ * při první návštěvě) — viz odkaz "Nastavení cookies" v patičce (Layout.tsx).
+ * Řešeno přes event, ne přes context/provider — je to jediné místo, co potřebuje
+ * lištu odjinud otevírat, takže by byl provider zbytečná režie navíc.
+ */
+export const OPEN_COOKIE_SETTINGS_EVENT = "hra-reality-open-cookie-settings";
+
 export default function CookieConsent() {
   const [show, setShow] = useState(false);
+  const [isRevisit, setIsRevisit] = useState(false);
 
   useEffect(() => {
     const consent = localStorage.getItem("hra-reality-cookie-consent");
@@ -15,17 +24,28 @@ export default function CookieConsent() {
       const timer = setTimeout(() => setShow(true), 1500);
       return () => clearTimeout(timer);
     }
+
+    function handleOpenRequest() {
+      setIsRevisit(true);
+      setShow(true);
+    }
+    window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, handleOpenRequest);
+    return () => window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, handleOpenRequest);
   }, []);
+
+  const currentConsent = localStorage.getItem("hra-reality-cookie-consent");
 
   const handleAccept = () => {
     localStorage.setItem("hra-reality-cookie-consent", "granted");
     initTracking();
     setShow(false);
+    setIsRevisit(false);
   };
 
   const handleDecline = () => {
     localStorage.setItem("hra-reality-cookie-consent", "declined");
     setShow(false);
+    setIsRevisit(false);
   };
 
   return (
@@ -49,6 +69,11 @@ export default function CookieConsent() {
               <p className="text-xs text-muted-foreground leading-relaxed mb-4">
                 iWau HRA REALITY respektuje tvé soukromí. Pro analýzu návštěvnosti a vylepšování herního světa využíváme anonymní soubory cookies.
               </p>
+              {isRevisit && (
+                <p className="text-[11px] text-primary/80 mb-3">
+                  Aktuální nastavení: {currentConsent === "granted" ? "cookies povoleny" : "jen nezbytné, bez analytiky"}. Můžeš to tady kdykoliv změnit.
+                </p>
+              )}
               <div className="flex items-center gap-3">
                 <button
                   onClick={handleDecline}

@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import StarfieldBackground from "./StarfieldBackground";
-import CookieConsent from "./CookieConsent";
+import CookieConsent, { OPEN_COOKIE_SETTINGS_EVENT } from "./CookieConsent";
 
 const navLinks: { to: string; label: string; external?: boolean }[] = [
   { to: "/", label: "Home" },
@@ -140,6 +140,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Link to="/obchodni-podminky" className="hover:text-primary transition-colors">Obchodní podmínky</Link>
                 <span aria-hidden>·</span>
                 <Link to="/gdpr" className="hover:text-primary transition-colors">GDPR</Link>
+                <span aria-hidden>·</span>
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS_EVENT))}
+                  className="hover:text-primary transition-colors"
+                >
+                  Spravovat cookies
+                </button>
               </span>
             </p>
           </div>
