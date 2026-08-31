@@ -23,6 +23,9 @@ import {
   getExistingBenefitTypes,
   getNextFounderNumber,
 } from "../_lib/airtable.js";
+import { sendEmail, sendInternalNotification } from "../_lib/resend-client.js";
+import { welcomeEmail, internalNotificationEmail } from "../_lib/email-templates.js";
+import { addFounderToSheets, updateFounderInSheets } from "../_lib/founder-sheets-sync.js";
 
 export const config = {
   api: {
@@ -146,6 +149,28 @@ export default async function handler(req, res) {
       );
     }
 
+    // Google Sheets zrcadlo (viz founder-sheets-sync.js) — přímo přes Service Account,
+    // ne přes Make. Nesmí shodit zbytek webhooku, kdyby sync selhal (např. env
+    // proměnné ještě nejsou nastavené) — proto vlastní try/catch, jen zalogováno.
+    try {
+      if (isUpgrade && previousRecordId) {
+        await updateFounderInSheets(founderRecord.id, founderRecord.fields, {
+          masterRow: founderRecord.fields["Sheet Master Row"],
+          detailRow: founderRecord.fields["Sheet Detail Row"],
+        });
+      } else {
+        const { masterRow, detailRow } = await addFounderToSheets(founderRecord.id, founderRecord.fields);
+        if (masterRow || detailRow) {
+          await updateFounderRecord(founderRecord.id, {
+            ...(masterRow ? { "Sheet Master Row": masterRow } : {}),
+            ...(detailRow ? { "Sheet Detail Row": detailRow } : {}),
+          });
+        }
+      }
+    } catch (err) {
+      console.error("[stripe-webhook] Google Sheets sync selhal:", err);
+    }
+
     // Bezpečný token pro děkovací stránku — viz security-and-access.md.
     const token = signFounderToken({
       founderRecordId: founderRecord.id,
@@ -180,6 +205,37 @@ export default async function handler(req, res) {
     } else {
       console.warn("[stripe-webhook] MAKE_WEBHOOK_URL_PAYMENT není nastavené — automatizace se nespustí, jen zápis do Airtable proběhl.");
     }
+
+    // Přímo přes Resend, ne přes Make Gmail modul — viz resend-client.js proč.
+    // Fire-and-forget stejně jako Make webhook výš, webhook nesmí čekat na odpověď Stripu.
+    // POZOR: dokud běží i Make Gmail modul ve Scénáři 1, zákazník dostane e-mail 2×
+    // — až Resend proběhne naostro, Gmail moduly ve scénáři je potřeba smazat/vypnout.
+    const benefitsIhnedForEmail = getImmediateEntitlements(packageKey);
+    sendEmail({
+      to: founderRecord.fields["Email"],
+      ...welcomeEmail({
+        firstName: founderRecord.fields["First Name"],
+        packageName: founderRecord.fields["Package"],
+        priceCzk: founderRecord.fields["Price Paid"],
+        founderNumber: founderRecord.fields["Founder Number"],
+        purchaseDate: founderRecord.fields["Purchase Date"] || new Date().toISOString(),
+        benefitsIhned: benefitsIhnedForEmail,
+        thankYouPageUrl,
+      }),
+    }).catch((err) => console.error("[stripe-webhook] Resend Welcome e-mail selhal:", err));
+
+    sendInternalNotification(
+      internalNotificationEmail({
+        founderNumber: founderRecord.fields["Founder Number"],
+        email: founderRecord.fields["Email"],
+        phone: founderRecord.fields["Phone"],
+        firstName: founderRecord.fields["First Name"],
+        lastName: founderRecord.fields["Last Name"],
+        packageName: founderRecord.fields["Package"],
+        priceCzk: founderRecord.fields["Price Paid"],
+        orderNumber: founderRecord.fields["Order Number"],
+      })
+    ).catch((err) => console.error("[stripe-webhook] Interní notifikace (Resend) selhala:", err));
 
     return res.status(200).json({ received: true });
   } catch (error) {

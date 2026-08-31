@@ -2,8 +2,11 @@
  * Znovu odeslat potvrzovací e-mail — max 3× za hodinu, server-side (ne jen
  * disabled tlačítko na frontendu). Viz docs/founder-membership/security-and-access.md.
  */
-import { verifyFounderToken } from "../_lib/founder-token.js";
+import { verifyFounderToken, signFounderToken } from "../_lib/founder-token.js";
 import { getFounderById, updateFounderRecord } from "../_lib/airtable.js";
+import { getImmediateEntitlements, packageNameToKey } from "../_lib/founder-packages.js";
+import { sendEmail } from "../_lib/resend-client.js";
+import { welcomeEmail } from "../_lib/email-templates.js";
 
 const MAX_PER_HOUR = 3;
 const WINDOW_MS = 60 * 60 * 1000;
@@ -44,21 +47,26 @@ export default async function handler(req, res) {
       "Email Resend Window Start": windowExpired ? new Date(now).toISOString() : f["Email Resend Window Start"] || new Date(now).toISOString(),
     });
 
-    const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL_PAYMENT;
-    if (makeWebhookUrl) {
-      fetch(makeWebhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          event: "resend_email",
-          founderRecordId: founder.id,
-          email: f["Email"],
-          package: f["Package"],
-        }),
-      }).catch((err) => console.error("[resend-email] Make.com trigger selhal:", err));
-    } else {
-      console.warn("[resend-email] MAKE_WEBHOOK_URL_PAYMENT není nastavené — e-mail se neodešle automaticky.");
-    }
+    // Přímo přes Resend (viz api/_lib/resend-client.js) — dřív šlo přes Make webhook,
+    // to teď duplicitně dělá i api/founder/stripe-webhook.js pro Welcome e-mail.
+    const packageKey = packageNameToKey(f["Package"]);
+    // Pojmenováno odlišně od `token` výš (ten identifikuje tenhle request/Foundera) —
+    // tohle je nový token vložený do odkazu v e-mailu, jiný účel, snadno by se pletlo.
+    const thankYouToken = signFounderToken({ founderRecordId: founder.id, orderNumber: f["Order Number"] });
+    const thankYouPageUrl = `${process.env.PUBLIC_SITE_URL || "https://hrareality.cz"}/zakladatel/dekujeme?t=${thankYouToken}`;
+
+    sendEmail({
+      to: f["Email"],
+      ...welcomeEmail({
+        firstName: f["First Name"],
+        packageName: f["Package"],
+        priceCzk: f["Price Paid"],
+        founderNumber: f["Founder Number"],
+        purchaseDate: f["Purchase Date"] || new Date().toISOString(),
+        benefitsIhned: packageKey ? getImmediateEntitlements(packageKey) : [],
+        thankYouPageUrl,
+      }),
+    }).catch((err) => console.error("[resend-email] Resend odeslání selhalo:", err));
 
     return res.status(200).json({ success: true, remaining: MAX_PER_HOUR - (currentCount + 1) });
   } catch (error) {

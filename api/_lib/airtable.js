@@ -97,6 +97,38 @@ export async function getNextFounderNumber() {
   return Math.max(maxInAirtable, getFounderCountBaseOffset()) + 1;
 }
 
+/**
+ * Všichni potvrzení Founderové s Purchase Date + nurture flagy — pro
+ * api/cron/founder-nurture.js. Vyžaduje v Airtable FOUNDERS checkbox pole
+ * "Nurture D2 Sent" / "Nurture D5 Sent" / "Nurture D9 Sent" / "Nurture D14 Sent"
+ * (viz docs, TODO než se cron pustí naostro — bez nich funkce nespadne, jen
+ * flagy vždycky vyjdou jako nenastavené a e-maily se budou posílat pořád znovu).
+ */
+export async function listConfirmedFoundersForNurture() {
+  const formula = `{Payment Status} = "Potvrzeno"`;
+  const fields = [
+    "First Name",
+    "Email",
+    "Purchase Date",
+    "Nurture D2 Sent",
+    "Nurture D5 Sent",
+    "Nurture D9 Sent",
+    "Nurture D14 Sent",
+  ];
+  const fieldsQuery = fields.map((f) => `fields[]=${encodeURIComponent(f)}`).join("&");
+  const url = tableUrl(FOUNDERS_TABLE(), `?filterByFormula=${encodeURIComponent(formula)}&${fieldsQuery}`);
+
+  const records = [];
+  let offset;
+  do {
+    const pagedUrl = offset ? `${url}&offset=${offset}` : url;
+    const data = await airtableFetch(pagedUrl);
+    records.push(...data.records);
+    offset = data.offset;
+  } while (offset);
+  return records;
+}
+
 export async function getFounderById(recordId) {
   const url = tableUrl(FOUNDERS_TABLE(), `/${recordId}`);
   return airtableFetch(url);

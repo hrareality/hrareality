@@ -5,6 +5,7 @@
  */
 import { verifyFounderToken } from "../_lib/founder-token.js";
 import { getFounderById, updateFounderRecord } from "../_lib/airtable.js";
+import { updateFounderInSheets } from "../_lib/founder-sheets-sync.js";
 
 const WALL_CHOICES = ["Celé jméno", "Značka", "Přezdívka", "Iniciály", "Anonymně"];
 
@@ -51,6 +52,19 @@ export default async function handler(req, res) {
     if (typeof founderWallConsent === "boolean") fields["Founder Wall Consent"] = founderWallConsent;
 
     const updated = await updateFounderRecord(founder.id, fields);
+
+    // Google Sheets zrcadlo (viz founder-sheets-sync.js) — zachytí jen Discord Username
+    // v tuhle chvíli; Discord ID / Joined At zapisuje až Make scénář 2 (role assignment)
+    // přímo do Airtable, mimo tenhle endpoint, takže se do Sheetu propíšou až při dalším
+    // syncu odsud (žádný teď neexistuje) — známé omezení, ne bug.
+    try {
+      await updateFounderInSheets(founder.id, updated.fields, {
+        masterRow: updated.fields["Sheet Master Row"],
+        detailRow: updated.fields["Sheet Detail Row"],
+      });
+    } catch (err) {
+      console.error("[submit-discord] Google Sheets sync selhal:", err);
+    }
 
     const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL_DISCORD_FORM;
     if (makeWebhookUrl) {
