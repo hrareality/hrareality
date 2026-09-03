@@ -23,8 +23,8 @@ import {
   getExistingBenefitTypes,
   getNextFounderNumber,
 } from "../_lib/airtable.js";
-import { sendEmail, sendInternalNotification } from "../_lib/resend-client.js";
-import { welcomeEmail, internalNotificationEmail } from "../_lib/email-templates.js";
+import { sendEmail } from "../_lib/resend-client.js";
+import { welcomeEmail } from "../_lib/email-templates.js";
 import { addFounderToSheets, updateFounderInSheets } from "../_lib/founder-sheets-sync.js";
 
 export const config = {
@@ -210,6 +210,13 @@ export default async function handler(req, res) {
     // Fire-and-forget stejně jako Make webhook výš, webhook nesmí čekat na odpověď Stripu.
     // POZOR: dokud běží i Make Gmail modul ve Scénáři 1, zákazník dostane e-mail 2×
     // — až Resend proběhne naostro, Gmail moduly ve scénáři je potřeba smazat/vypnout.
+    //
+    // ⚠️ ZNÁMÁ MEZERA: posíláme stejný Welcome text i při upgradu (isUpgrade === true).
+    // Make Scénář 1 měl v routeru dvě samostatné větve ("1st Nový nákup" / "2nd Upgrade"),
+    // každá se svým Gmail modulem — tzn. upgrade měl mít VLASTNÍ text, ne "Vítej v Season 0"
+    // podruhé tomu, kdo už člen je. Klient ale žádný upgrade text nedodal (email-templates.md
+    // pokrývá jen těch 5 emailů). Dokud nedodá, posíláme Welcome i na upgrade — lepší než
+    // ticho, ale stojí za to na to Toma upozornit, než se upgrade balíček poprvé prodá.
     const benefitsIhnedForEmail = getImmediateEntitlements(packageKey);
     sendEmail({
       to: founderRecord.fields["Email"],
@@ -224,18 +231,11 @@ export default async function handler(req, res) {
       }),
     }).catch((err) => console.error("[stripe-webhook] Resend Welcome e-mail selhal:", err));
 
-    sendInternalNotification(
-      internalNotificationEmail({
-        founderNumber: founderRecord.fields["Founder Number"],
-        email: founderRecord.fields["Email"],
-        phone: founderRecord.fields["Phone"],
-        firstName: founderRecord.fields["First Name"],
-        lastName: founderRecord.fields["Last Name"],
-        packageName: founderRecord.fields["Package"],
-        priceCzk: founderRecord.fields["Price Paid"],
-        orderNumber: founderRecord.fields["Order Number"],
-      })
-    ).catch((err) => console.error("[stripe-webhook] Interní notifikace (Resend) selhala:", err));
+    // Interní upozornění pro Tomáše/Vítka záměrně NENÍ e-mail (rozhodnuto 28. 8. 2026) —
+    // Google Sheets zápis pár řádků výš JE tou notifikací: Tomáš sleduje nové platby
+    // přímo v FOUNDERS_MASTER, ne přes doručenou poštu. `internalNotificationEmail` /
+    // `sendInternalNotification` zůstávají v _lib jako hotová, ale nepoužitá cesta,
+    // kdyby se rozhodnutí časem otočilo.
 
     return res.status(200).json({ received: true });
   } catch (error) {

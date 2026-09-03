@@ -72,8 +72,18 @@ Gmail moduly ve Scénáři 1 ("Founder — Nová platba") **je potřeba smazat/v
 — jinak zákazník dostane Welcome e-mail 2× (jednou z Make, jednou z Resend), jakmile
 se Gmail OAuth nakonec opraví.
 
-## Interní notifikace
+## Interní notifikace — přes Sheet, ne e-mail (rozhodnuto 28. 8. 2026)
 
-Kopie o každé nové platbě chodí na `hrareality@gmail.com` + `kosatomas123@gmail.com`
-(potvrzeno v `otazky-pro-tomase.md` bod 7 — Tomáš + Vítek). Přepsatelné přes
-`INTERNAL_NOTIFY_EMAILS` (čárkou oddělený seznam), kdyby se příjemci změnili.
+Tomáš/Vítek sledují nové platby přímo v `FOUNDERS_MASTER` Google Sheetu (viz sekce
+Google Sheets sync výš) — žádný samostatný interní e-mail se neposílá. `sendInternalNotification`
+/ `internalNotificationEmail` v `_lib` zůstávají hotové a otestované, jen nevolané
+ze `stripe-webhook.js`, kdyby se rozhodnutí časem otočilo zpátky na e-mail.
+
+## Známá mezera — text pro upgrade
+
+`stripe-webhook.js` teď posílá stejný Welcome e-mail i při upgradu balíčku
+(`isUpgrade === true`). Původní Make Scénář 1 měl v routeru dvě větve ("Nový nákup" /
+"Upgrade"), každou s vlastním Gmail modulem — upgrade tedy měl mít vlastní text, který
+ale klient nikdy nedodal (`email-templates.md` pokrývá jen Welcome + D+2/D+5/D+9/D+14).
+Dokud text nedodá, jde ven Welcome i na upgrade (lepší než žádný e-mail, ale ne ideální —
+zmínit Tomovi, než se poprvé prodá upgrade balíček).
