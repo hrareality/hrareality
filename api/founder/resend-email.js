@@ -5,7 +5,7 @@
 import { verifyFounderToken, signFounderToken } from "../_lib/founder-token.js";
 import { getFounderById, updateFounderRecord } from "../_lib/airtable.js";
 import { getImmediateEntitlements, packageNameToKey } from "../_lib/founder-packages.js";
-import { sendEmail } from "../_lib/resend-client.js";
+import { sendEmail, CUSTOMER_REPLY_TO } from "../_lib/resend-client.js";
 import { welcomeEmail } from "../_lib/email-templates.js";
 
 const MAX_PER_HOUR = 3;
@@ -57,6 +57,7 @@ export default async function handler(req, res) {
 
     sendEmail({
       to: f["Email"],
+      replyTo: CUSTOMER_REPLY_TO,
       ...welcomeEmail({
         firstName: f["First Name"],
         packageName: f["Package"],

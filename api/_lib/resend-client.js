@@ -21,6 +21,15 @@ const RESEND_API_URL = "https://api.resend.com/emails";
  * se příjemci časem změnili. */
 const DEFAULT_INTERNAL_NOTIFY_EMAILS = "hrareality@gmail.com,kosatomas123@gmail.com";
 
+/** Reply-To pro zákaznické e-maily (Welcome, nurture) — RESEND_FROM je teď
+ * tomas@hrareality.cz (jen odesílací identita, žádná reálná schránka), takže
+ * odpovědi zákazníků musí mířit sem, ať je Tomáš/Vítek skutečně uvidí ve
+ * svém Gmailu. Potvrzeno 4. 9. 2026. */
+export const CUSTOMER_REPLY_TO = (process.env.CUSTOMER_REPLY_TO_EMAILS || DEFAULT_INTERNAL_NOTIFY_EMAILS)
+  .split(",")
+  .map((e) => e.trim())
+  .filter(Boolean);
+
 export async function sendEmail({ to, cc, subject, html, replyTo }) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM;

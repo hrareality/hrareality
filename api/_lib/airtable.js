@@ -98,11 +98,10 @@ export async function getNextFounderNumber() {
 }
 
 /**
- * Všichni potvrzení Founderové s Purchase Date + nurture flagy — pro
- * api/cron/founder-nurture.js. Vyžaduje v Airtable FOUNDERS checkbox pole
- * "Nurture D2 Sent" / "Nurture D5 Sent" / "Nurture D9 Sent" / "Nurture D14 Sent"
- * (viz docs, TODO než se cron pustí naostro — bez nich funkce nespadne, jen
- * flagy vždycky vyjdou jako nenastavené a e-maily se budou posílat pořád znovu).
+ * Všichni potvrzení Founderové s Purchase Date + nurture timestamp pole — pro
+ * api/cron/founder-nurture.js. Používá "Email D2/D5/D9/D14 Sent At" — stejná
+ * pole, co už v Airtable existují z dřívější přípravy Make Scénáře 3 (viz
+ * makecom-setup-guide.md sekce 3), žádná nová pole se nezakládají.
  */
 export async function listConfirmedFoundersForNurture() {
   const formula = `{Payment Status} = "Potvrzeno"`;
@@ -110,10 +109,10 @@ export async function listConfirmedFoundersForNurture() {
     "First Name",
     "Email",
     "Purchase Date",
-    "Nurture D2 Sent",
-    "Nurture D5 Sent",
-    "Nurture D9 Sent",
-    "Nurture D14 Sent",
+    "Email D2 Sent At",
+    "Email D5 Sent At",
+    "Email D9 Sent At",
+    "Email D14 Sent At",
   ];
   const fieldsQuery = fields.map((f) => `fields[]=${encodeURIComponent(f)}`).join("&");
   const url = tableUrl(FOUNDERS_TABLE(), `?filterByFormula=${encodeURIComponent(formula)}&${fieldsQuery}`);

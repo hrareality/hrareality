@@ -13,7 +13,7 @@
  * Product Bible zatím neexistuje (PRODUCT_BIBLE_URL env, fallback na /zakladatel).
  */
 import { listConfirmedFoundersForNurture, updateFounderRecord } from "../_lib/airtable.js";
-import { sendEmail } from "../_lib/resend-client.js";
+import { sendEmail, CUSTOMER_REPLY_TO } from "../_lib/resend-client.js";
 import { nurtureD2Email, nurtureD5Email, nurtureD9Email, nurtureD14Email } from "../_lib/email-templates.js";
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
@@ -62,7 +62,7 @@ export default async function handler(req, res) {
 
         try {
           const { subject, html } = stage.buildEmail({ firstName: f["First Name"] || "" });
-          await sendEmail({ to: f["Email"], subject, html });
+          await sendEmail({ to: f["Email"], replyTo: CUSTOMER_REPLY_TO, subject, html });
           await updateFounderRecord(record.id, { [stage.field]: true });
           sentCount += 1;
         } catch (err) {
