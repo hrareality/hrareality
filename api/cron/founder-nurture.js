@@ -5,9 +5,8 @@
  * přes Vercel Cron (viz vercel.json), voláno GET s Authorization: Bearer CRON_SECRET
  * (Vercel to posílá samo, viz https://vercel.com/docs/cron-jobs/manage-cron-jobs#securing-cron-jobs).
  *
- * Vyžaduje v Airtable FOUNDERS checkbox pole "Nurture D2 Sent" / "Nurture D5 Sent" /
- * "Nurture D9 Sent" / "Nurture D14 Sent" — BEZ NICH TENHLE CRON NEJDE NASADIT NAOSTRO,
- * posílal by stejný e-mail znovu každý den (pole zatím nejsou v Airtable založená, TODO).
+ * Používá existující Airtable pole "Email D2/D5/D9/D14 Sent At" (z dřívější přípravy
+ * Make Scénáře 3, viz makecom-setup-guide.md sekce 3) — žádná nová pole se nezakládají.
  *
  * Otevřené odkazy (viz email-templates.js): Founder roomka = #founders (potvrzeno),
  * Product Bible zatím neexistuje (PRODUCT_BIBLE_URL env, fallback na /zakladatel).
@@ -22,10 +21,10 @@ const MS_PER_DAY = 24 * 60 * 60 * 1000;
 // mít najednou splněno víc prahů; pošleme všechny nedoručené v pořadí D2→D14,
 // ne jen ten poslední, ať sekvence nezmizí celá.
 const STAGES = [
-  { days: 2, field: "Nurture D2 Sent", buildEmail: nurtureD2Email },
-  { days: 5, field: "Nurture D5 Sent", buildEmail: nurtureD5Email },
-  { days: 9, field: "Nurture D9 Sent", buildEmail: nurtureD9Email },
-  { days: 14, field: "Nurture D14 Sent", buildEmail: nurtureD14Email },
+  { days: 2, field: "Email D2 Sent At", buildEmail: nurtureD2Email },
+  { days: 5, field: "Email D5 Sent At", buildEmail: nurtureD5Email },
+  { days: 9, field: "Email D9 Sent At", buildEmail: nurtureD9Email },
+  { days: 14, field: "Email D14 Sent At", buildEmail: nurtureD14Email },
 ];
 
 function daysSince(isoDate) {
@@ -63,7 +62,7 @@ export default async function handler(req, res) {
         try {
           const { subject, html } = stage.buildEmail({ firstName: f["First Name"] || "" });
           await sendEmail({ to: f["Email"], replyTo: CUSTOMER_REPLY_TO, subject, html });
-          await updateFounderRecord(record.id, { [stage.field]: true });
+          await updateFounderRecord(record.id, { [stage.field]: new Date().toISOString() });
           sentCount += 1;
         } catch (err) {
           console.error(`[founder-nurture] Selhalo pro ${record.id} / ${stage.field}:`, err);
