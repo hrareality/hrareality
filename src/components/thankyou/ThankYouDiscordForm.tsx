@@ -15,6 +15,7 @@ import type { FounderOrderData } from "@/hooks/useFounderOrder";
 import { trackFounderEvent } from "@/lib/founderAnalytics";
 
 const WALL_CHOICES = ["Celé jméno", "Značka", "Přezdívka", "Iniciály", "Anonymně"];
+const DISCORD_INVITE_URL = "https://discord.com/invite/Qe2Zxr4bWJ";
 
 interface Props {
   order: FounderOrderData;
@@ -71,6 +72,35 @@ export default function ThankYouDiscordForm({ order, token, onSubmitted }: Props
             <p className="text-sm text-muted-foreground mb-6">
               Zadej svoje Discord uživatelské jméno (to, které používáš k přihlášení) — ne zobrazované jméno na serveru.
             </p>
+
+            {/* Pojistka: role se přiřazuje hledáním mezi členy serveru — pokud
+                člověk vyplní username dřív, než se na server reálně připojí,
+                hledání ho nenajde a přiřazení selže (viz oprava Discord scénáře,
+                9/2026). Pořadí kroků je teď jasně vynucené vizuálně, i když
+                formulář samotný to technicky nekontroluje. */}
+            {status !== "success" && (
+              <div className="mb-6 p-4 rounded-lg bg-primary/5 border border-primary/20 space-y-3">
+                <div className="flex items-start gap-2">
+                  <span className="shrink-0 w-5 h-5 rounded-full bg-primary text-primary-foreground text-xs font-display font-bold flex items-center justify-center">1</span>
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Nejdřív se připoj na Discord</p>
+                    <p className="text-xs text-muted-foreground mb-2">Bez tohohle kroku tě nenajdeme a role se nepřiřadí.</p>
+                    <a
+                      href={DISCORD_INVITE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-display font-bold text-xs rounded-lg hover:brightness-110 transition-all"
+                    >
+                      Vstoupit do Discordu →
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="shrink-0 w-5 h-5 rounded-full bg-primary text-primary-foreground text-xs font-display font-bold flex items-center justify-center">2</span>
+                  <p className="text-sm font-medium text-foreground pt-0.5">Pak sem vlož svoje uživatelské jméno níže</p>
+                </div>
+              </div>
+            )}
 
             {status === "success" ? (
               <div className="p-4 rounded-lg bg-primary/10 border border-primary/30">
