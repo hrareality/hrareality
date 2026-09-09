@@ -1,12 +1,13 @@
 import FadeIn from "@/components/FadeIn";
 import { useFounderCounter } from "@/hooks/useFounderCounter";
+import { useCountUp } from "@/hooks/useCountUp";
 import { scrollToId } from "@/lib/utils";
 
 export default function FounderHero() {
-  const { data: counter } = useFounderCounter();
-  const count = counter?.count ?? 0;
+  const { data: counter, isLoading } = useFounderCounter();
   const cap = counter?.cap ?? 1000;
   const nextMilestone = counter?.nextMilestone ?? 50;
+  const count = useCountUp(counter?.count);
   const progressPct = Math.min(100, (count / cap) * 100);
 
   return (
@@ -62,11 +63,15 @@ export default function FounderHero() {
             <div className="glass-card-hover p-8 sm:p-10 border-primary/30 max-w-xl mx-auto text-left">
               <p className="text-xs uppercase tracking-widest text-primary mb-1 font-display">První generace právě vzniká</p>
               <h2 className="text-xl font-display font-bold mb-5">Season 0 se plní</h2>
-              <p className="text-4xl sm:text-5xl font-display font-bold mb-3">
-                {count.toLocaleString("cs-CZ")} <span className="text-muted-foreground text-lg font-body font-normal">/ 1 000 Founderů</span>
-              </p>
+              {isLoading ? (
+                <div className="h-10 sm:h-12 w-40 rounded-lg bg-secondary motion-safe:animate-pulse mb-3" aria-hidden />
+              ) : (
+                <p className="text-4xl sm:text-5xl font-display font-bold mb-3">
+                  {count.toLocaleString("cs-CZ")} <span className="text-muted-foreground text-lg font-body font-normal">/ 1 000 Founderů</span>
+                </p>
+              )}
               <div className="h-3 w-full rounded-full bg-secondary overflow-hidden mb-3">
-                <div className="h-full bg-primary transition-all" style={{ width: `${progressPct}%` }} />
+                <div className="h-full bg-primary transition-all" style={{ width: `${isLoading ? 0 : progressPct}%` }} />
               </div>
               <p className="text-sm text-muted-foreground mb-1">Každý Founder přibližuje Season 1 (MVP1) k jejímu spuštění.</p>
               <p className="text-sm text-primary font-medium mb-3">Další milník: {nextMilestone.toLocaleString("cs-CZ")} Founderů</p>
