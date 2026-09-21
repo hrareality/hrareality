@@ -15,7 +15,7 @@ const cardFamilies = [
       {
         name: "Zrození hráče",
         family: "AWAKENING",
-        lore: "Moment, kdy si poprvé uvědomíš, že realitu kolem sebe můžeš začít aktivně hrát.",
+        lore: "Každý hráč začíná ve chvíli, kdy přestane být jen návštěvníkem.",
         rarity: "COMMON",
         src: "/cards/previews/awakening_1_blur.webp",
         isLocked: false,
@@ -23,7 +23,7 @@ const cardFamilies = [
       {
         name: "První Signál",
         family: "AWAKENING",
-        lore: "Zachycená frekvence vysílaná z hlubin digitální sítě. Kód, který změnil vše.",
+        lore: "Někteří Signál zahlédnou. Hráči na něj odpoví.",
         rarity: "COMMON",
         src: "/cards/previews/awakening_2_blur.webp",
         isLocked: false,
@@ -31,7 +31,7 @@ const cardFamilies = [
       {
         name: "Loop Breaker",
         family: "AWAKENING",
-        lore: "Nástroj určený k narušení každodenního stereotypu a probuzení z nekonečného scrollu.",
+        lore: "Loop se nerozbije myšlenkou. Rozbije se akcí.",
         rarity: "RARE",
         src: "/cards/previews/awakening_3_blur.webp",
         isLocked: false,
@@ -46,7 +46,7 @@ const cardFamilies = [
       {
         name: "Zaya",
         family: "POSTAVY_IWAU",
-        lore: "Záhadná průvodkyně světem Hry Reality. Vidí trhliny v systému dřív než ostatní.",
+        lore: "Zaya hráčům neříká, kam mají dojít. Ukazuje jim, kde mohou začít.",
         rarity: "COMMON",
         src: "/cards/previews/postavy_1_blur.webp",
         isLocked: false,
@@ -54,7 +54,7 @@ const cardFamilies = [
       {
         name: "Temný Mág",
         family: "POSTAVY_IWAU",
-        lore: "Strážce stínů a zosobnění odporu, který tě nutí překonávat vlastní komfortní zónu.",
+        lore: "Nezamyká dveře. Jen tě přesvědčí, že žádné neexistují.",
         rarity: "RARE",
         src: "/cards/previews/postavy_2_blur.webp",
         isLocked: false,
@@ -62,7 +62,7 @@ const cardFamilies = [
       {
         name: "Dr. Wetom",
         family: "POSTAVY_IWAU",
-        lore: "Architekt systému. Postava, jejíž kód drží pravidla celé této hry pohromadě.",
+        lore: "Někteří hledají jeho tvář. Jiní začali pochybovat, že vůbec nějakou má.",
         rarity: "LEGENDARY",
         src: "/cards/previews/postavy_3_blur.webp",
         isLocked: false,
@@ -77,7 +77,7 @@ const cardFamilies = [
       {
         name: "Driptor",
         family: "GLITCH",
-        lore: "Vizualizace estetického glitchu. Když styl naruší šedou průměrnost.",
+        lore: "Zasloužíš si něco lepšího.",
         rarity: "COMMON",
         src: "/cards/previews/glitch_1_blur.webp",
         isLocked: false,
@@ -85,7 +85,7 @@ const cardFamilies = [
       {
         name: "Toilex",
         family: "GLITCH",
-        lore: "Narozen v hlubinách glitch zóny. Humor a absurdita jako štít proti tlaku okolí.",
+        lore: "Ještě jedno video.",
         rarity: "COMMON",
         src: "/cards/previews/glitch_2_blur.webp",
         isLocked: false,
@@ -93,7 +93,7 @@ const cardFamilies = [
       {
         name: "Zlooper",
         family: "GLITCH",
-        lore: "Glitch entita uvězněná v nekonečné časové smyčce. Varování pro ty, co přestanou jednat.",
+        lore: "Zítra to uděláš jinak.",
         rarity: "RARE",
         src: "/cards/previews/glitch_3_blur.webp",
         isLocked: false,
@@ -108,7 +108,7 @@ const cardFamilies = [
       {
         name: "Discord Portal",
         family: "RELICS",
-        lore: "První stabilní most spojující hráče z celého světa v reálném čase.",
+        lore: "První brána nebyla aplikace.",
         rarity: "COMMON",
         src: "/cards/previews/relics_1_blur.webp",
         isLocked: false,
@@ -116,15 +116,15 @@ const cardFamilies = [
       {
         name: "MVP1 Bridge",
         family: "RELICS",
-        lore: "Doklad o účasti na první technické verzi Collection platformy.",
+        lore: "Každý svět potřebuje okamžik, kdy přestane existovat pouze jako plán.",
         rarity: "RARE",
         src: "/cards/previews/relics_2_blur.webp",
         isLocked: false,
       },
       {
-        name: "Generation zero",
+        name: "Generation Zero",
         family: "RELICS",
-        lore: "Tajná karta. Informace o tomto artefaktu jsou zatím zahaleny tajemstvím.",
+        lore: "Nečekali, až hra vznikne. Byli u toho, když se skládala.",
         rarity: "LEGENDARY",
         src: "/cards/previews/relics_3_blur.webp",
         isLocked: false,
