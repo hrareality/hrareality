@@ -6,6 +6,7 @@ interface CollectionCardProps {
   family: "AWAKENING" | "POSTAVY_IWAU" | "GLITCH" | "RELICS" | string;
   lore: string;
   rarity: "COMMON" | "RARE" | "LEGENDARY" | string;
+  edition?: string;
   src?: string;
   isLocked?: boolean;
   onClick?: () => void;
@@ -16,6 +17,7 @@ export default function CollectionCard({
   family,
   lore,
   rarity,
+  edition,
   src,
   isLocked = false,
   onClick,
@@ -67,7 +69,7 @@ export default function CollectionCard({
     <div
       onClick={onClick}
       className={cn(
-        "glass-card overflow-hidden border transition-all duration-500 flex flex-col h-full relative group cursor-pointer hover:scale-[1.045] active:scale-[0.985]",
+        "glass-card overflow-hidden border transition-all duration-500 flex flex-col h-full relative group cursor-pointer hover:scale-[1.03] active:scale-[0.985]",
         isLocked
           ? "border-white/5 opacity-80 hover:border-white/15 hover:shadow-[0_0_20px_rgba(255,255,255,0.04)]"
           : cn("border-white/10 hover:bg-card/50", styles.glow)
@@ -93,7 +95,7 @@ export default function CollectionCard({
                 {/* Hover click CTA overlay */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center z-20 backdrop-blur-[1px]">
                   <div className="px-4 py-2 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-xs font-display font-bold text-white tracking-widest uppercase shadow-lg transform translate-y-3 group-hover:translate-y-0 transition-all duration-300">
-                    Jak získat?
+                    Prohlédnout detail
                   </div>
                 </div>
               </>
@@ -140,18 +142,25 @@ export default function CollectionCard({
         {!isLocked && (
           <span
             className={cn(
-              "absolute top-4 left-4 text-xs font-bold font-display px-2.5 py-1 rounded border tracking-wider",
+              "absolute top-4 left-4 text-[11px] font-bold font-display px-2.5 py-0.5 rounded border tracking-wider",
               styles.text
             )}
           >
             {family.replace("_", " ")}
           </span>
         )}
+
+        {/* Floating Edition Badge (Top Right) */}
+        {edition && !isLocked && (
+          <span className="absolute top-4 right-4 text-[9px] font-mono font-semibold px-2 py-0.5 rounded bg-black/60 border border-white/10 text-white/70 tracking-widest uppercase backdrop-blur-sm">
+            {edition}
+          </span>
+        )}
       </div>
 
       {/* Popis karty */}
-      <div className="p-6 sm:p-7 flex-1 flex flex-col">
-        <div className="flex items-center justify-between gap-3 mb-3">
+      <div className="p-5 sm:p-6 flex-1 flex flex-col">
+        <div className="flex items-center justify-between gap-2 mb-2.5">
           <h4 className="font-display font-bold text-base sm:text-lg tracking-wider uppercase text-foreground truncate flex-1">
             {isLocked ? "???" : name}
           </h4>
@@ -172,10 +181,11 @@ export default function CollectionCard({
           )}
         </div>
 
-        <p className="text-sm text-muted-foreground leading-relaxed flex-1 italic">
+        <p className="text-sm text-muted-foreground leading-relaxed flex-1">
           {isLocked ? "Informace o tomto artefaktu jsou zatím uzamčené." : lore}
         </p>
       </div>
     </div>
   );
 }
+
