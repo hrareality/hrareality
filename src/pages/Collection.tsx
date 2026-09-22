@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, History, Award, Fingerprint, HelpCircle, Users, Zap, CheckCircle2, X, Lock, Sparkles, MessageSquare } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
@@ -16,6 +17,7 @@ const cardFamilies = [
         name: "Zrození hráče",
         family: "AWAKENING",
         lore: "Každý hráč začíná ve chvíli, kdy přestane být jen návštěvníkem.",
+        howToGet: "Dokonči první onboarding Hry Reality na Discordu a aktivuj svou hráčskou identitu.",
         rarity: "COMMON",
         src: "/cards/previews/awakening_1_blur.webp",
         isLocked: false,
@@ -24,6 +26,7 @@ const cardFamilies = [
         name: "První Signál",
         family: "AWAKENING",
         lore: "Někteří Signál zahlédnou. Hráči na něj odpoví.",
+        howToGet: "Zareaguj alespoň na 3 Signály Hry Reality. Počítá se také onboardingový Signál.",
         rarity: "COMMON",
         src: "/cards/previews/awakening_2_blur.webp",
         isLocked: false,
@@ -32,6 +35,7 @@ const cardFamilies = [
         name: "Loop Breaker",
         family: "AWAKENING",
         lore: "Loop se nerozbije myšlenkou. Rozbije se akcí.",
+        howToGet: "Dokonči svůj první kvalifikovaný Real World Quest a odevzdej požadovaný důkaz.",
         rarity: "RARE",
         src: "/cards/previews/awakening_3_blur.webp",
         isLocked: false,
@@ -47,6 +51,7 @@ const cardFamilies = [
         name: "Zaya",
         family: "POSTAVY_IWAU",
         lore: "Zaya hráčům neříká, kam mají dojít. Ukazuje jim, kde mohou začít.",
+        howToGet: "Artefakt bylo možné získat během časově omezeného Portálu FIRST IMPACT v Season 0.",
         rarity: "COMMON",
         src: "/cards/previews/postavy_1_blur.webp",
         isLocked: false,
@@ -55,6 +60,7 @@ const cardFamilies = [
         name: "Temný Mág",
         family: "POSTAVY_IWAU",
         lore: "Nezamyká dveře. Jen tě přesvědčí, že žádné neexistují.",
+        howToGet: "Podmínky prvního odhalení zatím nebyly zveřejněny. Sleduj Portály, Kroniku a události Season 0.",
         rarity: "RARE",
         src: "/cards/previews/postavy_2_blur.webp",
         isLocked: false,
@@ -63,6 +69,7 @@ const cardFamilies = [
         name: "Dr. Wetom",
         family: "POSTAVY_IWAU",
         lore: "Někteří hledají jeho tvář. Jiní začali pochybovat, že vůbec nějakou má.",
+        howToGet: "Způsob získání je skrytý. Tento Artefakt nebude možné získat běžným splněním mise.",
         rarity: "LEGENDARY",
         src: "/cards/previews/postavy_3_blur.webp",
         isLocked: false,
@@ -78,6 +85,7 @@ const cardFamilies = [
         name: "Driptor",
         family: "GLITCH",
         lore: "Zasloužíš si něco lepšího.",
+        howToGet: "Artefakt získali hráči, kteří během otevření Portálu zaznamenali své první setkání s Driptorem a odevzdali důkaz před Ceremoniálem.",
         rarity: "COMMON",
         src: "/cards/previews/glitch_1_blur.webp",
         isLocked: false,
@@ -86,6 +94,7 @@ const cardFamilies = [
         name: "Toilex",
         family: "GLITCH",
         lore: "Ještě jedno video.",
+        howToGet: "Artefakt získali hráči, kteří během Portálu zaznamenali okamžik, kdy automaticky předali svou pozornost Toilexovi, a své setkání odevzdali do Archivu.",
         rarity: "COMMON",
         src: "/cards/previews/glitch_2_blur.webp",
         isLocked: false,
@@ -94,6 +103,7 @@ const cardFamilies = [
         name: "Zlooper",
         family: "GLITCH",
         lore: "Zítra to uděláš jinak.",
+        howToGet: "První výskyt Zloopera zatím nebyl plně zaznamenán. Jeho First Edition bude spojena se speciálním Questem zaměřeným na rozpoznání a narušení vlastního loopu.",
         rarity: "RARE",
         src: "/cards/previews/glitch_3_blur.webp",
         isLocked: false,
@@ -109,6 +119,7 @@ const cardFamilies = [
         name: "Discord Portal",
         family: "RELICS",
         lore: "První brána nebyla aplikace.",
+        howToGet: "Postup Discord základnou a dosáhni alespoň Levelu 2 během Season 0.",
         rarity: "COMMON",
         src: "/cards/previews/relics_1_blur.webp",
         isLocked: false,
@@ -117,6 +128,7 @@ const cardFamilies = [
         name: "MVP1 Bridge",
         family: "RELICS",
         lore: "Každý svět potřebuje okamžik, kdy přestane existovat pouze jako plán.",
+        howToGet: "Aktivně se zapoj do oficiální validace nebo testování MVP1. Pouhé členství na Discordu nestačí.",
         rarity: "RARE",
         src: "/cards/previews/relics_2_blur.webp",
         isLocked: false,
@@ -125,6 +137,7 @@ const cardFamilies = [
         name: "Generation Zero",
         family: "RELICS",
         lore: "Nečekali, až hra vznikne. Byli u toho, když se skládala.",
+        howToGet: "Splň všechny podmínky Generation Zero před koncem Season 0: 8/12 Artefaktů, Level 1+, aktivní účast v Season 0.",
         rarity: "LEGENDARY",
         src: "/cards/previews/relics_3_blur.webp",
         isLocked: false,
@@ -173,6 +186,7 @@ export default function Collection() {
     name: string;
     family: string;
     lore: string;
+    howToGet?: string;
     rarity: string;
     src?: string;
     isLocked?: boolean;
@@ -483,7 +497,12 @@ export default function Collection() {
       </section>
 
       {/* DYNAMIC DETAIL & CTA MODAL */}
-      <AnimatePresence>
+      {/* Portál přímo do document.body — <main> v Layout.tsx má position:relative + z-10,
+          což mu vytváří vlastní stacking context. Uvnitř něj by modal nikdy nemohl
+          z-indexem přebít CookieConsent (sourozenec <main>, z-[100]), ať bychom mu
+          nastavili jakkoli vysoký z-index. Portál tenhle strop obchází. */}
+      {createPortal(
+        <AnimatePresence>
         {selectedCard && (() => {
           const styles = getFamilyStyles(selectedCard.family);
           return (
@@ -491,7 +510,7 @@ export default function Collection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+              className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
             >
               {/* Kliknutí mimo zavře modal */}
               <div className="absolute inset-0 cursor-default" onClick={() => setSelectedCard(null)} />
@@ -573,12 +592,20 @@ export default function Collection() {
                     </div>
 
                     <div className="pt-2">
-                      <p className="text-xs text-slate-400 leading-relaxed">
-                        {selectedCard.isLocked
-                          ? "Tato karta je aktuálně uzamčená. Informace o tom, jak ji získat a odhalit její lícovou i rubovou stranu, budou zveřejněny v průběhu Season 0."
-                          : "Tato karta čeká na své odemčení. Všechny karty mají lícovou i rubovou stranu s detailními informacemi o hráčích, které uvidíš po získání ve svém albu."
-                        }
-                      </p>
+                      {selectedCard.isLocked ? (
+                        <p className="text-xs text-slate-400 leading-relaxed">
+                          Tato karta je aktuálně uzamčená. Informace o tom, jak ji získat a odhalit její lícovou i rubovou stranu, budou zveřejněny v průběhu Season 0.
+                        </p>
+                      ) : (
+                        <>
+                          <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">
+                            Jak získat
+                          </p>
+                          <p className="text-xs text-slate-400 leading-relaxed">
+                            {selectedCard.howToGet}
+                          </p>
+                        </>
+                      )}
                     </div>
                   </div>
 
@@ -604,7 +631,9 @@ export default function Collection() {
             </motion.div>
           );
         })()}
-      </AnimatePresence>
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   );
 }
